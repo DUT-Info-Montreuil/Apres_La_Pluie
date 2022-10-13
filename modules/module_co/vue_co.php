@@ -12,7 +12,7 @@
             ?>
                 <form action='index.php?module=co&action=validerco' method='post'>
                         <input type='text' placeholder="login" name='login'><br>
-                        <input type='text' placeholder="password" name='password'><br>
+                        <input type='password' placeholder="password" name='password'><br>
                         <input type="submit">
                 </form>
             <?php
@@ -22,7 +22,12 @@
             ?>
                 <form action='index.php?module=co&action=validerins' method='post'>
                         <input type='text' placeholder="login" name='login'><br>
-                        <input type='text' placeholder="password" name='password'><br>
+                        <input type='password' placeholder="password" name='password'><br>
+                        <input type='text' placeholder="nom" name='nom'><br>
+                        <input type='text' placeholder="prenom" name='prenom'><br>
+                        <input type='text' placeholder="nom d'artiste" name='nom_artiste'><br>
+                        <input type='email' placeholder="email" name='email'><br>
+                        <input type='tel' placeholder="téléphone" name='tel' pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"><br>
                         <input type="submit">
                 </form>
             <?php
