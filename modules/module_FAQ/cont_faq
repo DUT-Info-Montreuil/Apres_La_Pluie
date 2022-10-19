@@ -1,0 +1,14 @@
+<?php
+
+    class ContFaq{
+
+        private $vue;
+        private $modele;
+        private $action;
+
+
+        public function __construct(){
+        
+        }
+    }
+?>

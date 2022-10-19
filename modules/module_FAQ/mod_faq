@@ -1,0 +1,12 @@
+<?php
+
+    include_once("cont_faq.php");
+
+    class ModFaq{
+        public function __construct(){
+            
+            $controleur = new ContFaq();
+
+        }
+    }
+?>

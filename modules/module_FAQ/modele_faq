@@ -1,0 +1,10 @@
+<?php
+
+    include_once('connexion.php');
+
+    class ModeleCo extends Connexion{
+
+        public function __construct(){
+        }
+    }
+?>
