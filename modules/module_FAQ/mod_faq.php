@@ -2,11 +2,10 @@
 
     include_once("cont_faq.php");
 
-    class ModFaq{
+    class ModFAQ{
         public function __construct(){
-            
             $controleur = new ContFaq();
-
+            $controleur->exec();
         }
     }
 ?>
