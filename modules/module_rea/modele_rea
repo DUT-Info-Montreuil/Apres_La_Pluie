@@ -1,0 +1,15 @@
+<?php
+
+    include_once('connexion.php');
+
+    class ModeleRea extends Connexion{
+
+        
+
+        public function __construct(){
+        }
+
+
+
+    }
+?>

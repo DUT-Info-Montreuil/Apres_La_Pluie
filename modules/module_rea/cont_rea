@@ -1,0 +1,42 @@
+<?php
+
+    class ContCo{
+
+        private $vue;
+        private $modele;
+        private $action;
+
+
+        public function __construct(){
+            include_once('vue_rea.php');
+            $this->vue = new VueRea();
+            include_once('modele_rea.php');
+            $this->modele = new ModeleRea();
+            $this->action = isset($_GET['action']) ? $_GET['action'] : "erreur";
+        }
+
+        public function bienvenue(){
+            echo "il y a une erreur";
+        }
+
+        public function menu(){
+            $this->vue->menu();
+        }
+
+        public function getAction(){
+            return $this->action;
+        }
+
+        public function exec(){
+            switch ($this->getAction()) {
+                case "":
+
+                    break;
+            }
+            global $affichage;
+            $affichage = $this->vue->getAffichage();
+        }
+
+
+    }
+?>
