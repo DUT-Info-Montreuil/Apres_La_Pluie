@@ -1,7 +1,7 @@
 <?php
 
-    class VueCo /*extends VueGenerique*/ {
-    public function __construct(){/*parent::__construct();*/}
+    class VueCo extends VueGenerique {
+    public function __construct(){parent::__construct();}
 
         public function menu(){
             //echo "<a href=\"index.php?module=co&action=inscription\">inscription</a>"."<br>";
@@ -27,11 +27,18 @@
                         <input type='text' placeholder="prenom" name='prenom'><br>
                         <input type='text' placeholder="nom d'artiste" name='nom_artiste'><br>
                         <input type='email' placeholder="email" name='email'><br>
-                        <input type='tel' placeholder="téléphone" name='tel' pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}"><br>
-                        <fieldset>
-                            <input type="radio" value="mail" name="choix_com">
-                            <input type="radio" value="telephone" name="choix_com">
-                        </fieldset>
+                        <input type='tel' placeholder="téléphone" name='tel' pattern="[0-9]{10}"><br>
+                        <div>
+                            <label>Preference contact : </label>
+                            <div>
+                                <input type="radio" value="mail" name="preference_contact">
+                                <label>Par mail</label>
+                            </div>
+                            <div>
+                                <input type="radio" value="telephone" name="preference_contact">
+                                <label>Par telephone</label>
+                            </div>
+                        </div>
                         <input type="submit">
                 </form>
             <?php

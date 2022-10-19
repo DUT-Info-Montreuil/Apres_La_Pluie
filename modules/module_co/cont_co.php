@@ -12,11 +12,11 @@
             $this->vue = new VueCo();
             include_once('modele_co.php');
             $this->modele = new ModeleCo();
-            $this->action = isset($_GET['action']) ? $_GET['action'] : "bienvenue";
+            $this->action = isset($_GET['action']) ? $_GET['action'] : "erreur";
         }
 
         public function bienvenue(){
-            echo "bienvenue boss";
+            echo "il y a une erreur";
         }
 
         public function menu(){
@@ -73,8 +73,8 @@
                 case "deconnexion" : 
                     $this->deconnexion();
             }
-            // global $affichage;
-            // $affichage = $this->vue->getAffichage();
+            global $affichage;
+            $affichage = $this->vue->getAffichage();
         }
     }
 ?>

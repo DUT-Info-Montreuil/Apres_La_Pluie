@@ -10,23 +10,10 @@
         }
 
         public function inscription(){
-            if(isset($_POST["login"]) && isset($_POST["password"]) && !empty($_POST['login']) && !empty($_POST['password'])){
-                $login = $_POST['login'];
-                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                $nom = $_POST['nom'];
-                $prenom = $_POST['prenom'];
-                $nomArtiste = $_POST['nom_artiste'];
-                $email = $_POST['email'];
-                $choixCom = $_POST['choix_com'];
-                $req = self::$bdd->prepare("INSERT INTO utilisateurs (login, password, nom, prenom, nom_artiste, mail, num_tel, preference_contact) VALUES (:login, :password, :nom, :prenom, :nom_artiste, :mail, :num_tel, :preference_contact)");
-                $req->bindValue(":login", $login, PDO::PARAM_STR);
-                $req->bindValue(":password", $password, PDO::PARAM_STR);
-                $req->bindValue(":nom", $nom, PDO::PARAM_STR);
-                $req->bindValue(":prenom", $prenom, PDO::PARAM_STR);
-                $req->bindValue(":nom_artiste", $nomArtiste, PDO::PARAM_STR);
-                $req->bindValue(":email", $email, PDO::PARAM_STR);
-                $req->bindValue(":choix_com", $choixCom, PDO::PARAM_STR);
-                $req->execute();
+            if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['nom_artiste']) && isset($_POST['email']) && isset($_POST['tel']) && !empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['nom_artiste']) && !empty($_POST['email']) && !empty($_POST['tel'])){
+                $oui = array($_POST['login'], password_hash($_POST['password'], PASSWORD_DEFAULT), $_POST['nom'], $_POST['prenom'], $_POST['nom_artiste'], $_POST['email'], $_POST['tel'], $_POST['preference_contact']);
+                $req = self::$bdd->prepare("INSERT INTO utilisateurs (login, password, nom, prenom, nom_artiste, mail, num_tel, preference_contact) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                $req->execute($oui);
                 return ($_POST['login']);
             }else{
                 die("probleme");
