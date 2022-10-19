@@ -1,6 +1,6 @@
 <?php
 
-    class ContCo{
+    class ContRea{
 
         private $vue;
         private $modele;
@@ -19,18 +19,18 @@
             echo "il y a une erreur";
         }
 
-        public function menu(){
-            $this->vue->menu();
-        }
-
         public function getAction(){
             return $this->action;
         }
 
+        public function afficher_rea(){
+            $this->vue->afficher_rea($this->modele->realisations());
+        }
+
         public function exec(){
             switch ($this->getAction()) {
-                case "":
-
+                case "afficher_rea":
+                    $this->afficher_rea();    
                     break;
             }
             global $affichage;

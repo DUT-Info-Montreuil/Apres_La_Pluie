@@ -7,7 +7,6 @@
             
             $controleur = new ContRea();
 
-            $controleur->menu();
             $controleur->exec();
         }
     }
