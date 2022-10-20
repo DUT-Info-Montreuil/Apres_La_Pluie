@@ -8,6 +8,14 @@
 
 }
 
+body{
+    background-color: rgba(5,28,36,255);
+}
+
+main{
+    background-color: var(--nwar);
+}   
+
 #faq_liste{
     display: flex;
     flex-direction: column;
@@ -17,3 +25,4 @@
 main{
     background-color: var(--nwar);
 }
+
