@@ -44,6 +44,10 @@
             if (!isset($_SESSION["nouvelsession"])){
                 if ($this->verifLogin($_POST['login']) && $this->verifMdp($_POST['login'], $_POST['password'])){
                     $_SESSION["nouvelsession"] = 0;
+                    $req = self::$bdd->prepare('SELECT id FROM utilisateurs WHERE login =  ?');
+                    $req->execute(array($_POST['login']));
+                    $tab = $req->fetch();
+                    $_SESSION["id"] = $tab[0];
                     return 1;
                 } else {
                     die("mauvais mot de passe ou nom d'utilisateurs");
