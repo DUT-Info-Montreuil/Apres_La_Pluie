@@ -14,7 +14,12 @@
             return $tab;
         }
 
-
+        public function video($video){
+            $req = self::$bdd->prepare('SELECT lien_video FROM realisations WHERE titre = ?');
+            $req->execute(array($video));
+            $tab = $req->fetch();
+            return $tab[0];
+        }
 
     }
 ?>
