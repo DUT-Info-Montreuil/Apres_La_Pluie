@@ -7,7 +7,8 @@
     }
 
     public function afficher_faq($tab){
-        echo '<ul id="test">';
+        echo '<h2>FAQ</h2>';
+        echo '<ul id="faq_liste">';
 		foreach($tab as $val){
             $question = $val[0];
             $reponse = $val[1];

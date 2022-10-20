@@ -1,0 +1,19 @@
+:root{
+    --bleu: #007DC7;
+    --nwar: #1E1E1E;
+    --griii: #CCCCCC;
+    color: var(--griii);
+    padding-left: 10%;
+    padding-right: 10%;
+
+}
+
+#faq_liste{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+main{
+    background-color: var(--nwar);
+}
