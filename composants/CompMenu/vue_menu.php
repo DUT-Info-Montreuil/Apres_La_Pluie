@@ -13,7 +13,8 @@ class VueMenu {
     public function menu(){
         $this->affichageMenu = '<div class="collapse navbar-collapse"><ul class="navbar-nav">' .
         '<li class="nav-item active"><a class="nav-link" href="index.php"><img id="logo" class"d-inline-block align-top" src="composants/CompMenu/ressources/logo.png"></a></li>' .
-        '<li class="nav-item active"><a class="nav-link" href="index.php?module=co&action=inscription"> <h3>Inscription</h3></a></li>';
+        '<li class="nav-item active"><a class="nav-link" href="index.php?module=co&action=inscription"> <h3>Inscription</h3></a></li>' . 
+        '<li class="nav-item active"><a class="nav-link" href="index.php?module=FAQ"> <h3>FAQ</h3></a></li>';
         if (isset($_SESSION['nouvelsession'])){
             $this->affichageMenu = $this->affichageMenu .
             "<li class='nav-item active'><a class='nav-link' href=\"index.php?module=co&action=deconnexion\"><h3>deconnexion</h3></a></li>" .
