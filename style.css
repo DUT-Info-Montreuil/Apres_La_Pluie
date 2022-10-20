@@ -2,11 +2,11 @@
     --bleu: #007DC7;
     --nwar: #1E1E1E;
     --griii: #CCCCCC;
-    color: var(--griii);
 }
 
 body{
     background-color: rgba(5,28,36,255);
+    color: var(--griii);
 }
 
 main{
