@@ -31,18 +31,9 @@
                                 echo '<div class="col-md-6 col-lg-4 mb-4">
                                 <h6 class="mb-3 text-primary">' . $question . '</h6>' . '<p>' . $reponse . '</p></div>';
                             }
-                        
+
                         ?>
-
-
-
- 
-
-
-
-
                     </div>
-<!--Section: FAQ-->
                     </div>
                 </div>
             </div>
