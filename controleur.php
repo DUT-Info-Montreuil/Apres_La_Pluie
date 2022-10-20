@@ -24,6 +24,12 @@
                 case 'co' :
                     new ModCo();
                     break;
+                case 'rea' :
+                    new ModRea();
+                    break;
+                case 'FAQ' :
+                    new ModFAQ();
+                    break;
             }
         }
     }
