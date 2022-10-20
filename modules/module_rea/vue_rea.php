@@ -4,16 +4,31 @@
     public function __construct(){parent::__construct();}
 
         public function afficher_rea($tab){
-            echo '<h2> Nos réalisations : </h2>';
-            echo '<ul class="realisations">';
-            foreach($tab as $cle=>$val){
-                $titre = $val[2];
-                $fichier = $val[1];
-                echo '<a href="index.php?module=rea&action=afficher_video&video='. $titre .'"> 
-                <li class="realisation"> <h3>' . $titre . ' :</h3> <img class="realisations" src="modules/module_rea/realisations/' . $fichier . '.webp"></li>
-                </a>';
-            }
-            echo '</ul>';
+            ?>
+            <div class="container my-5" >
+            <div class="card">
+                <!-- header -->
+                <div class="card-header py-4 px-5 bg-light border-0">
+                    <h4 class="mb-0 fw-bold">Mes dernières réalisations :</h4>
+                </div>
+                <!-- body -->
+                <div class="card-body px-5">
+                        <?php
+                            foreach($tab as $cle=>$val){
+                                $titre = $val[2];
+                                $fichier = $val[1];
+                                echo '<div class="col-md-6 col-lg-4 mb-4 mongars">
+                                    <a href="index.php?module=rea&action=afficher_video&video='. $titre .'" class="md-3 text-primary"> 
+                                    <img class="realisations" src="modules/module_rea/realisations/' . $fichier . '.webp">
+                                    <p class="titre_rea">' . $titre . '</p> 
+                                    </a>
+                                </div>';
+                            }
+                        ?>
+                </div>
+            </div>
+            </div>
+            <?php
         }
 
         public function afficher_video($video, $lien_video){
@@ -22,3 +37,4 @@
         }
     }
 ?>
+ 

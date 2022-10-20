@@ -22,3 +22,7 @@ nav{
 .codeco{
     float: right;
 }
+
+.mongars{
+    display : inline-flex;
+}
