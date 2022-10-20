@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="height: 100%;">
+<html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport"content="width=device-width, initial-scale=1">
@@ -12,10 +12,10 @@
     
 
 </head>
-<body style="min-height: 100%; margin:0; padding:0; background-color: rgba(5,28,36,255);">
-    <div class="" >
+<body>
+    <div>
         <header>
-            <nav class="navbar navbar-expand-sm" style="background-color : rgba(4,187,255,255);">
+            <nav class="navbar navbar-expand-sm">
                 <?php
                     $controleur = new Controleur;
                     $controleur->menu();

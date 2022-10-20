@@ -1,23 +1,24 @@
-:root{
-    --bleu: #007DC7;
-    --nwar: #1E1E1E;
-    --griii: #CCCCCC;
+html{
+    height: 100%;
 }
 
 body{
     background-color: rgba(5,28,36,255);
-    color: var(--griii);
+    min-height: 100%; 
+    margin:0; 
+    padding:0; 
+    background-color: rgba(5,28,36,255);
 }
 
-main{
-    background-color: var(--nwar);
-}   
-
-#faq_liste{
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
+nav{
+    background-color : rgba(4,187,255,255);
 }
 
+#logo{
+    width: 3em;
+    height: 3em;
+}
 
-
+.codeco{
+    float: right;
+}

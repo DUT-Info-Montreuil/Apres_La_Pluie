@@ -18,11 +18,11 @@ class VueMenu {
         '<li class="nav-item active"><a class="nav-link" href="index.php?module=FAQ"> <h3>FAQ</h3></a></li>';
         if (isset($_SESSION['nouvelsession'])){
             $this->affichageMenu = $this->affichageMenu .
-            "<li class='nav-item active'><a class='nav-link' href=\"index.php?module=co&action=deconnexion\"><h3>deconnexion</h3></a></li>" .
+            "<li class='nav-item active'><a class='nav-link codeco' href=\"index.php?module=co&action=deconnexion\"><h3>deconnexion</h3></a></li>" .
             "</ul></div>";
         } else {
             $this->affichageMenu = $this->affichageMenu .
-            "<li class='nav-item active'><a class='nav-link' href=\"index.php?module=co&action=connexion\"><h3>connexion</h3></a></li>".
+            "<li class='nav-item active'><a class='nav-link codeco' href=\"index.php?module=co&action=connexion\"><h3>connexion</h3></a></li>".
             "</ul></div>";
         }
     }
