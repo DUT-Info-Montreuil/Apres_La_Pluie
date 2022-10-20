@@ -1,4 +1,23 @@
+:root{
+    --bleu: #007DC7;
+    --nwar: #1E1E1E;
+    --griii: #CCCCCC;
+    color: var(--griii);
+}
+
 body{
     background-color: rgba(5,28,36,255);
 }
+
+main{
+    background-color: var(--nwar);
+}   
+
+#faq_liste{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+
 
