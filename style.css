@@ -23,6 +23,14 @@ nav{
     float: right;
 }
 
-.mongars{
+.align{
     display : inline-flex;
+}
+
+.lien_rea:link{
+    text-decoration: none;
+}
+
+.titre_rea{
+    color: black;
 }

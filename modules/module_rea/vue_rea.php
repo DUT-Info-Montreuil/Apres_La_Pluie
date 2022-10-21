@@ -17,8 +17,8 @@
                             foreach($tab as $cle=>$val){
                                 $titre = $val[2];
                                 $fichier = $val[1];
-                                echo '<div class="col-md-6 col-lg-4 mb-4 mongars">
-                                    <a href="index.php?module=rea&action=afficher_video&video='. $titre .'" class="md-3 text-primary"> 
+                                echo '<div class="col-md-6 col-lg-4 mb-4 align">
+                                    <a href="index.php?module=rea&action=afficher_video&video='. $titre .'" class="md-3 text-primary lien_rea"> 
                                     <img class="realisations" src="modules/module_rea/realisations/' . $fichier . '.webp">
                                     <p class="titre_rea">' . $titre . '</p> 
                                     </a>
