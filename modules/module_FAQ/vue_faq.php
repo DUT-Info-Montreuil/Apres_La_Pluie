@@ -7,18 +7,38 @@
     }
 
     public function afficher_faq($tab){
-        echo '<h2>FAQ</h2>';
-        echo '<ul id="faq_liste">';
-		foreach($tab as $val){
-            $question = $val[0];
-            $reponse = $val[1];
-			echo '<li class="faq_element">
-                    <h3 class="faq_question">' . $question . '</h3> 
-                    <p class="faq_reponse">' . $reponse . '</p>
-                    </li>';
-		}
-        echo "</ul>";
-	}
+        ?>
+            <div class="container my-5" >
+                <div class="card">
+                    <!-- header -->
+                    <div class="card-header py-4 px-5 bg-light border-0">
+                        <h4 class="mb-0 fw-bold">FAQ</h4>
+                    </div>
+
+                    <!-- body -->
+                    <div class="card-body px-5">
+                             <p class="text-center mb-5">
+                                Retrouvez ci-dessous les questions les plus fréquemment posées !
+                             </p>
+
+                    <div class="row ">
+                        
+                        <?php
+                            foreach($tab as $val){
+                                $question = $val[0];
+                                $reponse = $val[1];
+                                
+                                echo '<div class="col-md-6 col-lg-4 mb-4">
+                                <h6 class="mb-3 text-primary question_faq">' . $question . '</h6>' . '<p>' . $reponse . '</p></div>';
+                            }
+
+                        ?>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <?php
+    }
         
     }
 ?>
