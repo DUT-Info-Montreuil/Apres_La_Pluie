@@ -17,8 +17,17 @@
             $this->vue->afficher_faq($this->modele->get_liste_question());
         }
 
+        public function supprimerQuestion(){
+            $this->modele->
+        }
+
         public function exec(){
             $this->faq();
+            switch($this->getAction()){
+                case "supprimer":<a href=""><img src="/home/etudiants/info/manguyen/Téléchargements" alt="red cross"></a>
+                    $this->
+                    break;
+            }
             global $affichage;
             $affichage = $this->vue->getAffichage();
         }

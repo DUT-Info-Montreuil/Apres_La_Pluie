@@ -22,13 +22,14 @@
                              </p>
 
                     <div class="row ">
-                        
+            
                         <?php
                             foreach($tab as $val){
                                 $question = $val[0];
                                 $reponse = $val[1];
                                 
-                                echo '<div class="col-md-6 col-lg-4 mb-4">
+                                echo '<div class="col-md-6 col-lg-4 mb-4"> 
+                                <input type="image" name="bouton-supprimer" alt="croix-rouge" src="/home/etudiants/info/manguyen/Téléchargements">
                                 <h6 class="mb-3 text-primary question_faq">' . $question . '</h6>' . '<p>' . $reponse . '</p></div>';
                             }
 
