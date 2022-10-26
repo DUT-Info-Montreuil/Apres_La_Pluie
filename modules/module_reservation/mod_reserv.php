@@ -4,7 +4,7 @@
         public function __construct(){
             $controleur = new ContReserv;
 
-            //$controleur->exec();
+            $controleur->exec();
         }
     }
 ?>
