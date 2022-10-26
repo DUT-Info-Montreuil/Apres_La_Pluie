@@ -15,5 +15,14 @@
 
             self::$bdd = new PDO($dsn, $user, $password);
         }
+        
+        public function verif_admin(){
+            $requete = self::$bdd->prepare('SELECT admin FROM roles WHERE id_utilisateur =  ?');
+            $requete->execute(array($_SESSION["id"]));
+            $t = $requete->fetch();
+            if ($t[0] == false || !isset($_SESSION["nouvelsession"])){
+                die("vous n'etes pas administrateur");
+            }
+        }    
     }
 ?>

@@ -5,6 +5,7 @@
 
     $affichage;
     Connexion::initConnexion();
+    Connexion::verif_admin();
 
     $controleur = new Controleur();
     $controleur -> exec();

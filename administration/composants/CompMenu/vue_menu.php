@@ -16,7 +16,7 @@ class VueMenu {
         '<li class="nav-item active"><a class="nav-link" href="index.php?module=co&action=inscription"> <h3>Inscription</h3></a></li>'.
         '<li class="nav-item active"><a class="nav-link" href="index.php?module=rea&action=afficher_rea"> <h3>Realisations</h3></a></li>' . 
         '<li class="nav-item active"><a class="nav-link" href="index.php?module=FAQ"> <h3>FAQ</h3></a></li>'.
-        '<li class="nav-item active"><a class="nav-link" href="../index.php"> <h3>UTILISATEUR</h3></a></li>'.
+        '<li class="nav-item active"><a class="nav-link" href="../index.php"> <h3>COTE UTILISATEUR</h3></a></li>'.
         '</ul></div>';
         // if (isset($_SESSION['nouvelsession'])){
         //     $this->affichageMenu = $this->affichageMenu .
