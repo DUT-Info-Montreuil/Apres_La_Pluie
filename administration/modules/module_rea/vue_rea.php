@@ -62,20 +62,18 @@
                                 <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='titre'/>
                             </div>
                             <div class="mb-3">
-
                                 <label for="exampleInput1" class="form-label"> lien youtube </label>
-                                <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='lien_video'/>
+                                <input type="url" class="form-control" id="exampleInput1" style="max-width: 500px;" name='lien_video'/>
                             </div>
                             <div class="custom-file">
                                 <label class="custom-file-label" for="validatedCustomFile"> Image de couverture </label>
-                                <input type="file" class="custom-file-input" id="validatedCustomFile" name='image' required>
-                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                <input type="file" class="custom-file-input" id="validatedCustomFile" name='imageToUpload' required>
                             </div>
                         <hr class="my-5" />
                     
                     <!-- en bas -->
                     <div class="card-footer text-end py-4 px-5 bg-light border-0">
-                        <button type="submit" class="btn btn-primary btn-rounded"> Ajouter la réalisation </button>
+                        <button type="submit" class="btn btn-primary btn-rounded" name="submit"> Ajouter la réalisation </button>
                     </div>
                     </form>
                 </div>

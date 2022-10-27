@@ -33,8 +33,6 @@
             $rea = array($_POST['titre'], $_POST['lien_video']);
             $req = self::$bdd->prepare('INSERT INTO realisations(titre, lien_video) VALUES(?,?)');
             $req->execute($rea);
-           // print_r($FILES);
-            // file_put_contents( $_POST['titre'], $_POST['image']);
         }
         
 
