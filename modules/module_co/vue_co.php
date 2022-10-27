@@ -163,12 +163,12 @@
         }
 
         public function dejaco(){
-            echo "vous êtes deja connecté ! ";
-            echo "<a href=\"index.php?module=co&action=deconnexion\">deconnexion</a>"."<br>";
+            echo "vous êtes deja connecté !";
+            echo "<a href=\"index.php?module=co&action=deconnexion\">déconnexion</a>"."<br>";
         }
 
         public function conected(){
-            echo "actuellement connécté";
+            echo "actuellement connecté";
         }
 
     }

@@ -2,7 +2,8 @@
     include_once('vue_generique.php');
     include_once('modules/module_co/mod_co.php');
     include_once('modules/module_rea/mod_rea.php');
-    include_once ('modules/module_FAQ/mod_faq.php');
+    include_once('modules/module_FAQ/mod_faq.php');
+    include_once('modules/module_reservation/mod_reserv.php');
     include_once('composants/CompMenu/mod_menu.php');
     
 
@@ -29,6 +30,9 @@
                     break;
                 case 'FAQ' :
                     new ModFAQ();
+                    break;
+                case 'reserv':
+                    new ModReserv();
                     break;
             }
         }

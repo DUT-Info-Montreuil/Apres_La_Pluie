@@ -42,3 +42,12 @@ nav{
 .titre_rea{
     color: black;
 }
+
+.iconFAQ{
+    max-width: 1em;
+    max-height: 1em;
+}
+
+textarea {
+    resize: none;
+  }
