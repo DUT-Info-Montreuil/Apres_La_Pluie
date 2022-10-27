@@ -43,7 +43,11 @@ nav{
     color: black;
 }
 
-.croix-rouge{
+.iconFAQ{
     max-width: 1em;
     max-height: 1em;
 }
+
+textarea {
+    resize: none;
+  }
