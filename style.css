@@ -56,3 +56,8 @@ nav{
 .img-supps{
     float: inline-end;
 }
+
+.img-modal-reserv{
+    width: 10em;
+    height: 10em;
+}
