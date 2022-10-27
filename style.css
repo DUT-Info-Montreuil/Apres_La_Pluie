@@ -33,6 +33,11 @@ nav{
 
 .align{
     display : inline-flex;
+    width: 50%;
+}
+
+.fullLarg{
+    width: 100%;
 }
 
 .lien_rea:link{
@@ -41,4 +46,13 @@ nav{
 
 .titre_rea{
     color: black;
+}
+
+.info-reserv-logo{
+    width: 1em;
+    height: 1em;
+}
+
+.img-supps{
+    float: inline-end;
 }

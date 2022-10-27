@@ -9,6 +9,7 @@
             <div class="card">
                 <!-- header -->
                 <div class="card-header py-4 px-5 bg-light border-0">
+                    <h1> ADMIN </h1>
                     <h4 class="mb-0 fw-bold">Mes dernières réalisations :</h4>
                 </div>
                 <!-- body -->
