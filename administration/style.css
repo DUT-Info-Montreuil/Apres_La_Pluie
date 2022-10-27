@@ -1,0 +1,49 @@
+:root{
+    --nwar: rgba(5,28,36,255);
+    --bleuu: rgba(4,187,255,255);
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    background-color: var(--nwar);
+    min-height: 100%; 
+    margin:0; 
+    padding:0; 
+}
+
+nav{
+    background-color : var(--bleuu);
+}
+
+#logo{
+    width: 3em;
+    height: 3em;
+}
+
+.codeco{
+    float: right;
+}
+
+.question_faq{
+    color: var(--bleuu);
+}
+
+.align{
+    display : inline-flex;
+}
+
+.lien_rea:link{
+    text-decoration: none;
+}
+
+.titre_rea{
+    color: black;
+}
+
+.croix-rouge{
+    max-width: 1em;
+    max-height: 1em;
+}

@@ -11,23 +11,24 @@
         public function __construct(){
             $this->vue = new VueFAQ();
             $this->modele = new ModeleFAQ();
+            $this->action = isset($_GET['action']) ? $_GET['action'] : "erreur";
+        }
+
+        public function getAction(){
+            return $this->action;
         }
 
         public function faq(){
             $this->vue->afficher_faq($this->modele->get_liste_question());
         }
 
+
         public function supprimerQuestion(){
-            $this->modele->
+            $this->modele->supprimerDeLaFAQ();
         }
 
         public function exec(){
             $this->faq();
-            switch($this->getAction()){
-                case "supprimer":<a href=""><img src="/home/etudiants/info/manguyen/Téléchargements" alt="red cross"></a>
-                    $this->
-                    break;
-            }
             global $affichage;
             $affichage = $this->vue->getAffichage();
         }

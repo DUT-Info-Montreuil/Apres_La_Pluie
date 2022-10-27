@@ -8,10 +8,15 @@
         }
 
         public function get_liste_question(){
-            $selecPrepare = self::$bdd->prepare('SELECT question, reponse FROM faq');
+            $selecPrepare = self::$bdd->prepare('SELECT question, reponse, id FROM faq');
 		    $selecPrepare->execute();
 		    $tab = $selecPrepare->fetchall();
 		    return $tab;
+        }
+
+        public function supprimerDeLaFAQ(){
+            $selecPrepare = self::$bdd->prepare('SELECT question, reponse FROM faq');
+		    $selecPrepare->execute();
         }
     }
 ?>
