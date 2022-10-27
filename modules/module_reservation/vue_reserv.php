@@ -3,10 +3,9 @@
         public function __construct(){parent::__construct();}
 
         public function afficheSupps($tab){
-            
                 ?>
                 <div class="container my-5" >
-                    <form action='index.php?module=reserv&action=#' method='post'> <!-- TODO : RAJOUTER UNE ACTION -->
+                    <form action='index.php?module=reserv&action=insererSupp' method='post'> <!-- TODO : RAJOUTER UNE ACTION -->
                         <div class="card">
                             <!-- header -->
                             <div class="card-header py-4 px-5 bg-light border-0">
@@ -30,7 +29,7 @@
                                             $gifA = $key['gif_avec'];
                                             $gifS = $key['gif_sans'];
 
-                                            echo '<div class="align border">
+                                            echo '<div class="align">
                                                 <div class="col-md-6 col-lg-4 mb-4 fullLarg">
                                                 <h3>'. $nom .' </h3>
                                                 <p> quantité : '. $quantite .'</p>
@@ -53,7 +52,7 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <?php
-                                                                        echo $gifA . $gifS;
+                                                                        echo '<img src="modules/module_reservation/ressources/' . $gifA . '" alt=""> <img src="modules/module_reservation/ressources/' . $gifS . '" alt="">';
                                                                     ?>
                                                                 </div>
                                                             </div>
