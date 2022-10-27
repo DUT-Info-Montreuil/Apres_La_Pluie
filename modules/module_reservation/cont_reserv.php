@@ -30,7 +30,6 @@
                 case "reservation":
                     $this->afficherSupps();
                     break;
-                
             }
             global $affichage;
             $affichage = $this->vue->getAffichage();
