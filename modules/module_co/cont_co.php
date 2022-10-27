@@ -37,7 +37,10 @@
         
         public function connexion(){
             $ret = $this->modele->connexion();
-            if ($ret == -1){
+            if ($ret == 2){
+                $this->vue->co_admin();
+            }
+            else if ($ret == -1){
                 $this->vue->dejaco();
             } else {
                 $this->vue->conected();

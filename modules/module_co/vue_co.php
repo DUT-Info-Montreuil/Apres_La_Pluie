@@ -40,6 +40,7 @@
                                     <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='login'/>
                                 </div>
                                 <div class="mb-3">
+
                                     <label for="exampleInput1" class="form-label"
                                             >Mot De Passe</label
                                         >
@@ -62,7 +63,7 @@
         public function form_inscription(){
             ?>
                 <!-- <form action='index.php?module=co&action=validerins' method='post'>
-                        <input type='text' placeholder="login" name='login'><br>
+                        <input type='texous etes un admin, cliquez sur le lien pour etre redirige sur le page at' placeholder="login" name='login'><br>
                         <input type='password' placeholder="password" name='password'><br>
                         <input type='text' placeholder="nom" name='nom'><br>
                         <input type='text' placeholder="prenom" name='prenom'><br>
@@ -72,12 +73,7 @@
                         <div>
                             <label>Preference contact : </label>
                             <div>
-                                <input type="radio" value="mail" name="preference_contact">
-                                <label>Par mail</label>
-                            </div>
-                            <div>
-                                <input type="radio" value="telephone" name="preference_contact">
-                                <label>Par telephone</label>
+                                <input type="vous etes un admin, cliquez sur le lien pour etre redirige sur le page admlephone</label>
                             </div>
                         </div>
                         <input type="submit">
@@ -174,5 +170,11 @@
         public function conected(){
             echo "actuellement connecté";
         }
+
+        public function co_admin(){
+            echo "vous etes un admin, cliquez sur le lien pour etre redirige sur le page admin";
+            echo "<h1> <a href=\"administration/index.php?module=co&action=deconnexion\">COTE ADMIN</a> </h1>";
+        }
+
     }
 ?>

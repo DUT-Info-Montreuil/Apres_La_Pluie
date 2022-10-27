@@ -48,7 +48,18 @@
                     $req->execute(array($_POST['login']));
                     $tab = $req->fetch();
                     $_SESSION["id"] = $tab[0];
-                    return 1;
+
+                    // Connexion en tant qu'admin
+                    $requete = self::$bdd->prepare('SELECT admin FROM roles JOIN utilisateurs ON(roles.id_utilisateur = utilisateurs.id) WHERE login =  ?');
+                    $requete->execute(array($_POST['login']));
+                    $t = $requete->fetch();
+                    if ($t[0] == true){
+                        return 2;
+                    }
+                    
+                    else {
+                        return 1;
+                    }
                 } else {
                     die("mauvais mot de passe ou nom d'utilisateurs");
                 }
