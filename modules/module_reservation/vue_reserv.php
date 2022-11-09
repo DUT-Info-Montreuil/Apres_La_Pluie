@@ -97,15 +97,134 @@
                                         }
                                     ?>
                             </div>
-                            <div class="card-footer text-end py-4 px-5 bg-light border-0">
-                                <button type="submit" class="btn btn-primary btn-rounded">
-                                    Commander
-                                </button>
-                            </div>
                         </div>
                         
                     </form>
                 </div>
+            <?php
+        }
+
+        public function afficheFormInfos(){
+            ?>
+                <div class="container my-5">
+                    <div class="card">
+                        <form action='index.php?module=co&action=validerins' method='post'>
+                        <!-- header -->
+                        <div class="card-header py-4 px-5 bg-light border-0">
+                            <h4 class="mb-0 fw-bold">Informations</h4>
+                        </div>
+
+                        <!-- body -->
+                        <div class="card-body px-5">
+                            <!-- Account section -->
+                            <div class="row gx-xl-5">
+                                <div class="col-md-4">
+                                    <p class="text-muted">Tout ce qu'on doit savoir pour venir tourner ton clip !</p>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Idee générale du clip</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ideeGenerale"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="startDate">Date</label>
+                                        <input id="startDate" class="form-control" type="date" />
+                                    </div>
+                                    <div class="mb-3">
+                                    <label for="appt">Choisit l'heure du RDV (de 10h à 18h)</label>
+                                        <input type="time" id="appt" class="form-control" name="appt" min="10:00" max="18:00" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php
+        }
+
+        public function choixLieu(){
+            ?>
+                <div class="container my-5">
+                    <div class="card">
+                        <form action='index.php?module=co&action=validerins' method='post'>
+                        <!-- header -->
+                        <div class="card-header py-4 px-5 bg-light border-0">
+                            <h4 class="mb-0 fw-bold">Lieu</h4>
+                        </div>
+
+                        <!-- body -->
+                        <div class="card-body px-5">
+                            <!-- Account section -->
+                            <div class="row gx-xl-5">
+                                <div class="col-md-4">
+                                    <p class="text-muted">Tout ce qu'on doit savoir sur le lieude tournage que t'as choisis !</p>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="mb-3">
+                                        <label for="nom" class="form-label">Nom du lieu</label>
+                                        <input type="text" class="form-control" id="nom" name='nom'/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="adresse" class="form-label">Adresse complète</label>
+                                        <input placeholder="1 rue de l'exemple, 12345 Ville" type="text" class="form-control" id="adresse" name='adresse'/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="combien" class="form-label">Nombre de personnes/figurants</label>
+                                        <input placeholder="max : 15" class="form-control" type="number" id="combien" name="nbPersonnes" min="0" max="15" step="1">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="type" class="form-label">Type de lieu</label>
+                                        <input placeholder="parking / parc / la rue ..." type="text" class="form-control" id="type" name='type'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php
+        }
+
+        public function accordeon($tab){
+            ?>
+            <div class="accordion bords container" id="accordionExample">
+                <div class="accordion-item bg-clr border-0">
+                    <h2 class="" id="headingOne">
+                    <button class="accordion-button acrd-hd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        SUPPLEMENTS
+                    </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body acrd-crp"> <?php $this->afficheSupps($tab); ?> </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-clr">
+                    <h2 class="" id="headingTwo">
+                        <button class="accordion-button collapsed acrd-hd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            INFOS
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body acrd-crp"> <?php $this->afficheFormInfos(); ?> </div>
+                    </div>
+                </div>
+                <div class="accordion-item bg-clr">
+                    <h2 class="" id="headingThree">
+                        <button class="accordion-button collapsed acrd-hd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            LIEU
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body acrd-crp"> <?php $this->choixLieu(); ?> </div>
+                    </div>
+                </div>
+                <div class="card-footer text-end px-5 border-0 rounded-3 acrd-hd pad">
+                    <button type="submit" class="btn btn-primary btn-rounded">
+                        Commander
+                    </button>
+                </div>
+            </div>
             <?php
         }
     }

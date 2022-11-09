@@ -22,7 +22,7 @@
         }
 
         public function afficherSupps(){
-            $this->vue->afficheSupps($this->modele->getSupps());
+            $this->vue->accordeon($this->modele->getSupps());
         }
 
         public function exec(){
