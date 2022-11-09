@@ -17,10 +17,6 @@
             $this->video = isset($_GET['video']) ? $_GET['video'] : "erreur";
         }
 
-        public function bienvenue(){
-            echo "il y a une erreur";
-        }
-
         public function getAction(){
             return $this->action;
         }

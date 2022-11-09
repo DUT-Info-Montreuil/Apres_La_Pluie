@@ -33,7 +33,6 @@ nav{
 
 .align{
     display : inline-flex;
-    width: 50%;
 }
 
 .fullLarg{
@@ -55,4 +54,8 @@ nav{
 
 .img-supps{
     float: inline-end;
+}
+
+.realisations{
+    width : 16em;
 }
