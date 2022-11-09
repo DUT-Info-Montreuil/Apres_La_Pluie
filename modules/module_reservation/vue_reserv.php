@@ -2,12 +2,12 @@
     class VueResrv extends VueGenerique{
         public function __construct(){parent::__construct();}
 
-        public function description($targetBlaz, $compt, $gifA, $gifS){
+        public function description($targetBlaz, $compt, $gifA, $gifS, $description){
             if (!empty($description)){
                 ?>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#<?php echo $targetBlaz . "$compt" ?>">
-                    Plus d'informations
+                        Plus d'informations
                     </button>
 
                     <!-- Modal -->
@@ -20,14 +20,13 @@
                                 </div>
                                 <div class="modal-body">
                                     <?php
-                                        echo '<img src="modules/module_reservation/ressources/' . $gifA . '" alt=""> <img src="modules/module_reservation/ressources/' . $gifS . '" alt="">';
+                                        echo '<img class="img-modal-reserv" src="modules/module_reservation/ressources/' . $gifA . '" alt=""> <img class="img-modal-reserv" src="modules/module_reservation/ressources/' . $gifS . '" alt="">';
                                     ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 <?php
-                $compt++;
             }
         }
 
@@ -91,7 +90,8 @@
 
                                             $this->base($nom,$quantite,$prix);
                                                 
-                                            $this->description($targetBlaz, $compt, $gifA, $gifS);
+                                            $this->description($targetBlaz, $compt, $gifA, $gifS, $description);
+                                            $compt++;
 
                                             $this->choix($nom);
                                         }
@@ -99,7 +99,7 @@
                             </div>
                             <div class="card-footer text-end py-4 px-5 bg-light border-0">
                                 <button type="submit" class="btn btn-primary btn-rounded">
-                                Commander
+                                    Commander
                                 </button>
                             </div>
                         </div>
