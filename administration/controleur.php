@@ -3,6 +3,7 @@
     include_once('modules/module_rea/mod_rea.php');
     include_once ('modules/module_FAQ/mod_faq.php');
     include_once('composants/CompMenu/mod_menu.php');
+    include_once('modules/module_utilisateur/mod_utilisateur.php');
     
 
     class Controleur {
@@ -25,6 +26,9 @@
                     break;
                 case 'FAQ' :
                     new ModFAQ();
+                    break;
+                case 'GestionUtilisateur':
+                    new ModUtilisateur();
                     break;
             }
         }
