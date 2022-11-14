@@ -37,12 +37,21 @@ nav{
 }
 
 .align{
-    display : inline-flex;
-    width: 50%;
+    display: inline-block;
+    width: 33%;
 }
 
 .fullLarg{
-    width: 100%;
+    width: 90%;
+}
+
+.marg-choix{
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+.marg-btn{
+    margin-top: 2.3em;
 }
 
 .lien_rea:link{

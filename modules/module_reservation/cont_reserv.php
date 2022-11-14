@@ -21,14 +21,23 @@
             return $this->action;
         }
 
-        public function afficherSupps(){
-            $this->vue->accordeon($this->modele->getSupps());
+        public function afficheForm(){
+            $this->vue->accordeon($this->modele->getSupps(), $this->modele->getOptions());
+        }
+
+        public function inserer(){
+            $this->modele->insertLieu();
+            $this->modele->insertReserv($this->modele->getIdLieu());
+            $this->modele->insertSupps($this->vue->getCompt(), $this->modele->getIdResa());
         }
 
         public function exec(){
             switch ($this->getAction()) {
                 case "reservation":
-                    $this->afficherSupps();
+                    $this->afficheForm();
+                    break;
+                case "insererSupp":
+                    $this->inserer();
                     break;
             }
             global $affichage;

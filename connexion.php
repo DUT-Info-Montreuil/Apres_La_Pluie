@@ -13,6 +13,10 @@
             $user = 'dutinfopw201648';
             $password = 'sypusatu';
 
+            // $dsn = 'mysql:dbname=bd_sae;host=localhost';
+            // $user = 'root';
+            // $password = '';
+
             self::$bdd = new PDO($dsn, $user, $password);
         }
     }
