@@ -1,26 +1,20 @@
 <?php
-
-    $compt = 2;
-
     class VueResrv extends VueGenerique{
+
+        private static $compt = 1;
 
         public function __construct(){parent::__construct();}
 
-        public function getCompt(){
-            global $compt;
-            return $compt;
-        }
-
-        public function description($targetBlaz, $compt, $gifA, $gifS, $description){
+        public function description($targetNom, $compt, $gifA, $gifS, $description){
             if (!empty($description)){
                 ?>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#<?php echo $targetBlaz . "$compt" ?>">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#<?php echo $targetNom . "$compt" ?>">
                         Plus d'informations
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="<?php echo $targetBlaz . "$compt" ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="<?php echo $targetNom . "$compt" ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -39,7 +33,7 @@
             }
         }
 
-        public function choix($choix, $compt, $option1, $option2, $option3, $option4, $option5){
+        public function choix($choix, $compt, $tabOptions){
             if($choix != 1){
                 ?>
                             <div class="form-check form-switch marg-btn">
@@ -55,16 +49,12 @@
                                 <?php echo '<select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="ajoutSupp'. $compt .'">';?>
                                     <option value="0" selected>Je ne ceux pas ce supplement</option>
                                     <?php
-                                    echo '
-                                        <option value="1">'. $option1 .'</option>
-                                        <option value="2">'. $option2 .'</option>
-                                        <option value="3">'. $option3 .'</option>';
-                                    if ($option4 != NULL){
-                                        echo '<option value="4">'. $option4 .'</option>';
-                                    }
-                                    if ($option5 != NULL){
-                                        echo '<option value="5">'. $option5 .'</option>';
-                                    }
+                                        //<option value="1">'. $option1 .'</option>
+                                        for($i = 0; $i < count($tabOptions); $i++){
+                                            echo'
+                                            <option value="'.($i+1).'">'. $tabOptions[$i] .'</option>
+                                            ';
+                                        }
                                     ?>    
                                 </select>
                                 <label for="floatingSelect">Ton choix : </label>
@@ -84,51 +74,59 @@
         }
 
 
-        public function afficheSupps($tab, $tab2){
+        public function afficheSupps($tab){
                 ?>
                 <div class="container my-5" >
-                        <div class="card">
-                            <!-- header -->
-                            <div class="card-header py-4 px-5 bg-light border-0">
-                                <h4 class="mb-0 fw-bold">Commande ton clip :</h4>
-                            </div>
-                            <!-- body -->
-                            <div class="card-body px-5">
-                                <div class="col-md-4">
-                                    <h5>Supplements : </h5>
-                                    <p class="text-muted">Choisis tes supplmements pour composer ton clip !</p>
-                                </div>
-                                    <?php
-                                    global $compt;
-                                    $compt2 = 0;
-                                        foreach ($tab as $key){
-                                            $compt++;
-                                            $targetBlaz = "modalVideo";
-                                            $choix = $key['choix'];
-                                            $nom = $key['nom'];
-                                            $prix = $key['prix'];
-                                            $description = $key['description'];
-                                            $gifA = $key['gif_avec'];
-                                            $gifS = $key['gif_sans'];
-                                            $this->base($nom,$prix);
-                                            $this->description($targetBlaz, $compt, $gifA, $gifS, $description);
-                                            if ($choix == 1){
-                                                $option1 = $tab2[$compt2]['option1'];
-                                                $option2 = $tab2[$compt2]['option2'];
-                                                $option3 = $tab2[$compt2]['option3'];
-                                                $option4 = $tab2[$compt2]['option4'];
-                                                $option5 = $tab2[$compt2]['option5'];
-                                                $compt2++;
-                                            }
-                                            $this->choix($choix, $compt, $option1, $option2, $option3, $option4, $option5);
-                                        }
-                                        
-                                    ?>
-                                </div>
+                    <div class="card">
+                        <!-- header -->
+                        <div class="card-header py-4 px-5 bg-light border-0">
+                            <h4 class="mb-0 fw-bold">Commande ton clip :</h4>
                         </div>
+                        <!-- body -->
+                        <div class="card-body px-5">
+                            <div class="col-md-4">
+                                <h5>Supplements : </h5>
+                                <p class="text-muted">Choisis tes supplmements pour composer ton clip !</p>
+                            </div>
+                                <?php
+                                    
+                                    foreach ($tab as $key){
+                                        $compt2 = 0;
+                                        $tabOptions = NULL;
+                                        $tabNom[0] = NULL;
+                                        $targetNom = "modalVideo";
+                                        $choix = $key['choix'];
+                                        $nom = $key['nom'];
+                                        $prix = $key['prix'];
+                                        $description = $key['description'];
+                                        $gifA = $key['gif_avec'];
+                                        $gifS = $key['gif_sans'];
+                                        $id = $key['id'];
+                                        if ($choix == 1){
+                                            foreach ($tab as $key2){
+                                                if ($nom === $key2['nom']){
+                                                    $tabOptions[$compt2] = $key2['details'];
+                                                    $compt2++;   
+                                                }
+                                            }
+                                        }
+                                        if(!in_array($nom,$tabNom)){
+                                            $this->base($nom,$prix);
+                                            $this->description($targetNom, self::$compt, $gifA, $gifS, $description);
+                                            $this->choix($choix, self::$compt, $tabOptions);
+                                        }
+                                        $tabNom[$compt2] = $key['nom'];
+                                        self::$compt++;
+                                    }
+                                ?>
+                            </div>
+                    </div>
                 </div>
             <?php
-            return $compt;
+        }
+
+        public function getCompt(){
+            return self::$compt;
         }
 
         public function afficheFormInfos(){
@@ -246,7 +244,7 @@
             <?php
         }
 
-        public function accordeon($tab, $tab2){
+        public function accordeon($tab){
             ?>
             <div class="accordion bords container" id="accordionExample">
                 <form action='index.php?module=reserv&action=insererSupp' method='post'> <!-- TODO : RAJOUTER UNE ACTION -->
@@ -257,7 +255,7 @@
                         </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body acrd-crp"> <?php $this->afficheSupps($tab, $tab2); ?> </div>
+                            <div class="accordion-body acrd-crp"> <?php $this->afficheSupps($tab); ?> </div>
                         </div>
                     </div>
                     <div class="accordion-item bg-clr">
