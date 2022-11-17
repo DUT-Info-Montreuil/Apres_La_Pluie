@@ -55,3 +55,10 @@ textarea {
 .realisations{
     width : 16em;
 }
+table,th,td{
+    border:1px solid #cccccc
+}
+
+/* #live-search{
+    margin-bottom: 10em;
+} */
