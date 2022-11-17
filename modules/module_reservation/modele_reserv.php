@@ -11,7 +11,14 @@
             return $tab;
         }
 
-        public function insertion($tab){
+        public function getSuppsAvecChoix(){
+            $req = self::$bdd->prepare('SELECT * FROM suppsAvecChoix');
+            $req->execute();
+            $tab = $req->fetchAll();
+            return $tab;
+        }
+
+        public function insertion($tab, $tab2){
             try{
                 self::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 self::$bdd->beginTransaction();
@@ -27,14 +34,13 @@
 
                 $idResa = self::$bdd->lastInsertId();
                 $compt = 0;
-                var_dump($_POST);
                 foreach($_POST as $key => $val){
                     if(substr($key,0,9) === "ajoutSupp"){
-                        if($tab[$compt][6] === 1){
+                        if($tab[$compt][6] == 1){
                             $array = array($idResa, $val);
                         }else{
                             if(isset($_POST[substr($key,-strlen($key))])){
-                                $array = array($idResa, $tab[$compt][0]);
+                                $array = array($idResa, $val);
                             }
                         }
                         $req = self::$bdd->prepare('INSERT INTO resasupp (id_reservation, id_supplement) VALUES (?,?)');
@@ -44,6 +50,7 @@
                 }
                 self::$bdd->commit();
             }catch (Exception $e){
+                echo $e;
                 self::$bdd->rollBack();
             }
         }

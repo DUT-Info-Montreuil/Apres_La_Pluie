@@ -22,11 +22,11 @@
         }
 
         public function afficheForm(){
-            $this->vue->accordeon($this->modele->getSupps());
+            $this->vue->accordeon($this->modele->getSupps(), $this->modele->getSuppsAvecChoix());
         }
 
         public function inserer(){
-            $this->modele->insertion($this->modele->getSupps());
+            $this->modele->insertion($this->modele->getSupps(), $this->modele->getSuppsAvecChoix());
         }
 
         public function exec(){

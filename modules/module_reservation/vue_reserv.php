@@ -34,10 +34,11 @@
         }
 
         public function choix($choix, $compt, $tabOptions){
+            $value = 0;
             if($choix != 1){
                 ?>
                             <div class="form-check form-switch marg-btn">
-                                <?php echo '<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="ajoutSupp'. $compt .'" value="">';?>
+                                <?php echo '<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="ajoutSupp'. $compt .'" value="'.$tabOptions[$value][1].'">'; ?>
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Ajouter à mon clip</label>
                             </div>
                         </div>
@@ -49,10 +50,9 @@
                                 <?php echo '<select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="ajoutSupp'. $compt .'">';?>
                                     <option value="0" selected>Je ne ceux pas ce supplement</option>
                                     <?php
-                                        //<option value="1">'. $option1 .'</option>
                                         for($i = 0; $i < count($tabOptions); $i++){
                                             echo'
-                                            <option value="'.($i+1).'">'. $tabOptions[$i] .'</option>
+                                            <option value="'. $tabOptions[$i][1] .'">'. $tabOptions[$i][0] .'</option>
                                             ';
                                         }
                                     ?>    
@@ -63,6 +63,7 @@
                     </div>
                 <?php
             }
+            $value++;
         }
 
         public function base($nom, $prix){
@@ -74,7 +75,7 @@
         }
 
 
-        public function afficheSupps($tab){
+        public function afficheSupps($tab, $tab2){
                 ?>
                 <div class="container my-5" >
                     <div class="card">
@@ -93,7 +94,6 @@
                                     foreach ($tab as $key){
                                         $compt2 = 0;
                                         $tabOptions = NULL;
-                                        $tabNom[0] = NULL;
                                         $targetNom = "modalVideo";
                                         $choix = $key['choix'];
                                         $nom = $key['nom'];
@@ -102,20 +102,20 @@
                                         $gifA = $key['gif_avec'];
                                         $gifS = $key['gif_sans'];
                                         $id = $key['id'];
-                                        if ($choix == 1){
-                                            foreach ($tab as $key2){
-                                                if ($nom === $key2['nom']){
-                                                    $tabOptions[$compt2] = $key2['details'];
-                                                    $compt2++;   
+                                            foreach ($tab2 as $key2){
+                                                $idSuppDansChoix = $key2['id_supplement'];
+                                                if ($id == $idSuppDansChoix){
+                                                    $compt3 = 0;
+                                                    $tabOptions[$compt2][$compt3] = $key2['choix'];
+                                                    $compt3++;
+                                                    $tabOptions[$compt2][$compt3] = $key2['id'];
+                                                    $compt2++;
                                                 }
                                             }
-                                        }
-                                        if(!in_array($nom,$tabNom)){
-                                            $this->base($nom,$prix);
-                                            $this->description($targetNom, self::$compt, $gifA, $gifS, $description);
-                                            $this->choix($choix, self::$compt, $tabOptions);
-                                        }
-                                        $tabNom[$compt2] = $key['nom'];
+                                        
+                                        $this->base($nom,$prix);
+                                        $this->description($targetNom, self::$compt, $gifA, $gifS, $description);
+                                        $this->choix($choix, self::$compt, $tabOptions);
                                         self::$compt++;
                                     }
                                 ?>
@@ -244,7 +244,7 @@
             <?php
         }
 
-        public function accordeon($tab){
+        public function accordeon($tab, $tab2){
             ?>
             <div class="accordion bords container" id="accordionExample">
                 <form action='index.php?module=reserv&action=insererSupp' method='post'> <!-- TODO : RAJOUTER UNE ACTION -->
@@ -255,7 +255,7 @@
                         </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body acrd-crp"> <?php $this->afficheSupps($tab); ?> </div>
+                            <div class="accordion-body acrd-crp"> <?php $this->afficheSupps($tab, $tab2); ?> </div>
                         </div>
                     </div>
                     <div class="accordion-item bg-clr">
