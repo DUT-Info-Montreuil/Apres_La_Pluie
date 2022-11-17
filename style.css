@@ -103,3 +103,7 @@ nav{
 .bg-clr{
     background-color: var(--nwar) !important;
 }
+
+.realisations{
+    width : 16em;
+}

@@ -16,10 +16,10 @@
                         <?php
                             foreach($tab as $cle=>$val){
                                 $titre = $val[2];
-                                $fichier = $val[1];
+                                $lien_photo = $val[1];
                                 echo '<div class="col-md-6 col-lg-4 mb-4 align">
                                     <a href="index.php?module=rea&action=afficher_video&video='. $titre .'" class="md-3 text-primary lien_rea"> 
-                                    <img class="realisations" src="modules/module_rea/realisations/' . $fichier . '.webp">
+                                    <img class="realisations" src="administration/media/' . $lien_photo . '">
                                     <p class="titre_rea">' . $titre . '</p> 
                                     </a>
                                 </div>';
@@ -36,5 +36,6 @@
             echo '<iframe width="560" height="315" src="'. $lien_video .'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
         }
     }
+    
 ?>
  

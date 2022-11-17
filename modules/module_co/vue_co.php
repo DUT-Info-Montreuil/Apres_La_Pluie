@@ -153,10 +153,5 @@
             echo "actuellement connecté";
         }
 
-        public function co_admin(){
-            echo "vous etes un admin, cliquez sur le lien pour etre redirige sur le page admin";
-            echo "<h1> <a href=\"administration/index.php?module=co&action=deconnexion\">COTE ADMIN</a> </h1>";
-        }
-
     }
 ?>
