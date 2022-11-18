@@ -74,7 +74,6 @@
                     <p> prix : '. $prix .'€ </p>';
         }
 
-
         public function afficheSupps($tab, $tab2){
                 ?>
                 <div class="container my-5" >
@@ -209,6 +208,7 @@
             <?php
         }
 
+        /*
         public function afficheRecap(){
             ?>
                 <table class="table bg-light rounded-3">
@@ -243,6 +243,32 @@
                 </table>
             <?php
         }
+        */
+
+        public function affichePasCo(){
+            ?>
+            <div class="container my-5" >
+                    <div class="card">
+                        <!-- header -->
+                        <div class="card-header py-4 px-3 bg-light border-0">
+                            <h4 class="mb-0 fw-bold text-center">ATTENTION !</h4>
+                        </div>
+                        <!-- en bas -->
+                        <div class="card-footer text-end py-4 px-5 bg-light border-0">
+                            <p class="text-muted text-center">Vous devez avoir un compte pour faire une réservation</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="index.php?module=co&action=inscription">
+                                    <button class="btn btn-primary btn-rounded m-1">Je n'ai pas de compte</button>
+                                </a> 
+                                <a href="index.php?module=co&action=connexion">
+                                    <button class="btn btn-primary btn-rounded m-1">J'ai déjà un compte</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php
+        }
 
         public function accordeon($tab, $tab2){
             ?>
@@ -275,20 +301,10 @@
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body acrd-crp"> <?php $this->afficheChoixLieu(); ?> </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item bg-clr">
-                        <h2 class="" id="headingFour">
-                            <button class="accordion-button collapsed acrd-hd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                RECAP
-                            </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                             <div class="accordion-body acrd-crp"> 
-                                <?php
-                                    $this->afficheRecap()
-                                ?>
+                                <?php 
+                                    $this->afficheChoixLieu(); 
+                                ?> 
                                 <button type="submit" name="submit" class="btn btn-primary btn-rounded bouton-cmd">Commander</button>
                             </div>
                         </div>
