@@ -1,40 +1,64 @@
 <?php
-#header('Content-Type: application/json; charset=utf-8');
-$tabResult = null;
+include_once("../connexion.php"); 
 
-if(isset($_POST['chercherUtilisateur'])){
-    $input = $_POST['chercherUtilisateur'];
-    include_once("../connexion.php"); 
-    Connexion::initConnexion();
-    $bd = Connexion::getbdd();
-    $selecPrepare = $bd->prepare("SELECT id, login, nom, prenom, nom_artiste, mail, num_tel, preference_contact, admin FROM utilisateurs JOIN roles ON (utilisateurs.id = roles.id_utilisateur) 
-    WHERE nom LIKE '%$input%'
-    OR login LIKE '%$input%'
-    OR prenom LIKE '%$input%' 
-    OR nom_artiste LIKE '%$input%'
-    OR mail LIKE '%$input%'
-    OR num_tel LIKE '%$input%'
-    ");
+Connexion::initConnexion();
+$bd = Connexion::getbdd();
+
+if(isset($_POST['nomFonction'])){
+    switch ($_POST['nomFonction']){
+        case 'barDeRecherche' :
+            barDeRecherche();
+            break;
+    }
+}
+
+
+function barDeRecherche(){
+    retourneUtilisateur(chercherUtilisateur());
+}
+function chercherUtilisateur(){
+
+    if(isset($_POST['argumentDeRecherche'])){
+
+        global $bd;
+        $tabResult = null;
+        $input = $_POST['argumentDeRecherche'];
+
+        $selecPrepare = $bd->prepare("SELECT id, login, nom, prenom, nom_artiste, mail, num_tel, preference_contact, admin FROM utilisateurs JOIN roles ON (utilisateurs.id = roles.id_utilisateur) 
+        WHERE nom LIKE '%$input%'
+        OR login LIKE '%$input%'
+        OR prenom LIKE '%$input%' 
+        OR nom_artiste LIKE '%$input%'
+        OR mail LIKE '%$input%'
+        OR num_tel LIKE '%$input%'
+        ");
         
-    $selecPrepare->execute();
-    $tabResult = $selecPrepare->fetchAll();
+        $selecPrepare->execute();
+        $tabResult = $selecPrepare->fetchAll();
+        return $tabResult;      
+    }
+}
 
+function retourneUtilisateur($tabResult){
+
+    $modal = null;
     if(is_null($tabResult)){
         echo "<h5>Aucune donnée</h5>";
     }else{
 
-        $resultat = "<table class='table table-striped table-hover'>
+        $resultat = "
+        <table class='table table-striped table-hover'>
         <thead>
-           <tr>
-                <th scope='col'>login</th>
-                <th scope='col'>nom</th>
-                <th scope='col'>prenom</th>
-                <th scope='col'>nom d'artiste</th>
-                <th scope='col'>mail</th>
-                <th scope='col'>numero de téléphone</th>
-                <th scope='col'>preference de contact</th>
-                <th scope='col'>admin</th>
-            </tr>
+        <tr>
+            <th scope='col'>login</th>
+            <th scope='col'>nom</th>
+            <th scope='col'>prenom</th>
+            <th scope='col'>nom d'artiste</th>
+            <th scope='col'>mail</th>
+            <th scope='col'>numero de téléphone</th>
+            <th scope='col'>preference de contact</th>
+            <th scope='col'>admin</th>
+        </tr>
         </thead>
         <tbody>";
 
@@ -55,25 +79,25 @@ if(isset($_POST['chercherUtilisateur'])){
 
             $modal .= "
             <div class='modal fade' id='modal" . $id . "' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-            <div class='modal-dialog'>
-                <div class='modal-content'>
-                    <div class='modal-header'>
-                        <h1 class='modal-title fs-5' id='exampleModalLabel'>ATTENTION</h1>
-                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                    </div>
-                    <div class='modal-body'>
-                        <p>Êtes-vous sûr de vouloir supprimer la question : <br>
-                        </p>
-                    </div>
-                    <div class='modal-footer'>
-                        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
-                        <button type='button' class='btn btn-primary'>Oui, supprimer</button>
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h1 class='modal-title fs-5' id='exampleModalLabel'>ATTENTION</h1>
+                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                        </div>
+                        <div class='modal-body'>" .
+
+                        remplirModal($id, $col[2], $col[3]) . "
+                        
+                        <p>Si vous ne savez pas ce que ça implique, veuillez contacter un administrateur du système</p>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
+                            <button type='button' class='btn btn-primary'>Oui</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>';
-            
-            
+            </div>'; 
             ";
         }
 
@@ -83,16 +107,24 @@ if(isset($_POST['chercherUtilisateur'])){
         ";
 
         $resultat .= $modal;
-
-
- 
-            
         echo $resultat;
-    }
 
-    
-        
+        function remplirModal($idutilisateur, $nom, $prenom){
+            if(verificationAdmin($idutilisateur)){
+                return "<p>Êtes-vous sûr de vouloir que l'utilisateur" . $nom . $prenom . " devienne <strong class='warning'>utilisateur simple</strong> ?</p>";
+            }else{
+                return "<p>Êtes-vous sûr de vouloir que l'utilisateur" . $nom . $prenom . " devienne <strong class='warning'>administritateur</strong> ?</p>";
+            }
+                            
+        }
+    }
 }
+
+function verificationAdmin($idutilisateur){
+
+}
+
+
 
 
 ?>

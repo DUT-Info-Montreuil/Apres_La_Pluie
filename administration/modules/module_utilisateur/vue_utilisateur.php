@@ -40,7 +40,10 @@
                                             $.ajax({
                                                 method: "POST",
                                                 url:"./js/fonction-ajax.php",
-                                                data:{chercherUtilisateur:input},
+                                                data:{
+                                                    nomFonction: barDeRecherche,
+                                                    argumentDeRecherche: input
+                                                },
                                                 dataType : 'html'
 
                                             })

@@ -59,6 +59,6 @@ table,th,td{
     border:1px solid #cccccc
 }
 
-/* #live-search{
-    margin-bottom: 10em;
-} */
+.warning{
+    color: red;
+}
