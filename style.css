@@ -12,11 +12,19 @@ main{
     background-color: var(--nwar);
 }
 
+footer{
+    background-color : var(--bleuu);
+}
+
 body{
     background-color: var(--nwar);
     min-height: 100%; 
     margin:0; 
     padding:0; 
+}
+
+ul{
+    list-style-type: none
 }
 
 nav{
