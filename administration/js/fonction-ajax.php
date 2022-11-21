@@ -93,7 +93,7 @@ function retourneUtilisateur($tabResult){
                         </div>
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
-                            <button type='button' class='btn btn-primary'>Oui</button>
+                            <button type='button' class='btn btn-primary boutonModifier' id='id" . $id . "'>Oui</button>
                         </div>
                     </div>
                 </div>

@@ -55,6 +55,12 @@
                                             $("#searchresult").empty();
                                         }
                                     });
+                                     
+                                    $(".boutonModifier").click(function(){
+                                        var idUtilisateur = this.id;
+                                        console.log(idUtilisateur);
+
+                                    });
                                 });
                             </script>
 
