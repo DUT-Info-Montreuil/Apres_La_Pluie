@@ -57,10 +57,37 @@
                                     });
                                      
                                     $(".boutonModifier").click(function(){
-                                        var idUtilisateur = this.id;
+                                        var idUtilisateur = this.id.replace ( /[^\d.]/g, '' );
                                         console.log(idUtilisateur);
 
+                                        $.ajax({
+                                            method: "POST",
+                                                url:"./js/fonction-ajax.php",
+                                                data:{
+                                                    nomFonction: 'modifierRole',
+                                                    argumentDeRecherche: idUtilisateur
+                                                }
+                                        });
+
+
                                     });
+
+                                    $(".boutonSupprimer").click(function(){
+                                        var idUtilisateur = this.id.replace ( /[^\d.]/g, '' );
+                                        console.log(idUtilisateur);
+
+                                        $.ajax({
+                                            method: "POST",
+                                                url:"./js/fonction-ajax.php",
+                                                data:{
+                                                    nomFonction: 'supprimerUtilisateur',
+                                                    argumentDeRecherche: idUtilisateur
+                                                }
+                                        });
+
+
+                                    });
+
                                 });
                             </script>
 

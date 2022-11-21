@@ -9,6 +9,13 @@ if(isset($_POST['nomFonction'])){
         case 'barDeRecherche' :
             barDeRecherche();
             break;
+        case 'modifierRole':
+            modifierRole($_POST['argumentDeRecherche']);
+            break;
+        case 'supprimerUtilisateur':
+            supprimerUtilisateur($_POST['argumentDeRecherche']);
+            break;
+
     }
 }
 
@@ -73,12 +80,13 @@ function retourneUtilisateur($tabResult){
             <td>  $col[5]  </td>
             <td>  $col[6]  </td>
             <td>  $col[7]  </td>
-            <td>  $col[8]  <a href='' data-bs-toggle='modal' data-bs-target='#modal" . $id . "'><img class ='iconFAQ' src='media/crayon.png' alt='crayon'></a></td>
+            <td>  $col[8]  <a href='' data-bs-toggle='modal' data-bs-target='#modalModifier" . $id . "'><img class ='iconFAQ' src='media/crayon.png' alt='crayon'></a>
+            <a href='' data-bs-toggle='modal' data-bs-target='#modalSupprimer" . $id . "' ><img class ='iconFAQ' src='media/re-cross.png' alt='croix rouge'></a>
             </tr>
             ";
 
             $modal .= "
-            <div class='modal fade' id='modal" . $id . "' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+            <div class='modal fade' id='modalModifier" . $id . "' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                 <div class='modal-dialog'>
                     <div class='modal-content'>
                         <div class='modal-header'>
@@ -97,7 +105,25 @@ function retourneUtilisateur($tabResult){
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
+            <div class='modal fade' id='modalSupprimer" . $id . "' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h1 class='modal-title fs-5' id='exampleModalLabel'>ATTENTION</h1>
+                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                        </div>
+                        <div class='modal-body'>
+                            <p><strong>ATTENTION ! Vous êtes sur le point de supprimer un utilisateur ainsi que toutes ses informations de la base de donnée.</strong></p>
+                            <p>Si vous ne savez pas ce que cela implique, veuillez contacter un administrateur du système</p>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
+                            <button type='button' class='btn btn-primary boutonSupprimer' id='id" . $id . "'>Oui</button>
+                        </div>
+                    </div>
+                </div>
+            </div>  
             ";
         }
 
@@ -132,7 +158,21 @@ function remplirModal($idutilisateur, $nom, $prenom){
                     
 }
 
-function supprimerUtilisateur(){
+function supprimerUtilisateur($idutilisateur){
+    global $bd;
+    $selecPrepare = $bd->prepare("DELETE FROM utilisateursWHERE id=?");
+    $selecPrepare->execute(array($idutilisateur));
+}
 
+function modifierRole($idutilisateur){
+    global $bd;
+    if(verificationAdmin($idutilisateur)){
+        $role = 0;
+    }
+    else {
+        $role = 1;
+    }
+    $selecPrepare = $bd->prepare("UPDATE roles SET admin = ? WHERE id_utilisateur = ?");
+    $selecPrepare->execute(array($role, $idutilisateur));
 }
 ?>
