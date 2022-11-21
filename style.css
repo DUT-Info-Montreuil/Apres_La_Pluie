@@ -1,10 +1,19 @@
 :root{
     --nwar: rgba(5,28,36,255);
     --bleuu: rgba(4,187,255,255);
+    --entreDeux: rgba(0, 103, 141, 255);
 }
 
 html{
     height: 100%;
+}
+
+main{
+    background-color: var(--nwar);
+}
+
+footer{
+    background-color : var(--bleuu);
 }
 
 body{
@@ -12,6 +21,10 @@ body{
     min-height: 100%; 
     margin:0; 
     padding:0; 
+}
+
+ul{
+    list-style-type: none
 }
 
 nav{
@@ -32,12 +45,21 @@ nav{
 }
 
 .align{
-    display : inline-flex;
-    width: 50%;
+    display: inline-block;
+    width: 33%;
 }
 
 .fullLarg{
-    width: 100%;
+    width: 90%;
+}
+
+.marg-choix{
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+.marg-btn{
+    margin-top: 2.3em;
 }
 
 .lien_rea:link{
@@ -55,4 +77,41 @@ nav{
 
 .img-supps{
     float: inline-end;
+}
+
+.img-modal-reserv{
+    width: 10em;
+    height: 10em;
+}
+
+.acrd-crp{
+    background-color: var(--nwar);
+}
+
+.acrd-hd{
+    background-color: var(--entreDeux);
+}
+
+.accordion-item{
+    border: none;
+    border-radius: 0%;
+}
+
+.bords{
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+    max-width: 1500px;
+}
+
+.pad{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.bg-clr{
+    background-color: var(--nwar) !important;
+}
+
+.realisations{
+    width : 16em;
 }

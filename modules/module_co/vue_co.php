@@ -62,22 +62,6 @@
 
         public function form_inscription(){
             ?>
-                <!-- <form action='index.php?module=co&action=validerins' method='post'>
-                        <input type='texous etes un admin, cliquez sur le lien pour etre redirige sur le page at' placeholder="login" name='login'><br>
-                        <input type='password' placeholder="password" name='password'><br>
-                        <input type='text' placeholder="nom" name='nom'><br>
-                        <input type='text' placeholder="prenom" name='prenom'><br>
-                        <input type='text' placeholder="nom d'artiste" name='nom_artiste'><br>
-                        <input type='email' placeholder="email" name='email'><br>
-                        <input type='tel' placeholder="téléphone" name='tel' pattern="[0-9]{10}"><br>
-                        <div>
-                            <label>Preference contact : </label>
-                            <div>
-                                <input type="vous etes un admin, cliquez sur le lien pour etre redirige sur le page admlephone</label>
-                            </div>
-                        </div>
-                        <input type="submit">
-                </form> -->
                 <div class="container my-5">
                     <div class="card">
                         <form action='index.php?module=co&action=validerins' method='post'>
@@ -109,9 +93,7 @@
                                     <input type="password" class="form-control" id="exampleInput1" style="max-width: 500px;" name='password'/>
                                 </div>
                                     <div class="mb-3">
-                                    <label for="exampleInput1" class="form-label"
-                                            >Nom</label
-                                        >
+                                    <label for="exampleInput1" class="form-label">Nom</label>
                                     <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom'/>
                                 </div>
                                 <div class="mb-3">

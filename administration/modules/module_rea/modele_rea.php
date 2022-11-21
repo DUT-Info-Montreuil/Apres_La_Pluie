@@ -24,15 +24,17 @@
         public function supprimer_video($video){
             $req = self::$bdd->prepare('DELETE FROM realisations WHERE titre = ?');
             $req->execute(array($video));
-            $tab = $req->fetch();
-            return $tab[0];
         }
 
         public function ajout_rea(){
-            echo $_POST['image'];
-            $rea = array($_POST['titre'], $_POST['lien_video']);
-            $req = self::$bdd->prepare('INSERT INTO realisations(titre, lien_video) VALUES(?,?)');
-            $req->execute($rea);
+            if (move_uploaded_file($_FILES['imageToUpload']['tmp_name'], "./media/".$_FILES['imageToUpload']['name'])) {
+                $rea = array($_FILES['imageToUpload']["name"], $_POST['titre'], $_POST['lien_video']);
+                $req = self::$bdd->prepare('INSERT INTO realisations(lien_photo, titre, lien_video) VALUES(?,?,?)');
+                $req->execute($rea);
+                echo "Téléchargé avec succès!";
+            } else {
+                echo "Échec du téléchargement!";
+            }
         }
         
 
