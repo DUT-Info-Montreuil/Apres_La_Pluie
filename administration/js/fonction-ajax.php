@@ -89,7 +89,7 @@ function retourneUtilisateur($tabResult){
 
                         remplirModal($id, $col[2], $col[3]) . "
                         
-                        <p>Si vous ne savez pas ce que ça implique, veuillez contacter un administrateur du système</p>
+                        <p>Si vous ne savez pas ce que cela implique, veuillez contacter un administrateur du système</p>
                         </div>
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
@@ -125,9 +125,9 @@ function verificationAdmin($idutilisateur){
 
 function remplirModal($idutilisateur, $nom, $prenom){
     if(verificationAdmin($idutilisateur)){
-        return "<p>Êtes-vous sûr de vouloir que l'utilisateur" . $nom . $prenom . " devienne <strong class='warning'>utilisateur simple</strong> ?</p>";
+        return "<p>Êtes-vous sûr de vouloir que l'utilisateur " . $nom . " " . $prenom . " devienne <strong class='warning'>utilisateur simple</strong> ?</p>";
     }else{
-        return "<p>Êtes-vous sûr de vouloir que l'utilisateur" . $nom . $prenom . " devienne <strong class='warning'>administritateur</strong> ?</p>";
+        return "<p>Êtes-vous sûr de vouloir que l'utilisateur " . $nom . " " . $prenom . " devienne <strong class='warning'>administritateur</strong> ?</p>";
     }
                     
 }
