@@ -97,7 +97,7 @@ function retourneUtilisateur($tabResult){
                         </div>
                     </div>
                 </div>
-            </div>'; 
+            </div> 
             ";
         }
 
@@ -109,22 +109,30 @@ function retourneUtilisateur($tabResult){
         $resultat .= $modal;
         echo $resultat;
 
-        function remplirModal($idutilisateur, $nom, $prenom){
-            if(verificationAdmin($idutilisateur)){
-                return "<p>Êtes-vous sûr de vouloir que l'utilisateur" . $nom . $prenom . " devienne <strong class='warning'>utilisateur simple</strong> ?</p>";
-            }else{
-                return "<p>Êtes-vous sûr de vouloir que l'utilisateur" . $nom . $prenom . " devienne <strong class='warning'>administritateur</strong> ?</p>";
-            }
-                            
-        }
     }
 }
 
 function verificationAdmin($idutilisateur){
-
+    global $bd;
+    $selecPrepare = $bd->prepare("Select admin FROM roles WHERE id_utilisateur = ?");
+    $selecPrepare->execute(array($idutilisateur));
+        $resultat = $selecPrepare->fetch();
+        if($resultat[0] == 0){
+            return false;
+        }
+        else return true;
 }
 
+function remplirModal($idutilisateur, $nom, $prenom){
+    if(verificationAdmin($idutilisateur)){
+        return "<p>Êtes-vous sûr de vouloir que l'utilisateur" . $nom . $prenom . " devienne <strong class='warning'>utilisateur simple</strong> ?</p>";
+    }else{
+        return "<p>Êtes-vous sûr de vouloir que l'utilisateur" . $nom . $prenom . " devienne <strong class='warning'>administritateur</strong> ?</p>";
+    }
+                    
+}
 
+function supprimerUtilisateur(){
 
-
+}
 ?>
