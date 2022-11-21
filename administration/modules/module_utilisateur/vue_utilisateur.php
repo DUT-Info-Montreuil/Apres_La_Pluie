@@ -41,7 +41,7 @@
                                                 method: "POST",
                                                 url:"./js/fonction-ajax.php",
                                                 data:{
-                                                    nomFonction: barDeRecherche,
+                                                    nomFonction: 'barDeRecherche',
                                                     argumentDeRecherche: input
                                                 },
                                                 dataType : 'html'
