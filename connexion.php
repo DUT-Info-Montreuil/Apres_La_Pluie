@@ -17,7 +17,7 @@
             // $user = 'root';
             // $password = '';
 
-            self::$bdd = new PDO($dsn, $user, $password);
+            self::$bdd = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         }
     }
 ?>
