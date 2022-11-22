@@ -36,10 +36,17 @@ nav{
     width: 4em;
 }
 
+
 .navbar{
     margin : 0px;
     padding: 0px;
 }
+
+.nav-droite{
+    position: absolute;
+    right:0;
+}
+
 
 .codeco{
     float: right;
@@ -121,12 +128,11 @@ nav{
 }
 
 
-
+/* ACCUEIL */
 .acc{
     margin-top: 5em;
     margin-left: auto;
     margin-right: auto;
-    /* display:flex; */
     width: 50em;
     padding: auto;
 }
@@ -145,7 +151,7 @@ nav{
 }
 
 .text-acc{
-    color : white;
+    color : black;
     border : 5px solid var(--bleuu);
     z-index: 1;
     position: relative;
