@@ -3,6 +3,7 @@
     include_once('modules/module_rea/mod_rea.php');
     include_once ('modules/module_FAQ/mod_faq.php');
     include_once('composants/CompMenu/mod_menu.php');
+    include_once('modules/module_reservation/mod_reserv.php');
     
 
     class Controleur {
@@ -20,6 +21,9 @@
 
         public function exec(){
             switch($this->module){
+                case 'reservation' :
+                    new ModReserv();
+                    break;
                 case 'rea' :
                     new ModRea();
                     break;
