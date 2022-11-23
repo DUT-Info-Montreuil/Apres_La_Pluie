@@ -101,7 +101,8 @@ function retourneUtilisateur($tabResult){
                         </div>
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
-                            <button type='button' class='btn btn-primary boutonModifier' id='id" . $id . "'>Oui</button>
+                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
+                            <button type='button' class='btn btn-primary boutonModifier ' id='id" . $id . "'>Oui</button>
                         </div>
                     </div>
                 </div>
@@ -119,11 +120,30 @@ function retourneUtilisateur($tabResult){
                         </div>
                         <div class='modal-footer'>
                             <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
-                            <button type='button' class='btn btn-primary boutonSupprimer' id='id" . $id . "'>Oui</button>
+                            <button type='button' class='btn btn-primary boutonSupprimer ' id='id" . $id . "'>Oui</button>
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
+            <script type='text/javascript'>
+                $(document).ready(function(){  
+                    $('.boutonModifier').click(function(){
+                        var idUtilisateur = this.id.replace ( /[^\d.]/g, '' );
+                        console.log(idUtilisateur);
+
+                        $.ajax({
+                            method: 'POST',
+                            url:'./js/fonction-ajax.php',
+                            data:{
+                            nomFonction: 'modifierRole',
+                            argumentDeRecherche: idUtilisateur
+                            }
+                        });
+
+
+                    });
+                });
+            </script>
             ";
         }
 
