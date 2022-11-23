@@ -57,14 +57,14 @@ function retourneUtilisateur($tabResult){
         <table class='table table-striped table-hover'>
         <thead>
         <tr>
-            <th scope='col'>login</th>
-            <th scope='col'>nom</th>
-            <th scope='col'>prenom</th>
-            <th scope='col'>nom d'artiste</th>
-            <th scope='col'>mail</th>
-            <th scope='col'>numero de téléphone</th>
-            <th scope='col'>preference de contact</th>
-            <th scope='col'>admin</th>
+            <th scope='col'>Login</th>
+            <th scope='col'>Nom</th>
+            <th scope='col'>Prenom</th>
+            <th scope='col'>Nom d'artiste</th>
+            <th scope='col'>Mail</th>
+            <th scope='col'>N° de téléphone</th>
+            <th scope='col'>Preference de contact</th>
+            <th scope='col'>Admin</th>
         </tr>
         </thead>
         <tbody>";
@@ -81,7 +81,7 @@ function retourneUtilisateur($tabResult){
             <td>  $col[6]  </td>
             <td>  $col[7]  </td>
             <td>  $col[8]  <a href='' data-bs-toggle='modal' data-bs-target='#modalModifier" . $id . "'><img class ='iconFAQ' src='media/crayon.png' alt='crayon'></a>
-            <a href='' data-bs-toggle='modal' data-bs-target='#modalSupprimer" . $id . "' ><img class ='iconFAQ' src='media/re-cross.png' alt='croix rouge'></a>
+            <a href='' data-bs-toggle='modal' data-bs-target='#modalSupprimer" . $id . "' ><img class ='iconFAQ' src='media/re-cross.png' alt='croix rouge'></a> </td>
             </tr>
             ";
 
@@ -100,9 +100,8 @@ function retourneUtilisateur($tabResult){
                         <p>Si vous ne savez pas ce que cela implique, veuillez contacter un administrateur du système</p>
                         </div>
                         <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
-                            <button type='button' class='btn btn-primary boutonModifier ' id='id" . $id . "'>Oui</button>
+                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Annuler</button>
+                            <button type='button' class='btn btn-primary boutonModifier' data-bs-dismiss='modal' id='id" . $id . "'>Changer le rôle</button>
                         </div>
                     </div>
                 </div>
@@ -115,12 +114,12 @@ function retourneUtilisateur($tabResult){
                             <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                         </div>
                         <div class='modal-body'>
-                            <p><strong>ATTENTION ! Vous êtes sur le point de supprimer un utilisateur ainsi que toutes ses informations de la base de donnée.</strong></p>
+                            <p><strong class = 'warning'>ATTENTION ! </strong><strong>Vous êtes sur le point de supprimer un utilisateur ainsi que toutes ses informations de la base de donnée.</strong></p>
                             <p>Si vous ne savez pas ce que cela implique, veuillez contacter un administrateur du système</p>
                         </div>
                         <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Non</button>
-                            <button type='button' class='btn btn-primary boutonSupprimer ' id='id" . $id . "'>Oui</button>
+                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Annuler</button>
+                            <button type='button' class='btn btn-danger boutonSupprimer' data-bs-dismiss='modal' id='id" . $id . "'>Supprimer</button>
                         </div>
                     </div>
                 </div>
@@ -129,13 +128,24 @@ function retourneUtilisateur($tabResult){
                 $(document).ready(function(){  
                     $('.boutonModifier').click(function(){
                         var idUtilisateur = this.id.replace ( /[^\d.]/g, '' );
-                        console.log(idUtilisateur);
 
                         $.ajax({
                             method: 'POST',
                             url:'./js/fonction-ajax.php',
                             data:{
                             nomFonction: 'modifierRole',
+                            argumentDeRecherche: idUtilisateur
+                            }
+                        });
+                    });
+                    $('.boutonSupprimer').click(function(){
+                        var idUtilisateur = this.id.replace ( /[^\d.]/g, '' );
+
+                        $.ajax({
+                            method: 'POST',
+                            url:'./js/fonction-ajax.php',
+                            data:{
+                            nomFonction: 'supprimerUtilisateur',
                             argumentDeRecherche: idUtilisateur
                             }
                         });
@@ -180,7 +190,7 @@ function remplirModal($idutilisateur, $nom, $prenom){
 
 function supprimerUtilisateur($idutilisateur){
     global $bd;
-    $selecPrepare = $bd->prepare("DELETE FROM utilisateursWHERE id=?");
+    $selecPrepare = $bd->prepare("DELETE FROM utilisateurs WHERE id=?");
     $selecPrepare->execute(array($idutilisateur));
 }
 

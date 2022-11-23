@@ -62,3 +62,8 @@ table,th,td{
 .warning{
     color: red;
 }
+
+table thead tbody tr{
+    max-width: 100%!important;
+    min-width: fit-content;
+}
