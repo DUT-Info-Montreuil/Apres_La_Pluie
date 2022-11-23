@@ -41,6 +41,21 @@ $(document).ready(function(){
             }
         });
     });
+
+    $(".boutonModifierFAQ").click(function(){
+        var idFAQ = this.id;
+        console.log(idFAQ);
+        qst = $("#question" + idFAQ).text();
+        rps = $("#reponse" + idFAQ).text();
+        console.log(qst);
+        idQuestionModifie = "question" + idFAQ;
+        idReponseModifie = "reponse" + idFAQ;
+        $("#question" + idFAQ).replaceWith("<input type='text' id='" + idQuestionModifie + "'>");
+        $("#" + idQuestionModifie + "").val(qst);
+        $("#reponse" + idFAQ).replaceWith("<input type='text' id='" + idReponseModifie + "'>");
+        $("#" + idReponseModifie + "").val(rps);
+        
+    });
 });
 
 function modifierRole(e){
