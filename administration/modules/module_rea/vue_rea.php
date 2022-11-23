@@ -78,7 +78,7 @@
                 $lien_photo = $val[1];
                 $id = $val[0];
                 
-                echo '<div class="col-md-6 col-lg-4 mb-4 align">
+                echo '<div class="col-md-6 col-lg-4 mb-4" id="div-realisations">
                     <a href="" data-bs-toggle="modal" data-bs-target="#modal' . $id . '" >
                         <img class ="iconFAQ" src="media/re-cross.png" alt="croix rouge">
                     </a>

@@ -43,8 +43,9 @@ nav{
     color: var(--bleuu);
 }
 
-.align{
-    display : inline-flex;
+#div-realisations{
+    display: inline-flex;
+    justify-content: center;    
 }
 
 .lien_rea:link{
@@ -74,7 +75,7 @@ textarea {
     margin-left: auto;
     margin-right: auto;
     width: 50em;
-    padding: auto;
+    max-height: 45em;
 }
 
 .imgAccueil{
@@ -107,4 +108,5 @@ textarea {
     color: var(--bleuu);
     font-weight: bolder;
     text-align: center;
+    font-family: fantasy;
 }
