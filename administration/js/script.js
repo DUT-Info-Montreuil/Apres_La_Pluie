@@ -42,6 +42,9 @@ function modifierRole(e){
                 argumentDeRecherche: idUtilisateur
             }
     });
+    $("#searchresult").empty();
+    document.getElementById("live-search").value = "";
+
 }
 
 function supprimerUtilisateur(e){
@@ -56,4 +59,6 @@ function supprimerUtilisateur(e){
                 argumentDeRecherche: idUtilisateur
             }
     });
+    $("#searchresult").empty();
+    document.getElementById("live-search").value = "";
 }
