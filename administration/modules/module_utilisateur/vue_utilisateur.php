@@ -31,66 +31,6 @@
                             <div id="searchresult">
 
                             </div>
-
-                            <script type="text/javascript">
-                                $(document).ready(function(){
-                                    $("#live-search").keyup(function(){
-                                        var input = $(this).val();
-                                        if(input != ""){
-                                            $.ajax({
-                                                method: "POST",
-                                                url:"./js/fonction-ajax.php",
-                                                data:{
-                                                    nomFonction: 'barDeRecherche',
-                                                    argumentDeRecherche: input
-                                                },
-                                                dataType : 'html'
-
-                                            })
-                                            .done(function( resultat ){
-                                                // alert( "Reponse : " + resultat);
-                                                $("#searchresult").html(resultat);
-                                            });
-                                        }else{
-                                            $("#searchresult").empty();
-                                        }
-                                    });
-                                     
-                                    $(".boutonModifier").click(function(){
-                                        var idUtilisateur = this.id.replace ( /[^\d.]/g, '' );
-                                        console.log(idUtilisateur);
-
-                                        $.ajax({
-                                            method: "POST",
-                                                url:"./js/fonction-ajax.php",
-                                                data:{
-                                                    nomFonction: 'modifierRole',
-                                                    argumentDeRecherche: idUtilisateur
-                                                }
-                                        });
-
-
-                                    });
-
-                                    $(".boutonSupprimer").click(function(){
-                                        var idUtilisateur = this.id.replace ( /[^\d.]/g, '' );
-                                        console.log(idUtilisateur);
-
-                                        $.ajax({
-                                            method: "POST",
-                                                url:"./js/fonction-ajax.php",
-                                                data:{
-                                                    nomFonction: 'supprimerUtilisateur',
-                                                    argumentDeRecherche: idUtilisateur
-                                                }
-                                        });
-
-
-                                    });
-
-                                });
-                            </script>
-
                         </div>
                     </div>
                 </div>

@@ -124,36 +124,7 @@ function retourneUtilisateur($tabResult){
                     </div>
                 </div>
             </div>
-            <script type='text/javascript'>
-                $(document).ready(function(){  
-                    $('.boutonModifier').click(function(){
-                        var idUtilisateur = this.id.replace ( /[^\d.]/g, '' );
-
-                        $.ajax({
-                            method: 'POST',
-                            url:'./js/fonction-ajax.php',
-                            data:{
-                            nomFonction: 'modifierRole',
-                            argumentDeRecherche: idUtilisateur
-                            }
-                        });
-                    });
-                    $('.boutonSupprimer').click(function(){
-                        var idUtilisateur = this.id.replace ( /[^\d.]/g, '' );
-
-                        $.ajax({
-                            method: 'POST',
-                            url:'./js/fonction-ajax.php',
-                            data:{
-                            nomFonction: 'supprimerUtilisateur',
-                            argumentDeRecherche: idUtilisateur
-                            }
-                        });
-
-
-                    });
-                });
-            </script>
+            
             ";
         }
 
