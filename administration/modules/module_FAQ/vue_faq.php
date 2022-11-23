@@ -68,7 +68,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                            <button type="button" class="btn btn-primary">Oui, supprimer</button>
+                            <button type="button" class="btn btn-primary boutonSupprimerFAQ" data-bs-dismiss="modal" id = "id' . $id . '">Oui, supprimer</button>
                         </div>
                     </div>
                 </div>

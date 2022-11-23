@@ -15,6 +15,10 @@ if(isset($_POST['nomFonction'])){
         case 'supprimerUtilisateur':
             supprimerUtilisateur($_POST['argumentDeRecherche']);
             break;
+        case 'supprimerFAQ':
+            supprimerFAQ($_POST['argumentDeRecherche']);
+            break;
+
 
     }
 }
@@ -163,6 +167,12 @@ function supprimerUtilisateur($idutilisateur){
     global $bd;
     $selecPrepare = $bd->prepare("DELETE FROM utilisateurs WHERE id=?");
     $selecPrepare->execute(array($idutilisateur));
+}
+
+function supprimerFAQ($idFAQ){
+    global $bd;
+    $selecPrepare = $bd->prepare("DELETE FROM faq WHERE id=?");
+    $selecPrepare->execute(array($idFAQ));
 }
 
 function modifierRole($idutilisateur){

@@ -28,6 +28,19 @@ $(document).ready(function(){
             $("#searchresult").empty();
         }
     });
+
+    $(".boutonSupprimerFAQ").click(function(){
+        var idFAQ = this.id.replace ( /[^\d.]/g, '' );
+
+        $.ajax({
+            method: "POST",
+            url:"./js/fonction-ajax.php",
+            data:{
+                nomFonction: 'supprimerFAQ',
+                argumentDeRecherche: idFAQ
+            }
+        });
+    });
 });
 
 function modifierRole(e){
