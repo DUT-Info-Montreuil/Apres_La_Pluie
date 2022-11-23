@@ -17,10 +17,11 @@
                             foreach($tab as $cle=>$val){
                                 $titre = $val[2];
                                 $lien_photo = $val[1];
-                                echo '<div class="col-md-6 col-lg-4 mb-4 align">
+                                echo 
+                                '<div class="col-md-6 col-lg-4 mb-4" id="div-realisations">
                                     <a href="index.php?module=rea&action=afficher_video&video='. $titre .'" class="md-3 text-primary lien_rea"> 
-                                    <img class="realisations" src="administration/media/' . $lien_photo . '">
-                                    <p class="titre_rea">' . $titre . '</p> 
+                                        <img class="realisations" src="administration/media/' . $lien_photo . '">
+                                        <p class="titre_rea">' . $titre . '</p> 
                                     </a>
                                 </div>';
                             }

@@ -17,6 +17,10 @@
             // $user = 'root';
             // $password = '';
 
+            // $dsn = 'mysql:dbname=bd_sae;host=localhost';
+            // $user = 'root';
+            // $password = '';
+
             self::$bdd = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         }
     }
