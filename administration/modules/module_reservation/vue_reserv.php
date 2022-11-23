@@ -12,7 +12,6 @@
                     </div>
                     <div class="card-body px-5 ">
                         <div class="row gx-xl-5">
-
                             <div class="col-md-8">
                                 <div class="mb-3">
                                     <label for="exampleInput1" class="form-label">nom</label>
@@ -42,6 +41,7 @@
                                     <label for="exampleInput1" class="form-label">si oui, combien ?</label>
                                     <input type="number" min="0" max="8" class="form-control" id="exampleInput1" style="max-width: 80px;" value="0" name='nbChoix'>
                                 </div>
+                                <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                             </div>
                         <hr class="my-5" />
                     <div class="card-footer text-end py-4 px-5 bg-light border-0">
@@ -53,11 +53,23 @@
             <?php
         }
 
-        public function form_ajout_choix($nbChoix){
+        public function form_ajout_supp_hidden($val){
+            echo '
+                <input type="hidden" id="exampleInput1" name="nomH" value="'.$_POST['nom'].'">
+                <input type="hidden" id="exampleInput1" name="descriptionH" value="'.$_POST['description'].'">
+                <input type="hidden" id="exampleInput1" name="prixH" value="'.$_POST['prix'].'">
+                <input type="hidden" id="exampleInput1" name="fileAvecH" value="'.$_FILES['fileSans']['name'].'">
+                <input type="hidden" id="exampleInput1" name="fileSansH" value="'.$_FILES['fileAvec']['name'].'">
+                <input type="hidden" id="exampleInput1" name="nbChoixH" value="'.$_POST['nbChoix'].'">
+                <input type="hidden" id="exampleInput1" name="plusieursChoixH" value="'.$val.'">
+            ';
+        }
+
+        public function form_ajout_choix($nbChoix,$val){
             ?>
             <div class="container my-5" >
                 <div class="card">
-                    <form action='index.php?module=reservation&action=ajout_choix' method='post' enctype='multipart/form-data'>
+                    <form action='index.php?module=reservation&action=ajout' method='post' enctype='multipart/form-data'>
                     <div class="card-header py-4 px-5 bg-light border-0">
                         <h4 class="mb-0 fw-bold">Les Choix du supplement </h4>
                     </div>
@@ -73,6 +85,7 @@
                                             </div>
                                         ';
                                     }
+                                    $this->form_ajout_supp_hidden($val);
                                 ?>
                             </div>
                         <hr class="my-5" />
@@ -83,5 +96,6 @@
                 </div>
             </div>
             <?php
+            
         }
     }

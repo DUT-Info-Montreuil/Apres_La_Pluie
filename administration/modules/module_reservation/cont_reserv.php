@@ -18,7 +18,7 @@
         }
 
         public function afficheFormSupp(){
-            $this->vue->form_ajout_supp();
+            $this->vue->form_ajout_supp($this->verifChoix());
         }
 
         public function insererSupps(){
@@ -27,12 +27,20 @@
 
         public function afficheFormChoix(){
             if($this->modele->verifCheck()){
-                $this->vue->form_ajout_choix($this->modele->getNbChoix());
+                $this->vue->form_ajout_choix($this->modele->getNbChoix(),$this->verifChoix());
             }
         }
 
         public function verifChoix(){
             return $this->modele->verifCheck();
+        }
+
+        public function formHidden(){
+            $this->vue->form_ajout_supp_hidden($this->verifChoix());
+        }
+
+        public function ajoutFileTemp(){
+            $this->modele->ajoutFichier();
         }
 
         public function exec(){
@@ -41,9 +49,12 @@
                     $this->afficheFormSupp();
                     break;
                 case "ajout_supp":
+                    $this->formHidden();
                     $this->afficheFormChoix();
-                    $this->insererSupps();
+                    $this->ajoutFileTemp();
                     break;
+                case "ajout":
+                    $this->insererSupps();
             }
             global $affichage;
             $affichage = $this->vue->getAffichage();
