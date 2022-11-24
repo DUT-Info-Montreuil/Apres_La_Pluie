@@ -26,9 +26,7 @@
         }
 
         public function afficheFormChoix(){
-            if($this->modele->verifCheck()){
-                $this->vue->form_ajout_choix($this->modele->getNbChoix(),$this->verifChoix());
-            }
+            $this->vue->form_ajout_choix($this->modele->getNbChoix(),$this->verifChoix());
         }
 
         public function verifChoix(){
