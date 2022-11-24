@@ -29,6 +29,7 @@
                             <th scope="col">prix</th>
                             <th scope="col">photo avec</th>
                             <th scope="col">photo sans</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider Xborder">
@@ -59,6 +60,9 @@
                                         <a data-bs-toggle="modal" data-bs-target="#<?php echo $targetNom . $key['id']; ?>">
                                             <img class ="iconFAQ" src="media/re-cross.png" alt="croix rouge">
                                         </a>
+                                        <a href="index.php?module=reservation&action=modifierSupp&idSupp=<?php echo $key['id']; ?>">
+                                            <img class ="iconFAQ" src="media/crayon.png" alt="crayon">
+                                        </a>
                                         <!-- Modal -->
                                         <div class="modal fade" id="<?php echo $targetNom . $key['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -70,7 +74,7 @@
                                                     <div class="modal-body">
                                                         <p>Êtes-vous sûr de vouloir supprimer le supplément : <b> <?php echo $key['nom']; ?><b> ?<br></p>
                                                     </div>
-                                                    <div class="modal-footer"  module=rea&action=supprimer_video&video=' . $titre . '>
+                                                    <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
                                                         <a href="index.php?module=reservation&action=supprimer_supp&idSupp=<?php echo $key['id']; ?>">
                                                             <button type="button" class="btn btn-primary">Oui, supprimer</button>
@@ -179,7 +183,7 @@
                             </div>
                         <hr class="my-5" />
                     <div class="card-footer text-end py-4 px-5 bg-light border-0">
-                        <button type="submit" class="btn btn-primary btn-rounded" name="submit">commander </button>
+                        <button type="submit" class="btn btn-primary btn-rounded" name="submit">Ajouter</button>
                     </div>
                     </form>
                 </div>
@@ -187,8 +191,67 @@
             <?php
         }
 
-        public function afficheSupps(){
-
+        public function form_modif_supp($supp, $suppChoix){
+            ?>
+                <div class="container my-5" >
+                <div class="card">
+                    <div class="card-header py-4 px-5 bg-light border-0">
+                        <h4 class="mb-0 fw-bold">Modifier les suppléments</h4>
+                        <a href="index.php?module=reservation&action=afficher_base">Supprimer des supplements</a>
+                    </div>
+                    <div class="card-body px-5 ">
+                        <form action='index.php?module=reservation&action=valid_modif_supp&idSupp=<?php echo $supp[0]['id']; ?>' method='post' enctype='multipart/form-data'>
+                            <div class="row gx-xl-5">
+                                <div class="col-md-8">
+                                    <?php
+                                        foreach($supp as $key){
+                                            ?>
+                                            <div class="mb-3">
+                                                <label for="exampleInput1" class="form-label">nom</label>
+                                                <input value="<?php echo $key['nom']; ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom'required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInput1" class="form-label">description</label>
+                                                <input value="<?php echo $key['description']; ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='description'required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInput1" class="form-label">prix</label>
+                                                <input value="<?php echo $key['prix']; ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='prix'required>
+                                            </div>
+                                            <div class="custom-file">
+                                                <label class="custom-file-label" for="validatedCustomFile">changer le fichier d'exemple sans le supplément</label>
+                                                <input class="form-control" type="file" class="custom-file-input" id="validatedCustomFile" name='fileSans' >
+                                            </div>
+                                            <div class="custom-file">
+                                                <label class="custom-file-label" for="validatedCustomFile">changer le fichier d'exemple avec le supplément</label>
+                                                <input class="form-control" type="file" class="custom-file-input" id="validatedCustomFile2" name='fileAvec' >
+                                            </div>
+                                            <?php
+                                        }
+                                        $compt = 1;
+                                        if ($supp[0]['choix'] == 1){
+                                            foreach($suppChoix as $key){
+                                                ?>
+                                                    <div class="mb-3">
+                                                        <label for="exampleInput1" class="form-label">Choix<?php echo $compt?></label>
+                                                        <input value="<?php echo $key['choix']; ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name="choix<?php echo $compt; ?>" required>
+                                                    </div>
+                                                <?php
+                                                $compt++;
+                                            }
+                                        }
+                                    ?>
+                                    <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
+                                </div>
+                            <hr class="my-5" />
+                            <div class="card-footer text-end py-4 px-5 bg-light border-0">
+                                <button type="submit" class="btn btn-primary btn-rounded" name="submit">Modifier</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <?php
         }
     }
 ?>

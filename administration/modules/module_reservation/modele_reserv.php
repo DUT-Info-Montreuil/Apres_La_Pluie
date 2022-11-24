@@ -11,6 +11,38 @@
             return $tab;
         }
 
+        public function getSuppId($id){
+            $req = self::$bdd->prepare('SELECT * FROM supplements WHERE id = ?');
+            $req->execute(array($id));
+            $tab = $req->fetchAll();
+            return $tab;
+        }
+
+        public function getSuppChoixId($id){
+            $req = self::$bdd->prepare('SELECT * FROM suppsAvecChoix WHERE id_supplement = ?');
+            $req->execute(array($id));
+            $tab = $req->fetchAll();
+            return $tab;
+        }
+
+        public function updateSupp($suppsChoix, $id){
+            $array = array($_POST['nom'], $_POST['description'], $_POST['prix']);
+            $req = self::$bdd->prepare('UPDATE supplements SET nom = ?, description = ?, prix = ? WHERE id =' .$id);
+            $req->execute($array);
+            $c = 1;
+
+            if(!empty($_FILES['fileSans']) && !empty($_FILES['fileSans'])){
+                echo 'oui';
+            }
+
+            foreach($suppsChoix as $key){
+                $array = array($_POST['choix'.$c]);
+                $req = self::$bdd->prepare('UPDATE suppsAvecChoix SET choix = ? WHERE id = '.$key['id']);
+                $req->execute($array);
+                $c++;
+            }
+        }
+
         public function supprimerSupp($id){
             $req = self::$bdd->prepare('DELETE FROM supplements WHERE id = ?');
             $req->execute(array($id));

@@ -19,6 +19,14 @@
             return $this->action;
         }
 
+        public function afficheModifierSupp(){
+            $this->vue->form_modif_supp($this->modele->getSuppId($this->idSupp), $this->modele->getSuppChoixId($this->idSupp));
+        }
+
+        public function updateSupp(){
+            $this->modele->updateSupp($this->modele->getSuppChoixId($this->idSupp), $this->idSupp);
+        }
+
         public function supprimerSupp(){
             $this->modele->supprimerSupp($this->idSupp);
         }
@@ -64,8 +72,14 @@
                     $this->afficheFormChoix();
                     $this->ajoutFileTemp();
                     break;
+                case "modifierSupp":
+                    $this->afficheModifierSupp();
+                    break;
                 case "supprimer_supp":
                     $this->supprimerSupp();
+                    break;
+                case "valid_modif_supp":
+                    $this->updateSupp();
                     break;
                 case "ajout":
                     $this->insererSupps();
