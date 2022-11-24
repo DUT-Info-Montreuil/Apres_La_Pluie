@@ -21,9 +21,9 @@
                                     <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body d-flex justify-content-center">
                                     <?php
-                                        echo '<img class="img-modal-reserv" src="modules/module_reservation/ressources/' . $gifA . '" alt=""> <img class="img-modal-reserv" src="modules/module_reservation/ressources/' . $gifS . '" alt="">';
+                                        echo '<img class="img-modal-reserv" src="./administration/media/' . $gifA . '" alt=""> <img class="img-modal-reserv" src="administration/media/' . $gifS . '" alt="">';
                                     ?>
                                 </div>
                             </div>
