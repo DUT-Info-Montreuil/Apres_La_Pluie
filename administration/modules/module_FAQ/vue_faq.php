@@ -24,16 +24,16 @@
 
                         <div class="row ">
                             
-                            <?php
-                                $this->genererBodyFAQ($tab);
-                            ?>
-
-                            <form class="col-md-6 col-lg-4 mb-4"> 
+                            <form class="col-md-6 col-lg-4 mb-4" action='index.php?module=FAQ&action=ajouterQuestion' method='post'> 
                                 <h6 class="mb-3 text-primary question_faq">Ajouter une question à la FAQ</h6>
                                 <textarea name="ajouterQuestion" placeholder="Insérer une question"></textarea>
                                 <textarea name="ajouterRéponse" placeholder="Insérer la réponse"></textarea>
-                                <button type="button"  class="btn btn-primary" >Ajouter à la FAQ</button> 
+                                <button type="submit"  class="btn btn-primary" >Ajouter à la FAQ</button> 
                             </form>
+
+                            <?php
+                                $this->genererBodyFAQ($tab);
+                            ?>
                             
                         </div>
                     </div>
