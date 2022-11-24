@@ -34,7 +34,11 @@ nav{
 
 
 #logo{
-    width: 4em;
+    width: 3.5em;
+}
+
+#logo_perso{
+    width: 1em;
 }
 
 
@@ -173,3 +177,7 @@ nav{
     font-family: fantasy;
 }
 
+#bouton-modif-mdp{
+    position: absolute;
+    left: 7em;
+}
