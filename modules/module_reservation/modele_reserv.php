@@ -4,6 +4,10 @@
 
         public function __construct(){}
 
+        public function verifConnexion(){
+            return (isset($_SESSION['id']) && isset($_SESSION['nouvelsession']));
+        }
+
         public function getSupps(){
             $req = self::$bdd->prepare('SELECT * FROM supplements');
             $req->execute();
@@ -18,7 +22,7 @@
             return $tab;
         }
 
-        public function insertion($tab, $tab2){
+        public function insertion($tab){
             try{
                 self::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 self::$bdd->beginTransaction();
