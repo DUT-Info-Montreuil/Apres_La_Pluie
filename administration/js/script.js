@@ -80,6 +80,9 @@ function modifierRole(e){
                 argumentDeRecherche: idUtilisateur
             }
     });
+    $("#searchresult").empty();
+    document.getElementById("live-search").value = "";
+
 }
 
 function supprimerUtilisateur(e){
@@ -94,6 +97,38 @@ function supprimerUtilisateur(e){
                 argumentDeRecherche: idUtilisateur
             }
     });
+    $("#searchresult").empty();
+    document.getElementById("live-search").value = "";
+}
+
+function verifierFAQ(e){
+
+    var idFAQ = e.attr('id').replace ( /[^\d.]/g, '' );
+    var questionModifie = document.getElementById('questionid' + idFAQ).value;
+    var reponseModifie = document.getElementById('reponseid' + idFAQ).value;
+        
+    $.ajax({
+        method: "POST",
+        url: "./js/fonction-ajax.php",
+        data:{
+            nomFonction: 'modifierFAQSelonID',
+            argumentDeRecherche: idFAQ,
+            argumentQuestion: questionModifie,
+            argumentReponse: reponseModifie 
+        }
+
+    });
+}
+
+function remettreAZeroFAQ(e){
+    var idFAQ = e.attr('id').replace ( /[^\d.]/g, '' );
+    var questionModifie = document.getElementById('questionid' + idFAQ).value;
+    var reponseModifie = document.getElementById('reponseid' + idFAQ).value;
+
+    $("#questionid" + idFAQ).replaceWith('<h6 class="mb-3 text-primary question_faq" id="questionid' + idFAQ + '">' + questionModifie + '</h6>');
+
+    $("#reponseid" + idFAQ).replaceWith("<p id='reponseid" + idFAQ +"'>" + reponseModifie + "</p>");
+
 }
 
 function verifierFAQ(e){

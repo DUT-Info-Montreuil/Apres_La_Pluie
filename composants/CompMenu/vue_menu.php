@@ -34,7 +34,12 @@ class VueMenu {
                 $this->affichageMenu = $this->affichageMenu .
                 "<li class='nav-item active'><a class='nav-link' href=\"administration/index.php\"><h3>COTE ADMIN</h3></a></li>";
             }
-            $this->affichageMenu = $this->affichageMenu . "</ul></div>";
+            "<li class='nav-item active'><a class='nav-link codeco' href=\"index.php?module=info_perso&action\"><h3>Déconnexion</h3></a></li>".
+            $this->affichageMenu = $this->affichageMenu .
+            "<li class='nav-item active'><a class='nav-link codeco' href=\"index.php?module=infoPerso&action&action=info\"><h3>
+                <img id='logo_perso' class'd-inline-block align-top' src='administration/media/imageUtilisateur.png'>
+            </h3></a></li>".
+            "</ul></div>";
         
 
         //Si l'utilisateur n'est pas connecté => on lui affiche le bouton connexion
