@@ -17,7 +17,6 @@
                 return ($_POST['login']);
             }else{
                 die("probleme");
-                return NULL;
             }
             
         }
