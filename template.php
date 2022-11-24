@@ -15,7 +15,7 @@
 <body>
     <div>
         <header>
-            <nav class="navbar navbar-expand-sm">
+            <nav class="navbar navbar-expand-sm" id="navPrincipale">
                 <?php
                     $controleur = new Controleur;
                     $controleur->menu();

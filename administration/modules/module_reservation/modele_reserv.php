@@ -4,6 +4,20 @@
 
         public function __construct(){}
 
+        public function getSupps(){
+            $req = self::$bdd->prepare('SELECT * FROM supplements');
+            $req->execute();
+            $tab = $req->fetchAll();
+            return $tab;
+        }
+
+        public function supprimerSupp($id){
+            $req = self::$bdd->prepare('DELETE FROM supplements WHERE id = ?');
+            $req->execute(array($id));
+            $req2 = self::$bdd->prepare('DELETE FROM suppsAvecChoix WHERE id_supplement = ?');
+            $req2->execute(array($id));
+        }
+
         public function ajoutFichier(){
             mkdir('./temp' . $_SESSION['token']);
 

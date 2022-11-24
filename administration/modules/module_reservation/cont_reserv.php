@@ -4,6 +4,7 @@
         private $vue;
         private $modele;
         private $action;
+        private $idSupp;
 
         public function __construct(){
             include_once "vue_reserv.php";
@@ -11,14 +12,23 @@
             include_once "modele_reserv.php";
             $this->modele = new ModeleReserv();
             $this->action = isset($_GET['action']) ? $_GET['action'] : "erreur";
+            $this->idSupp = isset($_GET['idSupp']) ? $_GET['idSupp'] : "erreur";
         }
 
         public function getAction(){
             return $this->action;
         }
 
+        public function supprimerSupp(){
+            $this->modele->supprimerSupp($this->idSupp);
+        }
+
         public function afficheFormSupp(){
             $this->vue->form_ajout_supp($this->verifChoix());
+        }
+
+        public function affichePrincipale(){
+            $this->vue->cardPricipale($this->modele->getSupps());
         }
 
         public function insererSupps(){
@@ -44,12 +54,18 @@
         public function exec(){
             switch ($this->getAction()) {
                 case "afficher_base":
+                    $this->affichePrincipale();
+                    break;
+                case "form_ajout_supp":
                     $this->afficheFormSupp();
                     break;
                 case "ajout_supp":
                     $this->formHidden();
                     $this->afficheFormChoix();
                     $this->ajoutFileTemp();
+                    break;
+                case "supprimer_supp":
+                    $this->supprimerSupp();
                     break;
                 case "ajout":
                     $this->insererSupps();

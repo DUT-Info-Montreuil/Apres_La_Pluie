@@ -23,6 +23,11 @@ nav{
     height: 3em;
 }
 
+.img-tab{
+    width: 5em;
+    height: 5em;
+}
+
 .codeco{
     float: right;
 }
