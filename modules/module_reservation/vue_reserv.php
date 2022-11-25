@@ -144,20 +144,28 @@
                                 <div class="col-md-4">
                                     <p class="text-muted">Tout ce qu'on doit savoir pour venir tourner ton clip !</p>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Idee générale du clip</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ideeGenerale" required></textarea>
+                                </div>
 
-                                <div class="col-md-8">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Idee générale du clip</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ideeGenerale" required></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="startDate">Date</label>
-                                        <input id="startDate" class="form-control" type="date" name="date" required>
-                                    </div>
-                                    <div class="mb-3">
-                                    <label for="heure">Choisit l'heure du RDV (de 10h à 18h)</label>
-                                        <input type="time" id="heure" class="form-control" min="10:00" max="18:00" name="heure" required>
-                                    </div>
+                                <div id="app">
+                                    <v-app id="inspire">
+                                    <v-row>
+                                        <v-col>
+                                        <v-sheet height="400">
+                                            <v-calendar
+                                            ref="calendar"
+                                            :now="today"
+                                            :value="today"
+                                            :events="events"
+                                            color="primary"
+                                            type="week"
+                                            ></v-calendar>
+                                        </v-sheet>
+                                        </v-col>
+                                    </v-row>
+                                    </v-app>
                                 </div>
                             </div>
                         </div>
