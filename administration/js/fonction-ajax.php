@@ -1,5 +1,6 @@
 <?php
 include_once("../connexion.php"); 
+header('Content-Type: application/json; charset=utf-8');
 
 Connexion::initConnexion();
 $bd = Connexion::getbdd();
@@ -14,6 +15,12 @@ if(isset($_POST['nomFonction'])){
             break;
         case 'supprimerUtilisateur':
             supprimerUtilisateur($_POST['argumentDeRecherche']);
+            break;
+        case 'supprimerFAQ':
+            supprimerFAQ($_POST['argumentDeRecherche']);
+            break;
+        case 'modifierFAQSelonID':
+            modifierFAQSelonID($_POST['argumentDeRecherche']);
             break;
 
     }
@@ -165,6 +172,12 @@ function supprimerUtilisateur($idutilisateur){
     $selecPrepare->execute(array($idutilisateur));
 }
 
+function supprimerFAQ($idFAQ){
+    global $bd;
+    $selecPrepare = $bd->prepare("DELETE FROM faq WHERE id=?");
+    $selecPrepare->execute(array($idFAQ));
+}
+
 function modifierRole($idutilisateur){
     global $bd;
     if(verificationAdmin($idutilisateur)){
@@ -175,5 +188,24 @@ function modifierRole($idutilisateur){
     }
     $selecPrepare = $bd->prepare("UPDATE roles SET admin = ? WHERE id_utilisateur = ?");
     $selecPrepare->execute(array($role, $idutilisateur));
+}
+
+function modifierFAQSelonID($idFAQ){
+    global $bd;
+    $tabResult = null;
+
+    $selecPrepare = $bd->prepare("SELECT question, reponse FROM faq WHERE id = ?");
+    $selecPrepare->execute(array($idFAQ));
+    $tabResult = $selecPrepare->fetch();
+
+    if($_POST['argumentQuestion'] != $tabResult['0']){
+        $selecPrepare = $bd->prepare("UPDATE faq SET question = ? WHERE id = ?");
+        $selecPrepare->execute(array($_POST['argumentQuestion'],$idFAQ));
+
+    }
+    if($_POST['argumentReponse'] != $tabResult['1']){
+        $selecPrepare = $bd->prepare("UPDATE faq SET reponse = ? WHERE id = ?");
+        $selecPrepare->execute(array($_POST['argumentReponse'],$idFAQ));
+    }
 }
 ?>
