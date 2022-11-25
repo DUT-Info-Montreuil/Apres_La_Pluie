@@ -13,7 +13,7 @@
             $this->vue = new VueRea();
             include_once('modele_rea.php');
             $this->modele = new ModeleRea();
-            $this->action = isset($_GET['action']) ? $_GET['action'] : "erreur";
+            $this->action = isset($_GET['action']) ? $_GET['action'] : "afficher_rea";
             $this->video = isset($_GET['video']) ? $_GET['video'] : "erreur";
         }
 

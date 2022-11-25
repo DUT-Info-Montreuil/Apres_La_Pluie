@@ -57,6 +57,7 @@
                                 <label class="custom-file-label" for="validatedCustomFile"> Image de couverture </label>
                                 <input type="file" class="custom-file-input" id="validatedCustomFile" name='imageToUpload' required>
                             </div>
+                        </div>
                         <hr class="my-5" />
                     
                     <!-- en bas -->
@@ -98,7 +99,7 @@
                                 <div class="modal-footer"  module=rea&action=supprimer_video&video=' . $titre . '>
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
 
-                                    <button type="button" class="btn btn-primary">Oui, supprimer</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Oui, supprimer</button>
                                 </div>
                             </div>
                         </div>
