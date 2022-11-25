@@ -34,4 +34,4 @@
             return self::$bdd;
         }
     }
-?>ù%
+?>

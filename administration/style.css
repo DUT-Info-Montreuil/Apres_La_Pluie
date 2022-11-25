@@ -124,3 +124,10 @@ table thead tbody tr{
     text-align: center;
     font-family: fantasy;
 }
+
+footer{
+    position: sticky;
+    top:100%;
+    margin-top: auto;
+    background-color: var(--bleuu);
+}
