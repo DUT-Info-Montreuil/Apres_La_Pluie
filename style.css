@@ -181,3 +181,8 @@ ul{
     position: absolute;
     left: 7em;
 }
+
+.align{
+    width: 33%;
+    display: inline-block;
+}
