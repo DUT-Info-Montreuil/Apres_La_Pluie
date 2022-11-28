@@ -28,9 +28,14 @@
         }
 
         public function exec(){
-            $this->faq();
-            global $affichage;
-            $affichage = $this->vue->getAffichage();
+            switch($this->getAction()){
+                case 'ajouterQuestion':
+                    $this->modele->ajouterALaFAQ();
+                    break;
+                }
+        $this->faq();
+        global $affichage;
+        $affichage = $this->vue->getAffichage();
         }
     }
 ?>

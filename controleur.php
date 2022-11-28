@@ -4,6 +4,8 @@
     include_once('modules/module_rea/mod_rea.php');
     include_once('modules/module_FAQ/mod_faq.php');
     include_once('modules/module_reservation/mod_reserv.php');
+    include_once('modules/module_accueil/mod_accueil.php');
+    include_once('modules/module_infoPerso/mod_infoPerso.php');
     include_once('composants/CompMenu/mod_menu.php');
     
 
@@ -13,7 +15,7 @@
 
         public function __construct (){
             $this->vue = new VueGenerique();
-            $this->module = isset($_GET['module']) ? $_GET['module'] : "";
+            $this->module = isset($_GET['module']) ? $_GET['module'] : "accueil";
         }
 
         public function menu() {
@@ -33,6 +35,12 @@
                     break;
                 case 'reserv':
                     new ModReserv();
+                    break;
+                case 'accueil':
+                    new ModAccueil();
+                    break;
+                case 'infoPerso':
+                    new ModInfoPerso();
                     break;
             }
         }

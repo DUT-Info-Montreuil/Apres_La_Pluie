@@ -22,11 +22,15 @@
         }
 
         public function afficheForm(){
-            $this->vue->accordeon($this->modele->getSupps(), $this->modele->getSuppsAvecChoix());
+            if ($this->modele->verifConnexion()){
+                $this->vue->accordeon($this->modele->getSupps(), $this->modele->getSuppsAvecChoix());
+            }else{
+                $this->vue->affichePasCo();
+            }
         }
 
         public function inserer(){
-            $this->modele->insertion($this->modele->getSupps(), $this->modele->getSuppsAvecChoix());
+            $this->modele->insertion($this->modele->getSupps());
         }
 
         public function exec(){

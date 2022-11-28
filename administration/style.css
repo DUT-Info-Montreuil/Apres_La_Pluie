@@ -1,6 +1,7 @@
 :root{
     --nwar: rgba(5,28,36,255);
     --bleuu: rgba(4,187,255,255);
+    --entreDeux: rgba(0, 103, 141, 255);
 }
 
 html{
@@ -18,9 +19,20 @@ nav{
     background-color : var(--bleuu);
 }
 
+.navbar{
+    margin : 0px;
+    padding: 0px;
+    justify-items: center;
+    align-items: center;
+}
+
+#nav-droite{
+    position: absolute;
+    right:0;
+}
+
 #logo{
-    width: 3em;
-    height: 3em;
+    width: 4em;
 }
 
 .img-tab{
@@ -36,8 +48,9 @@ nav{
     color: var(--bleuu);
 }
 
-.align{
-    display : inline-flex;
+#div-realisations{
+    display: inline-flex;
+    justify-content: center;    
 }
 
 .lien_rea:link{
@@ -55,8 +68,71 @@ nav{
 
 textarea {
     resize: none;
+    width: 100%;
   }
 
 .realisations{
     width : 16em;
+}
+table,th,td{
+    border:1px solid #cccccc
+}
+
+.warning{
+    color: red;
+}
+
+table thead tbody tr{
+    max-width: 100%!important;
+    min-width: fit-content;
+}
+
+
+/* ACCUEIL */
+.acc{
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50em;
+    max-height: 45em;
+}
+
+.imgAccueil{
+    display: absolute;
+    width: 16em;
+    margin:auto;
+    padding: 0.5em;
+    border-radius: 2%;
+}
+
+#imgA2{
+    position: relative;
+    margin-top: 5em;
+}
+
+.text-acc{
+    color : black;
+    border : 5px solid var(--bleuu);
+    z-index: 1;
+    position: relative;
+    width: 500px;
+    margin:auto;
+    bottom:22em;
+    opacity: 0.8;
+    border-radius: 5%;
+    background-color: var(--bleuu);
+}
+
+#titre_accueil{
+    color: var(--bleuu);
+    font-weight: bolder;
+    text-align: center;
+    font-family: fantasy;
+}
+
+footer{
+    position: sticky;
+    top:100%;
+    margin-top: auto;
+    background-color: var(--bleuu);
 }
