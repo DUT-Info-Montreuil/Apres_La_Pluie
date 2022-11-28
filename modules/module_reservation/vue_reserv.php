@@ -153,7 +153,7 @@
                                     <v-app id="inspire">
                                     <v-row>
                                         <v-col>
-                                        <v-sheet height="400">
+                                        <v-sheet height="600">
                                             <v-calendar
                                             ref="calendar"
                                             :now="today"
