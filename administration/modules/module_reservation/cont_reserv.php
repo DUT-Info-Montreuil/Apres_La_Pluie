@@ -77,12 +77,15 @@
                     break;
                 case "supprimer_supp":
                     $this->supprimerSupp();
+                    $this->affichePrincipale();
                     break;
                 case "valid_modif_supp":
                     $this->updateSupp();
+                    $this->affichePrincipale();
                     break;
                 case "ajout":
                     $this->insererSupps();
+                    $this->affichePrincipale();
             }
             global $affichage;
             $affichage = $this->vue->getAffichage();

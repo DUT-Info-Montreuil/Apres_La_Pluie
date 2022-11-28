@@ -99,7 +99,7 @@
                 <div class="card">
                     <div class="card-header py-4 px-5 bg-light border-0">
                         <h4 class="mb-0 fw-bold">Modifier les suppléments</h4>
-                        <a href="index.php?module=reservation&action=afficher_base">Supprimer des supplements</a>
+                        <a href="index.php?module=reservation&action=afficher_base">Modifier des supplements</a>
                     </div>
                     <div class="card-body px-5 ">
                         <form action='index.php?module=reservation&action=ajout_supp' method='post' enctype='multipart/form-data'>
@@ -197,7 +197,7 @@
                 <div class="card">
                     <div class="card-header py-4 px-5 bg-light border-0">
                         <h4 class="mb-0 fw-bold">Modifier les suppléments</h4>
-                        <a href="index.php?module=reservation&action=afficher_base">Supprimer des supplements</a>
+                        <a href="index.php?module=reservation&action=afficher_base">Annuler</a>
                     </div>
                     <div class="card-body px-5 ">
                         <form action='index.php?module=reservation&action=valid_modif_supp&idSupp=<?php echo $supp[0]['id']; ?>' method='post' enctype='multipart/form-data'>

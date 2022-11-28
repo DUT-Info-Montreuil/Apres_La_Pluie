@@ -10,7 +10,7 @@
             $tab = $req->fetchAll();
             return $tab;
         }
-
+        
         public function getSuppId($id){
             $req = self::$bdd->prepare('SELECT * FROM supplements WHERE id = ?');
             $req->execute(array($id));
@@ -26,20 +26,47 @@
         }
 
         public function updateSupp($suppsChoix, $id){
-            $array = array($_POST['nom'], $_POST['description'], $_POST['prix']);
-            $req = self::$bdd->prepare('UPDATE supplements SET nom = ?, description = ?, prix = ? WHERE id =' .$id);
-            $req->execute($array);
-            $c = 1;
-
-            if(!empty($_FILES['fileSans']) && !empty($_FILES['fileSans'])){
-                echo 'oui';
-            }
-
-            foreach($suppsChoix as $key){
-                $array = array($_POST['choix'.$c]);
-                $req = self::$bdd->prepare('UPDATE suppsAvecChoix SET choix = ? WHERE id = '.$key['id']);
+            try{
+                self::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                self::$bdd->beginTransaction();
+                $array = array($_POST['nom'], $_POST['description'], $_POST['prix']);
+                $req = self::$bdd->prepare('UPDATE supplements SET nom = ?, description = ?, prix = ? WHERE id =' . $id);
                 $req->execute($array);
-                $c++;
+                $c = 1;
+                if(!empty($_FILES['fileSans']['name'])){
+                    $req = self::$bdd->prepare('SELECT gif_sans FROM supplements WHERE id =' . $id);
+                    $req->execute();
+                    $tab = $req->fetch();
+                    if(!empty($tab[0])){
+                        unlink("./media/" . $tab[0]);
+                    }
+                    move_uploaded_file($_FILES['fileSans']['tmp_name'], "./media/" . $_FILES['fileSans']['name']);
+                    $req = self::$bdd->prepare('UPDATE supplements SET gif_sans = ? WHERE id =' . $id);
+                    $req->execute(array($_FILES['fileSans']['name']));
+                }
+                if(!empty($_FILES['fileAvec']['name'])){
+                    $req = self::$bdd->prepare('SELECT gif_avec FROM supplements WHERE id =' . $id);
+                    $req->execute();
+                    $tab = $req->fetch();
+                    if(!empty($tab[0])){
+                        unlink("./media/" . $tab[0]);
+                    }
+                    move_uploaded_file($_FILES['fileAvec']['tmp_name'], "./media/" . $_FILES['fileAvec']['name']);
+                    $req = self::$bdd->prepare('UPDATE supplements SET gif_avec = ? WHERE id =' . $id);
+                    $req->execute(array($_FILES['fileAvec']['name']));
+                }
+                if($suppsChoix[0]['choix'] !== NULL){
+                    foreach($suppsChoix as $key){
+                        $array = array($_POST['choix'.$c]);
+                        $req = self::$bdd->prepare('UPDATE suppsAvecChoix SET choix = ? WHERE id = '.$key['id']);
+                        $req->execute($array);
+                        $c++;
+                    }
+                }
+                self::$bdd->commit();
+            }catch(Exception $e){
+                echo $e;
+                self::$bdd->rollBack();
             }
         }
 
