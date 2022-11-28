@@ -1,8 +1,8 @@
 <?php
     include_once('vue_generique.php');
     include_once('modules/module_rea/mod_rea.php');
-    include_once ('modules/module_FAQ/mod_faq.php');
-    include_once ('modules/module_accueil/mod_accueil.php');
+    include_once('modules/module_FAQ/mod_faq.php');
+    include_once('modules/module_accueil/mod_accueil.php');
     include_once('composants/CompMenu/mod_menu.php');
     include_once('modules/module_reservation/mod_reserv.php');
     include_once('modules/module_utilisateur/mod_utilisateur.php');
