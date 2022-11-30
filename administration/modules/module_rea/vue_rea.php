@@ -48,14 +48,7 @@
                                 <label for="exampleInput1" class="form-label"> titre </label>
                                 <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='titre'/>
                             </div>
-                            <div class="boutons-rea">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#modal'.$id.'"><img class ="iconFAQ" src="media/re-cross.png" alt="croix rouge"></a>
-                        <a href="" data-bs-toggle="modal" data-bs-target="#modal-modif'.$id.'" ><img class ="iconFAQ" src="media/crayon.png" alt="crayon"></a>
-                    </div>
-                    <a href="" class="md-3 text-primary lien_rea video-btn" data-bs-toggle="modal" data-bs-target="#modal-video" data-src="'. $lien_video .'">
-                        <img class="realisations" src="media/' . $lien_photo . '">
-                        <p class="titre_rea">' . $titre . '</p> 
-                    </a>      <div class="mb-3">
+                            <div class="mb-3">
                                 <label for="exampleInput1" class="form-label"> lien youtube </label>
                                 <input type="url" class="form-control" id="exampleInput1" style="max-width: 500px;" name='lien_video'/>
                             </div>
