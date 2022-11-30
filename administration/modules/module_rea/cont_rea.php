@@ -6,7 +6,6 @@
         private $modele;
         private $action;
         private $video;
-        private $tokenGet;
 
 
         public function __construct(){
@@ -16,7 +15,7 @@
             $this->modele = new ModeleRea();
             $this->action = isset($_GET['action']) ? $_GET['action'] : "afficher_rea";
             $this->video = isset($_GET['video']) ? $_GET['video'] : "erreur";
-            $this->tokenGet = isset($_GET['token']) ? $_GET['token'] : "erreur";
+            $this->tokenGet = isset($_GET['tokenGet']) ? $_GET['tokenGet'] : "erreur";
         }
 
         public function getAction(){
@@ -50,13 +49,14 @@
         public function exec(){
             switch ($this->getAction()) {
                 case "afficher_rea":
+                    genererToken();
                     $this->afficher_rea();
                     break;
-                case "afficher_video":
-                    $this->afficher_video();
-                    break;
                 case "supprimer_video":
-                    $this->supprimer_rea();
+                    if(verifTokenGet($this->tokenGet)){
+                        $this->supprimer_rea();
+                    }
+                    supprimerToken();
                     $this->afficher_rea();
                     break;
                 case "form_ajout_rea":
@@ -65,9 +65,21 @@
                     break;
                 case "ajout_rea":
                     if(verifToken()){
-                        $this->ajout_rea();
+                    $this->ajout_rea();
                     }
                     supprimerToken();
+                    $this->afficher_rea();
+                    break;
+                case "form_modif_rea":
+                    genererToken();
+                    $this->form_modif_rea();
+                    break;
+                case "modif_rea":
+                    if(verifToken()){
+                        $this->modif_rea();
+                    }
+                    supprimerToken();
+                    $this->afficher_rea();
                     break;
             }
             global $affichage;
