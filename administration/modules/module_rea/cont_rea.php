@@ -29,8 +29,8 @@
             $this->vue->afficher_video($this->video, $this->modele->video($this->video));
         }
 
-        public function supprimer_video(){
-            $this->modele->supprimer_video($this->video);
+        public function supprimer_rea(){
+            $this->modele->supprimer_rea($this->video);
         }
 
         public function form_ajout_rea(){
@@ -44,19 +44,21 @@
         public function exec(){
             switch ($this->getAction()) {
                 case "afficher_rea":
-                    $this->afficher_rea();    
+                    $this->afficher_rea();
                     break;
                 case "afficher_video":
                     $this->afficher_video();
                     break;
                 case "supprimer_video":
-                    $this->supprimer_video();
+                    $this->supprimer_rea();
+                    $this->afficher_rea();
                     break;
                 case "form_ajout_rea":
                     $this->form_ajout_rea();
                     break;
                 case "ajout_rea":
                     $this->ajout_rea();
+                    $this->afficher_rea();
                     break;
             }
             global $affichage;

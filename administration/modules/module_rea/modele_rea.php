@@ -21,13 +21,13 @@
             return $tab[0];
         }
 
-        public function supprimer_video($video){
-            $req = self::$bdd->prepare('DELETE FROM realisations WHERE titre = ?');
-            $req->execute(array($video));
+        public function supprimer_rea($id){
+            $req = self::$bdd->prepare('DELETE FROM realisations WHERE id = ?');
+            $req->execute(array($id));
         }
 
         public function ajout_rea(){
-            if (mime_content_type($_FILES['imageToUpload']['tmp_name']) == 'image/png' || ($_FILES['imageToUpload']['tmp_name']) == 'image/png' || ($_FILES['imageToUpload']['tmp_name']) == 'image/png'){
+            if (mime_content_type($_FILES['imageToUpload']['tmp_name']) == 'image/png' || mime_content_type($_FILES['imageToUpload']['tmp_name']) == 'image/jpg' || mime_content_type($_FILES['imageToUpload']['tmp_name']) == 'image/jpeg' || mime_content_type($_FILES['imageToUpload']['tmp_name']) == 'image/JPG'){
                 move_uploaded_file($_FILES['imageToUpload']['tmp_name'], "./media/".$_FILES['imageToUpload']['name']);
                 $rea = array($_FILES['imageToUpload']["name"], $_POST['titre'], $_POST['lien_video']);
                 $req = self::$bdd->prepare('INSERT INTO realisations(lien_photo, titre, lien_video) VALUES(?,?,?)');
