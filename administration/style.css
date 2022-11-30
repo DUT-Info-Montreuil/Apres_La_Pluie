@@ -1,6 +1,7 @@
 :root{
     --nwar: rgba(5,28,36,255);
     --bleuu: rgba(4,187,255,255);
+    --entreDeux: rgba(0, 103, 141, 255);
 }
 
 html{
@@ -18,9 +19,25 @@ nav{
     background-color : var(--bleuu);
 }
 
+.navbar{
+    margin : 0px;
+    padding: 0px;
+    justify-items: center;
+    align-items: center;
+}
+
+#nav-droite{
+    position: absolute;
+    right:0;
+}
+
 #logo{
-    width: 3em;
-    height: 3em;
+    width: 4em;
+}
+
+.img-tab{
+    width: 5em;
+    height: 5em;
 }
 
 .codeco{
@@ -31,13 +48,17 @@ nav{
     color: var(--bleuu);
 }
 
-.align{
-    display : inline-flex;
+#div-realisations{
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .lien_rea:link{
     text-decoration: none;
 }
+
+
 
 .titre_rea{
     color: black;
@@ -46,10 +67,16 @@ nav{
 .iconFAQ{
     max-width: 1em;
     max-height: 1em;
+    transition: 0.2s;
+}
+
+.iconFAQ:hover{
+    transform : scale(1.2);
 }
 
 textarea {
     resize: none;
+    width: 100%;
   }
 
 .realisations{

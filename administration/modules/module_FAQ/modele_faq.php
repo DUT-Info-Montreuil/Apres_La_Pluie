@@ -18,5 +18,10 @@
             $selecPrepare = self::$bdd->prepare('SELECT question, reponse FROM faq');
 		    $selecPrepare->execute();
         }
+
+        public function ajouterALaFAQ(){
+            $selecPrepare = self::$bdd->prepare('INSERT faq(question, reponse) values (?, ?) ');
+		    $selecPrepare->execute(array($_POST['ajouterQuestion'], $_POST['ajouterRéponse']));
+        }
     }
 ?>

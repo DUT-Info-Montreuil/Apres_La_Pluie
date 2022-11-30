@@ -1,6 +1,7 @@
 :root{
     --nwar: rgba(5,28,36,255);
-    --bleuu: rgba(4,187,255,255);
+    /* --bleuu: rgba(4,187,255,255); */
+    --bleuu: rgba(0,112,240,255);
     --entreDeux: rgba(0, 103, 141, 255);
 }
 
@@ -12,6 +13,10 @@ main{
     background-color: var(--nwar);
 }
 
+footer{
+    background-color : var(--bleuu);
+}
+
 body{
     background-color: var(--nwar);
     min-height: 100%; 
@@ -19,14 +24,38 @@ body{
     padding:0; 
 }
 
-nav{
+ul{
+    list-style-type: none
+}
+
+#navPrincipale{
     background-color : var(--bleuu);
 }
 
-#logo{
-    width: 3em;
-    height: 3em;
+#navBar{
+    align-items: center;
 }
+
+
+#logo{
+    width: 3.5em;
+}
+
+#logo_perso{
+    width: 1em;
+}
+
+
+.navbar{
+    margin : 0px;
+    padding: 0px;
+}
+
+.nav-droite{
+    position: absolute;
+    right:0.5em;
+}
+
 
 .codeco{
     float: right;
@@ -36,9 +65,9 @@ nav{
     color: var(--bleuu);
 }
 
-.align{
-    display: inline-block;
-    width: 33%;
+#div-realisations{
+    display: inline-flex;
+    justify-content: center;    
 }
 
 .fullLarg{
@@ -106,4 +135,64 @@ nav{
 
 .realisations{
     width : 16em;
+    border-radius: 5%;
+    transition: 0.2s;
+}
+
+.realisations:hover{
+    transform : scale(1.05);
+}
+
+
+/* ACCUEIL */
+.acc{
+    margin-top: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0%;
+    width: 50em;
+    max-height: 45em;
+}
+
+.imgAccueil{
+    display: absolute;
+    width: 16em;
+    margin:auto;
+    padding: 0.5em;
+    border-radius: 2%;
+}
+
+#imgA2{
+    position: relative;
+    margin-top: 5em;
+}
+
+.text-acc{
+    color : black;
+    border : 5px solid var(--bleuu);
+    z-index: 1;
+    position: relative;
+    width: 500px;
+    margin:auto;
+    bottom:22em;
+    opacity: 0.7;
+    border-radius: 5%;
+    background-color: var(--bleuu);
+}
+
+#titre_accueil{
+    color: var(--bleuu);
+    font-weight: bolder;
+    text-align: center;
+    font-family: fantasy;
+}
+
+#bouton-modif-mdp{
+    position: absolute;
+    left: 7em;
+}
+
+.align{
+    width: 33%;
+    display: inline-block;
 }
