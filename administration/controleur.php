@@ -35,6 +35,12 @@
                 case 'FAQ' :
                     new ModFAQ();
                     break;
+                case 'GestionUtilisateur':
+                    new ModUtilisateur();
+                    break;
+                case 'reservation':
+                    new ModReservation();
+                    break;
             }
         }
     }
