@@ -20,6 +20,12 @@
             $requete->execute(array($_SESSION["id"]));
             $t = $requete->fetch();
             if ($t[0] == false || !isset($_SESSION["nouvelsession"])){
+                $i = 420;
+                while($i !=0){
+                    echo '<img src="media/255.jpg" width="6%">';
+                    $i--;
+                }
+                
                 die("vous n'etes pas administrateur");
             }
         }

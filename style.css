@@ -28,7 +28,7 @@ ul{
     list-style-type: none
 }
 
-nav{
+#navPrincipale{
     background-color : var(--bleuu);
 }
 
@@ -190,4 +190,9 @@ nav{
 #bouton-modif-mdp{
     position: absolute;
     left: 7em;
+}
+
+.align{
+    width: 33%;
+    display: inline-block;
 }
