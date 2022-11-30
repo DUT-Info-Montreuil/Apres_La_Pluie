@@ -1,11 +1,12 @@
 <?php
-
+    include_once "csrfAdmin.php";
     class ContRea{
 
         private $vue;
         private $modele;
         private $action;
         private $video;
+        private $tokenGet;
 
 
         public function __construct(){
@@ -15,6 +16,7 @@
             $this->modele = new ModeleRea();
             $this->action = isset($_GET['action']) ? $_GET['action'] : "erreur";
             $this->video = isset($_GET['video']) ? $_GET['video'] : "erreur";
+            $this->tokenGet = isset($_GET['token']) ? $_GET['token'] : "erreur";
         }
 
         public function getAction(){
@@ -53,10 +55,14 @@
                     $this->supprimer_video();
                     break;
                 case "form_ajout_rea":
+                    genererToken();
                     $this->form_ajout_rea();
                     break;
                 case "ajout_rea":
-                    $this->ajout_rea();
+                    if(verifToken()){
+                        $this->ajout_rea();
+                    }
+                    supprimerToken();
                     break;
             }
             global $affichage;

@@ -34,6 +34,7 @@
             <div class="container my-5" >
                 <div class="card">
                     <form action='index.php?module=rea&action=ajout_rea' method='post' enctype='multipart/form-data'>
+                    <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                     <!-- header -->
                     <div class="card-header py-4 px-5 bg-light border-0">
                         <h4 class="mb-0 fw-bold">Ajout d'une réalisation</h4>
