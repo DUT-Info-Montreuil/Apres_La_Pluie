@@ -14,10 +14,20 @@ if(isset($_POST['nomFonction'])){
 }
 
 function chercherEvenements(){
+    $json = NULL;
     global $bd;
-    $selecPrepare = $bd->prepare("Select admin FROM roles WHERE id_utilisateur = ?");
+    $selecPrepare = $bd->prepare("SELECT date, heure, duree FROM reservations");
     $selecPrepare->execute();
-    $resultat = $selecPrepare->fetch();
-    return json_encode($resultat);
+    $resultat = $selecPrepare->fetchAll();
+
+    foreach($resultat as $key){
+
+        $result = [];
+        $result['start'] = $key['date'] . " " . $heure = $key['heure'];
+        $result['end'] = $key['date'];
+        $json .= json_encode($result) . ',';
+        
+    }
+    echo json_encode($json);
 }
 ?>

@@ -142,10 +142,10 @@
                             <!-- Account section -->
                             <div class="row gx-xl-5">
                                 <div class="col-md-4">
-                                    <p class="text-muted">Tout ce qu'on doit savoir pour venir tourner ton clip !</p>
+                                    <p class="text-muted">Tout ce qu'on doit savoir pour venir tourner ton clip ! </p>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Idee générale du clip</label>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Idee générale du clip & disponibilitées</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="ideeGenerale" required></textarea>
                                 </div>
 
@@ -153,7 +153,7 @@
                                     <v-app id="inspire">
                                     <v-row>
                                         <v-col>
-                                        <v-sheet height="600">
+                                        <v-sheet height="800">
                                             <v-calendar
                                             ref="calendar"
                                             :now="today"

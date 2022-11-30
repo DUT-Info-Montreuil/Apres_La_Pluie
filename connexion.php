@@ -23,5 +23,9 @@
 
             self::$bdd = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         }
+
+        public static function getbdd(){
+            return self::$bdd;
+        }
     }
 ?>
