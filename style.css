@@ -28,7 +28,7 @@ ul{
     list-style-type: none
 }
 
-nav{
+#navPrincipale{
     background-color : var(--bleuu);
 }
 
@@ -199,10 +199,15 @@ nav{
     left: 4px;
     margin-right: 8px;
     position: relative;
-    }
+}
     
-    .my-event.with-time {
+.my-event.with-time {
     position: absolute;
     right: 4px;
     margin-right: 0px;
-    }
+}
+
+.align{
+    width: 33%;
+    display: inline-block;
+}

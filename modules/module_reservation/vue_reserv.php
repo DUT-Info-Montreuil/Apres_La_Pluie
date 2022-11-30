@@ -46,7 +46,7 @@
                 <?php
             } else {
                 ?>
-                            <div class="form-floating fullLarg marg-choix">
+                            <div class="form-floating marg-choix">
                                 <?php echo '<select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="ajoutSupp'. $compt .'">';?>
                                     <option value="0" selected>Je ne ceux pas ce supplement</option>
                                     <?php
