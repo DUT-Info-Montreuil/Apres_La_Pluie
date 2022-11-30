@@ -15,7 +15,7 @@
         $num_tel = $tab['num_tel'];
         $preference_contact = $tab['preference_contact'];
         ?>
-                <div class="container my-5">
+                <div class="container py-5">
                     <div class="card">
                         <form action='index.php?module=infoPerso&action=modif_info' method='post'>
                         <!-- header -->

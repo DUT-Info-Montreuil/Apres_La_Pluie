@@ -208,46 +208,9 @@
             <?php
         }
 
-        /*
-        public function afficheRecap(){
-            ?>
-                <table class="table bg-light rounded-3">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider Xborder">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            <?php
-        }
-        */
-
         public function affichePasCo(){
             ?>
-            <div class="container my-5" >
+            <div class="container py-5" >
                     <div class="card">
                         <!-- header -->
                         <div class="card-header py-4 px-3 bg-light border-0">
@@ -273,7 +236,7 @@
         public function accordeon($tab, $tab2){
             ?>
             <div class="accordion bords container" id="accordionExample">
-                <form action='index.php?module=reserv&action=insererSupp' method='post'> <!-- TODO : RAJOUTER UNE ACTION -->
+                <form action='index.php?module=reserv&action=insererSupp' method='post'>
                     <div class="accordion-item bg-clr">
                         <h2 class="" id="headingOne">
                         <button class="accordion-button acrd-hd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

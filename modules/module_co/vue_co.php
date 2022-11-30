@@ -15,7 +15,7 @@
                         <input type='password' placeholder="password" name='password'><br>
                         <input type="submit">
                 </form> -->
-                <div class="container my-5" >
+                <div class="container py-5" >
                     <div class="card">
                         <form action='index.php?module=co&action=validerco' method='post'>
                         <!-- header -->
@@ -62,7 +62,7 @@
 
         public function form_inscription(){
             ?>
-                <div class="container my-5">
+                <div class="container py-5">
                     <div class="card">
                         <form action='index.php?module=co&action=validerins' method='post'>
                         <!-- header -->
