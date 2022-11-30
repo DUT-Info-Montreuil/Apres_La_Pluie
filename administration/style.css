@@ -50,12 +50,15 @@ nav{
 
 #div-realisations{
     display: inline-flex;
-    justify-content: center;    
+    justify-content: center;
+    flex-direction: column;
 }
 
 .lien_rea:link{
     text-decoration: none;
 }
+
+
 
 .titre_rea{
     color: black;
@@ -64,6 +67,11 @@ nav{
 .iconFAQ{
     max-width: 1em;
     max-height: 1em;
+    transition: 0.2s;
+}
+
+.iconFAQ:hover{
+    transform : scale(1.2);
 }
 
 textarea {
@@ -73,7 +81,14 @@ textarea {
 
 .realisations{
     width : 16em;
+    border-radius: 5%;
+    transition: 0.2s;
 }
+
+.realisations:hover{
+    transform : scale(1.05);
+}
+
 table,th,td{
     border:1px solid #cccccc
 }

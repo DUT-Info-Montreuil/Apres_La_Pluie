@@ -32,6 +32,10 @@ ul{
     background-color : var(--bleuu);
 }
 
+#navBar{
+    align-items: center;
+}
+
 
 #logo{
     width: 3.5em;
@@ -131,6 +135,12 @@ ul{
 
 .realisations{
     width : 16em;
+    border-radius: 5%;
+    transition: 0.2s;
+}
+
+.realisations:hover{
+    transform : scale(1.05);
 }
 
 
