@@ -88,18 +88,17 @@ textarea {
 .realisations:hover{
     transform : scale(1.05);
 }
-
+/* Mise en forme des tableaux */
 table,th,td{
     border:1px solid #cccccc
 }
-
+/* Message d'avertissement */
 .warning{
     color: red;
 }
-
-table thead tbody tr{
-    max-width: 100%!important;
-    min-width: fit-content;
+/* Bar de recherche */
+#live-search{
+    margin-bottom: 2em;
 }
 
 
