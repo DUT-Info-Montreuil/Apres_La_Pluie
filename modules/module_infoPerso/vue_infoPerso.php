@@ -44,28 +44,28 @@
                             <div class="col-md-8">
                                 <div class="mb-3">
                                     <label for="exampleInput1" class="form-label">Login</label>
-                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name="login" value= "<?php echo $login; ?>" required>
+                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name="login" value= "<?php echo htmlspecialchars($login); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput1" class="form-label">Nom</label>
-                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom' value= "<?php echo $nom; ?>" required>
+                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom' value= "<?php echo htmlspecialchars($nom); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput1" class="form-label">Prenom</label>
-                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='prenom' value= "<?php echo $prenom; ?>" required>
+                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='prenom' value= "<?php echo htmlspecialchars($prenom); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput1" class="form-label"
                                             >Nom D'artiste</label>
-                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom_artiste' value= "<?php echo $nom_artiste; ?>" required>
+                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom_artiste' value= "<?php echo htmlspecialchars($nom_artiste); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput2" class="form-label">Adresse Email</label>
-                                    <input type="email" class="form-control" id="exampleInput2" style="max-width: 500px;" name='email' value= "<?php echo $mail; ?>" required>
+                                    <input type="email" class="form-control" id="exampleInput2" style="max-width: 500px;" name='email' value= "<?php echo htmlspecialchars($mail); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput3" class="form-label">numéro de telephone</label>
-                                    <input type="tel" class="form-control" id="exampleInput3" style="max-width: 300px;" name='tel' pattern="[0-9]{10}" value= "<?php echo $num_tel; ?>" required>
+                                    <input type="tel" class="form-control" id="exampleInput3" style="max-width: 300px;" name='tel' pattern="[0-9]{10}" value= "<?php echo htmlspecialchars($num_tel); ?>" required>
                                 </div>
                                     <label>Preference contact : </label>
                                     <?php $this->preference_contact($preference_contact); ?>
@@ -171,12 +171,12 @@
                                             foreach($resa as $key){
                                                 echo'
                                                     <tr>
-                                                            <th scope="row">'. $key['date'] .'</th>
-                                                            <td>'. $key['heure'] .'</td>
-                                                            <td>'. $key['duree'] .'</td>
-                                                            <td>'. $key['idee_generale'] .'</td>
-                                                            <td>'. $key['nom'] .'</td>
-                                                            <td>'. $key['adresse'] .'</td>
+                                                            <th scope="row">'. htmlspecialchars($key['date']) .'</th>
+                                                            <td>'. htmlspecialchars($key['heure']) .'</td>
+                                                            <td>'. htmlspecialchars($key['duree']) .'</td>
+                                                            <td>'. htmlspecialchars($key['idee_generale']) .'</td>
+                                                            <td>'. htmlspecialchars($key['nom']) .'</td>
+                                                            <td>'. htmlspecialchars($key['adresse']) .'</td>
                                                         ';
                                                         ?>
                                                     </tr>
