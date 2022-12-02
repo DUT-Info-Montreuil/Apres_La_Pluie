@@ -6,6 +6,31 @@
         parent::__construct();
     }
 
+    public function affichePasCo(){
+        ?>
+        <div class="container my-5" >
+                <div class="card">
+                    <!-- header -->
+                    <div class="card-header py-4 px-3 bg-light border-0">
+                        <h4 class="mb-0 fw-bold text-center">ATTENTION !</h4>
+                    </div>
+                    <!-- en bas -->
+                    <div class="card-footer text-end py-4 px-5 bg-light border-0">
+                        <p class="text-muted text-center">Vous devez avoir un compte pour accéder à vos informations personnelles</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="index.php?module=co&action=inscription">
+                                <button class="btn btn-primary btn-rounded m-1">Je n'ai pas de compte</button>
+                            </a> 
+                            <a href="index.php?module=co&action=connexion">
+                                <button class="btn btn-primary btn-rounded m-1">J'ai déjà un compte</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php
+    }
+
     public function afficher_info($tab){
         $login = $tab['login'];
         $nom = $tab['nom'];

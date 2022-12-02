@@ -7,6 +7,10 @@
         public function __construct(){
         }
 
+        public function verifConnexion(){
+            return (isset($_SESSION['id']) && isset($_SESSION['nouvelsession']));
+        }
+
         public function get_liste_info(){
             if(isset($_SESSION["id"])){
                 $selecPrepare = self::$bdd->prepare('SELECT `login`, `password`, `nom`, `prenom`, `nom_artiste`, `mail`, `num_tel`, `preference_contact` FROM `utilisateurs` WHERE id=?');

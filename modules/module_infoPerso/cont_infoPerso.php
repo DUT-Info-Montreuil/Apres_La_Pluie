@@ -19,11 +19,27 @@
         }
 
         public function info(){
-            $this->vue->afficher_info($this->modele->get_liste_info());
+            if ($this->modele->verifConnexion()){
+                $this->vue->afficher_info($this->modele->get_liste_info());
+            }else{
+                $this->vue->affichePasCo();
+            }
         }
 
         public function afficher_reservations(){
             $this->vue->afficher_reservations($this->modele->get_reservations());
+        }
+
+        public function changer_info(){
+            $this->modele->changer_info();
+        }
+
+        public function form_modif_mdp(){
+            $this->vue->form_modif_mdp();
+        }
+
+        public function modif_mdp(){
+            $this->modele->modif_mdp();
         }
 
         public function exec(){
@@ -32,13 +48,13 @@
                     $this->info();
                     break;
                 case "modif_info":
-                    $this->modele->changer_info();
+                    $this->changer_info();
                     break;
                 case "form_modif_mdp":
-                    $this->vue->form_modif_mdp();
+                    $this->form_modif_mdp();
                     break;
                 case "modif_mdp":
-                    $this->modele->modif_mdp();
+                    $this->modif_mdp();
                     break;
                 case "afficher_reservations":
                     $this->afficher_reservations();
