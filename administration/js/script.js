@@ -25,9 +25,56 @@ $(document).ready(function(){
                 });
             });
         }else{
-            $("#searchresult").empty();
+            $.ajax({
+            method: "POST",
+            url:"./js/fonction-ajax.php",
+            data:{
+                nomFonction: 'barDeRecherche'
+            },
+            dataType : 'html'
+
+            })
+            .done(function( resultat ){
+
+                $("#searchresult").html(resultat);
+
+                $(".boutonModifier").on('click', function(){
+                    modifierRole($(this));        
+                });
+
+                $(".boutonSupprimer").on('click', function(){
+                    supprimerUtilisateur($(this));        
+                });
+            });
         }
     });
+    $.ajax({
+        method: "POST",
+        url:"./js/fonction-ajax.php",
+        data:{
+            nomFonction: 'barDeRecherche'
+        },
+        dataType : 'html'
+
+        })
+        .done(function( resultat ){
+
+            $("#searchresult").html(resultat);
+
+            $(".boutonModifier").on('click', function(){
+                modifierRole($(this));        
+            });
+
+            $(".boutonSupprimer").on('click', function(){
+                supprimerUtilisateur($(this));        
+            });
+        });
+
+    
+
+    
+
+
 
     $(".boutonSupprimerFAQ").click(function(){
         var idFAQ = this.id.replace ( /[^\d.]/g, '' );
@@ -78,12 +125,14 @@ $(document).ready(function(){
     $('#modal-video').on('shown.bs.modal', function (e) {  
     // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
     $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
-    })
+    });
     // stop playing the youtube video when I close the modal
     $('#modal-video').on('hide.bs.modal', function (e) {
     // a poor man's stop video
     $("#video").attr('src',$videoSrc); 
-    })
+    });
+
+
 });
 
 function modifierRole(e){
