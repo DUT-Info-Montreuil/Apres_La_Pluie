@@ -9,13 +9,13 @@
             if (!empty($description)){
                 ?>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#<?php echo $targetNom . "$compt" ?>">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#<?php echo htmlspecialchars($targetNom) . "$compt" ?>">
                         Plus d'informations
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="<?php echo $targetNom . "$compt" ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal fade" id="<?php echo htmlspecialchars($targetNom) . "$compt" ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
@@ -23,8 +23,13 @@
                                 </div>
                                 <div class="modal-body d-flex justify-content-center">
                                     <?php
-                                        echo '<img class="img-modal-reserv" src="./administration/media/' . $gifA . '" alt=""> <img class="img-modal-reserv" src="administration/media/' . $gifS . '" alt="">';
+                                        echo '<img class="img-modal-reserv" src="./administration/media/' 
+                                        . htmlspecialchars($gifA) . '" alt=""> <img class="img-modal-reserv" src="administration/media/' 
+                                        . htmlspecialchars($gifS) . '" alt="">';
                                     ?>
+                                </div>
+                                <div class="modal-footer d-flex justify-content-center">
+                                    <p class="description-supp"><?php echo $description ?></p>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +43,7 @@
             if($choix != 1){
                 ?>
                             <div class="form-check form-switch marg-btn">
-                                <?php echo '<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="ajoutSupp'. $compt .'" value="'.$tabOptions[$value][1].'">'; ?>
+                                <?php echo '<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="ajoutSupp'. htmlspecialchars($compt) .'" value="'. htmlspecialchars($tabOptions[$value][1]).'">'; ?>
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Ajouter à mon clip</label>
                             </div>
                         </div>
@@ -52,7 +57,7 @@
                                     <?php
                                         for($i = 0; $i < count($tabOptions); $i++){
                                             echo'
-                                            <option value="'. $tabOptions[$i][1] .'">'. $tabOptions[$i][0] .'</option>
+                                            <option value="'. htmlspecialchars($tabOptions[$i][1]) .'">'. htmlspecialchars($tabOptions[$i][0]) .'</option>
                                             ';
                                         }
                                     ?>    
@@ -70,8 +75,8 @@
             echo '
             <div class="align">
                 <div class="col-md-6 col-lg-4 mb-4 fullLarg">
-                    <h3>'. $nom .' </h3>
-                    <p> prix : '. $prix .'€ </p>';
+                    <h3>'. htmlspecialchars($nom) .' </h3>
+                    <p> prix : '. htmlspecialchars($prix) .'€ </p>';
         }
 
         public function afficheSupps($tab, $tab2){
@@ -208,46 +213,9 @@
             <?php
         }
 
-        /*
-        public function afficheRecap(){
-            ?>
-                <table class="table bg-light rounded-3">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider Xborder">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            <?php
-        }
-        */
-
         public function affichePasCo(){
             ?>
-            <div class="container my-5" >
+            <div class="container py-5" >
                     <div class="card">
                         <!-- header -->
                         <div class="card-header py-4 px-3 bg-light border-0">
@@ -273,9 +241,10 @@
         public function accordeon($tab, $tab2){
             ?>
             <div class="accordion bords container" id="accordionExample">
-                <form action='index.php?module=reserv&action=insererSupp' method='post'> <!-- TODO : RAJOUTER UNE ACTION -->
+                <form action='index.php?module=reserv&action=insererSupp' method='post'>
+                <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                     <div class="accordion-item bg-clr">
-                        <h2 class="" id="headingOne">
+                        <h2 id="headingOne">
                         <button class="accordion-button acrd-hd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             SUPPLEMENTS
                         </button>
@@ -285,7 +254,7 @@
                         </div>
                     </div>
                     <div class="accordion-item bg-clr">
-                        <h2 class="" id="headingTwo">
+                        <h2 id="headingTwo">
                             <button class="accordion-button collapsed acrd-hd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 INFOS
                             </button>

@@ -25,7 +25,7 @@ class VueMenu {
         '<li class="nav-item active"><a class="nav-link" href="index.php?module=GestionReservation"><h3>GestionReservation</h3></a></li></ul></div>'.
 
         '<div class="collapse navbar-collapse" id="nav-droite"><ul class="navbar-nav navbar">' .
-        '<li class="nav-item active"><a class="nav-link" href="../index.php"><h3>COTE UTILISATEUR</h3></a></li>
+        '<li class="active"><a class="nav-brand" href="../index.php"><h3>COTE UTILISATEUR</h3></a></li>
         </ul></div>';      
     }
 }

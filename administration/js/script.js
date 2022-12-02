@@ -75,7 +75,6 @@ $(document).ready(function(){
         $videoSrc = $(this).data( "src" );
         console.log($videoSrc);
     });
-    
     // when the modal is opened autoplay it  
     $('#modal-video').on('shown.bs.modal', function (e) {  
     // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get

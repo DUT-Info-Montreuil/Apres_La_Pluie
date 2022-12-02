@@ -5,7 +5,7 @@
 
         public function afficher_rea($tab){
             ?>
-            <div class="container my-5" >
+            <div class="container py-5" >
             <div class="card">
                 <!-- header -->
                 <div class="card-header py-4 px-5 bg-light border-0">
@@ -21,9 +21,9 @@
                                 $lien_video = $val[3];
                                 echo 
                                 '<div class="col-md-6 col-lg-4 mb-4" id="div-realisations">
-                                    <a href="" class="md-3 text-primary lien_rea video-btn" data-bs-toggle="modal" data-bs-target="#modal-video" data-src="'. $lien_video .'">
-                                        <img class="realisations" src="administration/media/' . $lien_photo . '">
-                                        <p class="titre_rea">' . $titre . '</p> 
+                                    <a href="" class="md-3 text-primary lien_rea video-btn" data-bs-toggle="modal" data-bs-target="#modal-video" data-src="'. htmlspecialchars($lien_video) .'">
+                                        <img class="realisations" src="administration/media/' . htmlspecialchars($lien_photo) . '">
+                                        <p class="titre_rea">' . htmlspecialchars($titre) . '</p> 
                                     </a>                                    
                                 </div>';
                             }
@@ -46,11 +46,6 @@
             </div>
             <?php
         }
-
-        // public function afficher_video($video, $lien_video){
-        //     echo '<h3>'. $video .'</h3>';
-        //     echo '<iframe width="560" height="315" src="'. $lien_video .'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-        // }
     }
     
 ?>
