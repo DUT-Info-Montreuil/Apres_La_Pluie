@@ -169,6 +169,11 @@ a:hover{
     transform : scale(1.05);
 }
 
+.align{
+    width: 33%;
+    display: inline-block;
+}
+
 
 /* ACCUEIL */
 .acc{
@@ -231,12 +236,21 @@ a:hover{
     box-shadow: 0px 0px 30px var(--bleuu);
 }
 
-#bouton-modif-mdp{
-    position: absolute;
-    left: 7em;
+/* INFO PERSO */
+#header-info-perso{
+    display: inline-flex;
+    width:100%;
 }
 
-.align{
-    width: 33%;
-    display: inline-block;
+#titre-mes-reserv{
+    width:auto;
+}
+
+#bouton-modif-mdp{
+    position: absolute;
+    right:1em;
+}
+
+#bouton-mes-reserv{
+    margin-top: 3em;
 }

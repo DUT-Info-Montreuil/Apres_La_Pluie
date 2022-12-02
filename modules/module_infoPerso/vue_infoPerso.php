@@ -6,6 +6,31 @@
         parent::__construct();
     }
 
+    public function affichePasCo(){
+        ?>
+        <div class="container my-5" >
+                <div class="card">
+                    <!-- header -->
+                    <div class="card-header py-4 px-3 bg-light border-0">
+                        <h4 class="mb-0 fw-bold text-center">ATTENTION !</h4>
+                    </div>
+                    <!-- en bas -->
+                    <div class="card-footer text-end py-4 px-5 bg-light border-0">
+                        <p class="text-muted text-center">Vous devez avoir un compte pour accéder à vos informations personnelles</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="index.php?module=co&action=inscription">
+                                <button class="btn btn-primary btn-rounded m-1">Je n'ai pas de compte</button>
+                            </a> 
+                            <a href="index.php?module=co&action=connexion">
+                                <button class="btn btn-primary btn-rounded m-1">J'ai déjà un compte</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php
+    }
+
     public function afficher_info($tab){
         $login = $tab['login'];
         $nom = $tab['nom'];
@@ -20,8 +45,13 @@
                         <form action='index.php?module=infoPerso&action=modif_info' method='post'>
                         <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                         <!-- header -->
-                        <div class="card-header py-4 px-5 bg-light border-0">
-                            <h4 class="mb-0 fw-bold">Vos informations personnelles</h4>
+                        <div class="card-header py-4 px-5 bg-light border-0" id="header-info-perso">
+                            <h4 class="mb-0 fw-bold" id="titre-mes-reserv">Vos informations personnelles</h4>
+                            <a href="index.php?module=infoPerso&action=form_modif_mdp"> 
+                                <button type="button" class="btn btn-outline-danger btn-rounded btn-lg" id="bouton-modif-mdp">
+                                Modifier mot de passe</button>
+                            </a>
+                            
                         </div>
 
                         <!-- body -->
@@ -31,33 +61,37 @@
                             <div class="col-md-4">
                                 <h5>Compte</h5>
                                 <p class="text-muted">Modifier vos informations personnelles</p>
+                                <a href="index.php?module=infoPerso&action=afficher_reservations"> 
+                                <button type="button" class="btn btn-warning btn-rounded btn-lg" id="bouton-mes-reserv">
+                                Liste de mes réservations</button>
+                            </a>
                             </div>
 
                             <div class="col-md-8">
                                 <div class="mb-3">
                                     <label for="exampleInput1" class="form-label">Login</label>
-                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name="login" value= "<?php echo $login; ?>" required>
+                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name="login" value= "<?php echo htmlspecialchars($login); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput1" class="form-label">Nom</label>
-                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom' value= "<?php echo $nom; ?>" required>
+                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom' value= "<?php echo htmlspecialchars($nom); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput1" class="form-label">Prenom</label>
-                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='prenom' value= "<?php echo $prenom; ?>" required>
+                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='prenom' value= "<?php echo htmlspecialchars($prenom); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput1" class="form-label"
                                             >Nom D'artiste</label>
-                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom_artiste' value= "<?php echo $nom_artiste; ?>" required>
+                                    <input type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom_artiste' value= "<?php echo htmlspecialchars($nom_artiste); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput2" class="form-label">Adresse Email</label>
-                                    <input type="email" class="form-control" id="exampleInput2" style="max-width: 500px;" name='email' value= "<?php echo $mail; ?>" required>
+                                    <input type="email" class="form-control" id="exampleInput2" style="max-width: 500px;" name='email' value= "<?php echo htmlspecialchars($mail); ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInput3" class="form-label">numéro de telephone</label>
-                                    <input type="tel" class="form-control" id="exampleInput3" style="max-width: 300px;" name='tel' pattern="[0-9]{10}" value= "<?php echo $num_tel; ?>" required>
+                                    <input type="tel" class="form-control" id="exampleInput3" style="max-width: 300px;" name='tel' pattern="[0-9]{10}" value= "<?php echo htmlspecialchars($num_tel); ?>" required>
                                 </div>
                                     <label>Preference contact : </label>
                                     <?php $this->preference_contact($preference_contact); ?>
@@ -68,14 +102,8 @@
                         
                         <!-- en bas -->
                         <div class="card-footer text-end py-4 px-5 bg-light border-0">
-                            <a href="index.php?module=infoPerso&action=form_modif_mdp"> 
-                                <button type="button" class="btn btn-primary btn-rounded" id="bouton-modif-mdp">
-                                Modifier mot de passe
-                                </button>
-                            </a>
                             <button type="submit" class="btn btn-primary btn-rounded">
-                            Modifier info perso
-                            </button>
+                            Modifier info perso</button>
                         </div>
                         </form>
                     </div>
@@ -141,6 +169,54 @@
                     </div>
                 </div>
             <?php
+    }
+
+    public function afficher_reservations($resa){
+        ?>
+        <div class="container my-5" >
+                <div class="card">
+                    <div class="card-header py-4 px-5 bg-light border-0">
+                        <h4 class="mb-0 fw-bold">Mes réservations</h4>
+                        <p>Pour toute modification, veuillez nous contacter.</p>
+                    </div>
+                    <div class="card-body px-5 ">
+                        <table class="table bg-light rounded-3 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">date</th>
+                                            <th scope="col">heure</th>
+                                            <th scope="col">durée</th>
+                                            <th scope="col">idée générale</th>
+                                            <th scope="col">lieu</th>
+                                            <th scope="col">adresse</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider Xborder">
+                                    <?php
+                                        $targetNom = "modalSupprimer";
+                                        if (isset($resa)){
+                                            foreach($resa as $key){
+                                                echo'
+                                                    <tr>
+                                                            <th scope="row">'. htmlspecialchars($key['date']) .'</th>
+                                                            <td>'. htmlspecialchars($key['heure']) .'</td>
+                                                            <td>'. htmlspecialchars($key['duree']) .'</td>
+                                                            <td>'. htmlspecialchars($key['idee_generale']) .'</td>
+                                                            <td>'. htmlspecialchars($key['nom']) .'</td>
+                                                            <td>'. htmlspecialchars($key['adresse']) .'</td>
+                                                        ';
+                                                        ?>
+                                                    </tr>
+                                                <?php
+                                            }
+                                        }
+                                    ?>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                <?php
     }
 
     }
