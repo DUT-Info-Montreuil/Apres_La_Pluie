@@ -15,7 +15,7 @@
 
                     <!-- Modal -->
                     <div class="modal fade" id="<?php echo htmlspecialchars($targetNom) . "$compt" ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
@@ -23,8 +23,13 @@
                                 </div>
                                 <div class="modal-body d-flex justify-content-center">
                                     <?php
-                                        echo '<img class="img-modal-reserv" src="./administration/media/' . htmlspecialchars($gifA) . '" alt=""> <img class="img-modal-reserv" src="administration/media/' . htmlspecialchars($gifS) . '" alt="">';
+                                        echo '<img class="img-modal-reserv" src="./administration/media/' 
+                                        . htmlspecialchars($gifA) . '" alt=""> <img class="img-modal-reserv" src="administration/media/' 
+                                        . htmlspecialchars($gifS) . '" alt="">';
                                     ?>
+                                </div>
+                                <div class="modal-footer d-flex justify-content-center">
+                                    <p class="description-supp"><?php echo $description ?></p>
                                 </div>
                             </div>
                         </div>

@@ -116,8 +116,13 @@ a:hover{
 }
 
 .img-modal-reserv{
-    width: 10em;
-    height: 10em;
+    width: 20em;
+    height: 20em;
+    padding: auto;
+}
+
+.description-supp{
+    font-size: large;
 }
 
 .acrd-crp{
