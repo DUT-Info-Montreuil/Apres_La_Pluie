@@ -1,5 +1,5 @@
 <?php
-
+    include_once "csrf.php";
     class ContCo{
 
         private $vue;
@@ -55,19 +55,27 @@
         public function exec(){
             switch ($this->getAction()) {
                 case "inscription":
+                    genererToken();
                     $this->form_ins();
                     break;
                 
                 case "connexion" :
+                    genererToken();
                     $this->form_con();
                     break;
 
                 case "validerco" : 
-                    $this->connexion();
+                    if(verifToken()){
+                        $this->connexion();
+                    }
+                    supprimerToken();
                     break;
 
                 case "validerins" : 
-                    $this->inscription();
+                    if(verifToken()){
+                        $this->inscription();
+                    }
+                    supprimerToken();
                     break;
                 
                 case "deconnexion" : 

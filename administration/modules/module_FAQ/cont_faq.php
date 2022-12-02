@@ -1,6 +1,7 @@
 <?php
     include_once('vue_faq.php');
     include_once('modele_faq.php');
+    include_once "csrfAdmin.php";
     class ContFaq{
 
         private $vue;
@@ -28,14 +29,18 @@
         }
 
         public function exec(){
+            $this->faq();
+            genererToken();
             switch($this->getAction()){
                 case 'ajouterQuestion':
-                    $this->modele->ajouterALaFAQ();
+                    if(verifToken()){
+                        $this->modele->ajouterALaFAQ();
+                    }
+                    supprimerToken();
                     break;
-                }
-        $this->faq();
-        global $affichage;
-        $affichage = $this->vue->getAffichage();
+            }
+            global $affichage;
+            $affichage = $this->vue->getAffichage();
         }
     }
 ?>
