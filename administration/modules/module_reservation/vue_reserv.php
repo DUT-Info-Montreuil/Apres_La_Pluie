@@ -76,7 +76,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                                                        <a href="index.php?module=reservation&action=supprimer_supp&idSupp=<?php echo htmlspecialchars($key['id']); ?>">
+                                                        <a href="index.php?module=reservation&action=supprimer_supp&idSupp=<?php echo htmlspecialchars($key['id']); ?>&tokenGet=<?php echo $_SESSION['token']; ?>">
                                                             <button type="button" class="btn btn-primary">Oui, supprimer</button>
                                                         </a>
                                                     </div>
@@ -133,7 +133,6 @@
                                         <label for="exampleInput1" class="form-label">si oui, combien ?</label>
                                         <input type="number" min="0" max="8" class="form-control" id="exampleInput1" style="max-width: 80px;" value="0" name='nbChoix'>
                                     </div>
-                                    <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                                 </div>
                             <hr class="my-5" />
                             <div class="card-footer text-end py-4 px-5 bg-light border-0">
@@ -155,6 +154,7 @@
                 <input type="hidden" id="exampleInput1" name="fileSansH" value="'.htmlspecialchars($_FILES['fileAvec']['name']).'">
                 <input type="hidden" id="exampleInput1" name="nbChoixH" value="'.htmlspecialchars($_POST['nbChoix']).'">
                 <input type="hidden" id="exampleInput1" name="plusieursChoixH" value="'.htmlspecialchars($val).'">
+                <input type="hidden" id="exampleInput1" name="token" value="'. $_SESSION['token'] .'" required>
             ';
         }
 

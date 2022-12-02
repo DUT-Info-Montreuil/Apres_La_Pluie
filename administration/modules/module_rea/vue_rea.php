@@ -62,6 +62,7 @@
                     <div class="card-footer text-end py-4 px-5 bg-light border-0">
                         <button type="submit" class="btn btn-primary btn-rounded" name="submit"> Ajouter la réalisation </button>
                     </div>
+                    <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                     </form>
                 </div>
             </div>
@@ -76,6 +77,7 @@
             <div class="container my-5" >
                 <div class="card">
                     <form action='index.php?module=rea&action=modif_rea&video="<?php echo htmlspecialchars($id); ?>"' method='post' enctype='multipart/form-data'>
+                    <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                     <!-- header -->
                     <div class="card-header py-4 px-5 bg-light border-0">
                         <h4 class="mb-0 fw-bold">Modification d'une réalisation</h4>
@@ -130,13 +132,11 @@
                         <img class="realisations" src="media/' . htmlspecialchars($lien_photo) . '">
                         <p class="titre_rea">' . htmlspecialchars($titre) . '</p> 
                     </a>                               
-
                     <!--MODAL SUPPRESSION REALISATION-->
                     <div class="modal fade" id="modal' . htmlspecialchars($id) . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">';
                         $this->modal_supp($id, $titre);
                         echo'
                     </div>
-
                     <!--MODAL MODIFIER REALISATION-->
                     <div class="modal fade" id="modal-modif' . htmlspecialchars($id) . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">';
                         $this->modal_modif($id, $titre);
@@ -161,7 +161,7 @@
                     </div>
                     <div class="modal-footer"  module=rea&action=supprimer_video&video=' . htmlspecialchars($titre) . '>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                        <a href="index.php?module=rea&action=supprimer_video&video=' . htmlspecialchars($id) . '">
+                        <a href="index.php?module=rea&action=supprimer_video&video=' . htmlspecialchars($id) . '&tokenGet=' . $_SESSION['token'] . '">
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Oui, supprimer</button>
                         </a>
                     </div>
@@ -209,4 +209,3 @@
         }
 }
 ?>
- 

@@ -25,6 +25,7 @@
                         <div class="row ">
                             
                             <form class="col-md-6 col-lg-4 mb-4" action='index.php?module=FAQ&action=ajouterQuestion' method='post'> 
+                                <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                                 <h6 class="mb-3 text-primary question_faq">Ajouter une question à la FAQ</h6>
                                 <textarea name="ajouterQuestion" placeholder="Insérer une question"></textarea>
                                 <textarea name="ajouterRéponse" placeholder="Insérer la réponse"></textarea>

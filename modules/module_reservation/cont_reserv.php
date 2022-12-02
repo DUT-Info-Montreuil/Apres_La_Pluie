@@ -1,4 +1,5 @@
 <?php
+    include_once "csrf.php";
     class ContReserv{
 
         private $vue;
@@ -10,11 +11,8 @@
             $this->vue = new VueResrv();
             include_once "modele_reserv.php";
             $this->modele = new ModeleReserv();
+            include_once "csrf.php";
             $this->action = isset($_GET['action']) ? $_GET['action'] : "erreur";
-        }
-
-        public function bienvenue(){
-            echo "il y a une erreur";
         }
 
         public function getAction(){
@@ -36,10 +34,14 @@
         public function exec(){
             switch ($this->getAction()) {
                 case "reservation":
+                    genererToken();
                     $this->afficheForm();
                     break;
                 case "insererSupp":
-                    $this->inserer();
+                    if(verifToken()){
+                        $this->inserer();
+                    }
+                    supprimerToken();
                     break;
             }
             global $affichage;

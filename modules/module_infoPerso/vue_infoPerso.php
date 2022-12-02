@@ -18,6 +18,7 @@
                 <div class="container my-5">
                     <div class="card">
                         <form action='index.php?module=infoPerso&action=modif_info' method='post'>
+                        <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                         <!-- header -->
                         <div class="card-header py-4 px-5 bg-light border-0" id="header-info-perso">
                             <h4 class="mb-0 fw-bold" id="titre-mes-reserv">Vos informations personnelles</h4>
@@ -109,6 +110,7 @@
                 <div class="container my-5">
                     <div class="card">
                         <form action='index.php?module=infoPerso&action=modif_mdp' method='post'>
+                        <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                         <!-- header -->
                         <div class="card-header py-4 px-5 bg-light border-0">
                             <h4 class="mb-0 fw-bold">Modification du mot de passe</h4>

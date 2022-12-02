@@ -273,9 +273,10 @@
         public function accordeon($tab, $tab2){
             ?>
             <div class="accordion bords container" id="accordionExample">
-                <form action='index.php?module=reserv&action=insererSupp' method='post'> <!-- TODO : RAJOUTER UNE ACTION -->
+                <form action='index.php?module=reserv&action=insererSupp' method='post'>
+                <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                     <div class="accordion-item bg-clr">
-                        <h2 class="" id="headingOne">
+                        <h2 id="headingOne">
                         <button class="accordion-button acrd-hd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             SUPPLEMENTS
                         </button>
@@ -285,7 +286,7 @@
                         </div>
                     </div>
                     <div class="accordion-item bg-clr">
-                        <h2 class="" id="headingTwo">
+                        <h2 id="headingTwo">
                             <button class="accordion-button collapsed acrd-hd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 INFOS
                             </button>
