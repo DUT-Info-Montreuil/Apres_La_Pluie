@@ -21,7 +21,7 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="administration/media/imageA1" class="d-block w-50" alt="...">
+                            <img src="administration/media/imageA1" class="d-block w-50" alt="">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Qu'est ce qu'on produit ?</h5>
                                 <p>On propose le tournage et le montage de ton clip, va voirs nos dernières réalisations !</p>
