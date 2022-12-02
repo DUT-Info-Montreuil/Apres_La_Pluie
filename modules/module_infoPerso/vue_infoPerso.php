@@ -62,7 +62,7 @@
                                 <h5>Compte</h5>
                                 <p class="text-muted">Modifier vos informations personnelles</p>
                                 <a href="index.php?module=infoPerso&action=afficher_reservations"> 
-                                <button type="button" class="btn btn-primary btn-rounded btn-lg" id="bouton-mes-reserv">
+                                <button type="button" class="btn btn-warning btn-rounded btn-lg" id="bouton-mes-reserv">
                                 Liste de mes réservations</button>
                             </a>
                             </div>
