@@ -193,21 +193,21 @@ ul{
 }
 
 /* INFO PERSO */
-#bouton-modif-mdp{
-    position: absolute;
-    right:15em;
+#header-info-perso{
+    display: inline-flex;
+    width:100%;
 }
 
 #titre-mes-reserv{
     width:auto;
 }
 
-#bouton-mes-reserv{
+#bouton-modif-mdp{
     position: absolute;
-    right : 1em;
+    right:1em;
 }
 
-#header-info-perso{
-    display: inline-flex;
-    width:100%;
+#bouton-mes-reserv{
+    margin-top: 3em;
+    background-color: blueviolet;
 }

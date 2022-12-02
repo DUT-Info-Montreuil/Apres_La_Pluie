@@ -25,10 +25,7 @@
                                 <button type="button" class="btn btn-outline-danger btn-rounded btn-lg" id="bouton-modif-mdp">
                                 Modifier mot de passe</button>
                             </a>
-                            <a href="index.php?module=infoPerso&action=afficher_reservations"> 
-                                <button type="button" class="btn btn-outline-info btn-rounded btn-lg" id="bouton-mes-reserv">
-                                Liste de mes réservations</button>
-                            </a>
+                            
                         </div>
 
                         <!-- body -->
@@ -38,6 +35,10 @@
                             <div class="col-md-4">
                                 <h5>Compte</h5>
                                 <p class="text-muted">Modifier vos informations personnelles</p>
+                                <a href="index.php?module=infoPerso&action=afficher_reservations"> 
+                                <button type="button" class="btn btn-primary btn-rounded btn-lg" id="bouton-mes-reserv">
+                                Liste de mes réservations</button>
+                            </a>
                             </div>
 
                             <div class="col-md-8">
