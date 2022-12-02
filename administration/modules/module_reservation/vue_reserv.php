@@ -24,9 +24,9 @@
                     <thead>
                         <tr>
                             <th scope="col">id</th>
-                            <th scope="col">nom</th>
+                            <th scope="col">nom</th>  
                             <th scope="col">description</th>
-                            <th scope="col">prix</th>
+                            <th scope="col">prix</th>sd
                             <th scope="col">photo avec</th>
                             <th scope="col">photo sans</th>
                             <th scope="col"></th>

@@ -8,10 +8,12 @@
         }
 
         public function get_liste_info(){
-            $selecPrepare = self::$bdd->prepare('SELECT `login`, `password`, `nom`, `prenom`, `nom_artiste`, `mail`, `num_tel`, `preference_contact` FROM `utilisateurs` WHERE id=?');
-		    $selecPrepare->execute(array($_SESSION["id"]));
-		    $tab = $selecPrepare->fetch();
-		    return $tab;
+            if(isset($_SESSION["id"])){
+                $selecPrepare = self::$bdd->prepare('SELECT `login`, `password`, `nom`, `prenom`, `nom_artiste`, `mail`, `num_tel`, `preference_contact` FROM `utilisateurs` WHERE id=?');
+                $selecPrepare->execute(array($_SESSION["id"]));
+                $tab = $selecPrepare->fetch();
+                return $tab;
+            }
         }
 
         public function changer_info(){
@@ -38,6 +40,15 @@
                 }
             }else{
                 die("probleme");
+            }
+        }
+
+        public function get_reservations(){
+            if(isset($_SESSION["id"])){
+                $selecPrepare = self::$bdd->prepare('SELECT date, heure, duree, idee_generale, nom, adresse FROM reservations JOIN lieu ON(reservations.id_lieu = lieu.id) WHERE id_utilisateur=?');
+                $selecPrepare->execute(array($_SESSION["id"]));
+                $tab = $selecPrepare->fetchAll();
+                return $tab;
             }
         }
     }

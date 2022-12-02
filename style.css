@@ -143,6 +143,11 @@ ul{
     transform : scale(1.05);
 }
 
+.align{
+    width: 33%;
+    display: inline-block;
+}
+
 
 /* ACCUEIL */
 .acc{
@@ -187,12 +192,22 @@ ul{
     font-family: fantasy;
 }
 
+/* INFO PERSO */
 #bouton-modif-mdp{
     position: absolute;
-    left: 7em;
+    right:15em;
 }
 
-.align{
-    width: 33%;
-    display: inline-block;
+#titre-mes-reserv{
+    width:auto;
+}
+
+#bouton-mes-reserv{
+    position: absolute;
+    right : 1em;
+}
+
+#header-info-perso{
+    display: inline-flex;
+    width:100%;
 }

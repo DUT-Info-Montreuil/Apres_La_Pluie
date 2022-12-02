@@ -19,8 +19,16 @@
                     <div class="card">
                         <form action='index.php?module=infoPerso&action=modif_info' method='post'>
                         <!-- header -->
-                        <div class="card-header py-4 px-5 bg-light border-0">
-                            <h4 class="mb-0 fw-bold">Vos informations personnelles</h4>
+                        <div class="card-header py-4 px-5 bg-light border-0" id="header-info-perso">
+                            <h4 class="mb-0 fw-bold" id="titre-mes-reserv">Vos informations personnelles</h4>
+                            <a href="index.php?module=infoPerso&action=form_modif_mdp"> 
+                                <button type="button" class="btn btn-outline-danger btn-rounded btn-lg" id="bouton-modif-mdp">
+                                Modifier mot de passe</button>
+                            </a>
+                            <a href="index.php?module=infoPerso&action=afficher_reservations"> 
+                                <button type="button" class="btn btn-outline-info btn-rounded btn-lg" id="bouton-mes-reserv">
+                                Liste de mes réservations</button>
+                            </a>
                         </div>
 
                         <!-- body -->
@@ -67,14 +75,8 @@
                         
                         <!-- en bas -->
                         <div class="card-footer text-end py-4 px-5 bg-light border-0">
-                            <a href="index.php?module=infoPerso&action=form_modif_mdp"> 
-                                <button type="button" class="btn btn-primary btn-rounded" id="bouton-modif-mdp">
-                                Modifier mot de passe
-                                </button>
-                            </a>
                             <button type="submit" class="btn btn-primary btn-rounded">
-                            Modifier info perso
-                            </button>
+                            Modifier info perso</button>
                         </div>
                         </form>
                     </div>
@@ -139,6 +141,54 @@
                     </div>
                 </div>
             <?php
+    }
+
+    public function afficher_reservations($resa){
+        ?>
+        <div class="container my-5" >
+                <div class="card">
+                    <div class="card-header py-4 px-5 bg-light border-0">
+                        <h4 class="mb-0 fw-bold">Mes réservations</h4>
+                        <p>Pour toute modification, veuillez nous contacter.</p>
+                    </div>
+                    <div class="card-body px-5 ">
+                        <table class="table bg-light rounded-3 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">date</th>
+                                            <th scope="col">heure</th>
+                                            <th scope="col">durée</th>
+                                            <th scope="col">idée générale</th>
+                                            <th scope="col">lieu</th>
+                                            <th scope="col">adresse</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider Xborder">
+                                    <?php
+                                        $targetNom = "modalSupprimer";
+                                        if (isset($resa)){
+                                            foreach($resa as $key){
+                                                echo'
+                                                    <tr>
+                                                            <th scope="row">'. $key['date'] .'</th>
+                                                            <td>'. $key['heure'] .'</td>
+                                                            <td>'. $key['duree'] .'</td>
+                                                            <td>'. $key['idee_generale'] .'</td>
+                                                            <td>'. $key['nom'] .'</td>
+                                                            <td>'. $key['adresse'] .'</td>
+                                                        ';
+                                                        ?>
+                                                    </tr>
+                                                <?php
+                                            }
+                                        }
+                                    ?>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                <?php
     }
 
     }

@@ -22,6 +22,10 @@
             $this->vue->afficher_info($this->modele->get_liste_info());
         }
 
+        public function afficher_reservations(){
+            $this->vue->afficher_reservations($this->modele->get_reservations());
+        }
+
         public function exec(){
             switch ($this->getAction()) {
                 case "info":
@@ -35,6 +39,9 @@
                     break;
                 case "modif_mdp":
                     $this->modele->modif_mdp();
+                    break;
+                case "afficher_reservations":
+                    $this->afficher_reservations();
                     break;
                 }
             global $affichage;
