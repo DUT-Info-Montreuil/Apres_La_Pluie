@@ -26,9 +26,9 @@
 
                             <!-- Search bar-->
                             <div class="input-group">
-                                <input type="search" id="live-search" class="form-control rounded" placeholder="Argument pris en compte : Nom, numéro de téléphone, mail..." aria-label="Search" aria-describedby="search-addon" />
+                                <input type="search" id="live-search-User" class="form-control rounded" placeholder="Argument pris en compte : Nom, numéro de téléphone, mail..." aria-label="Search" aria-describedby="search-addon" />
                             </div>
-                            <div id="searchresult">
+                            <div id="searchresult-User">
 
                             </div>
                         </div>

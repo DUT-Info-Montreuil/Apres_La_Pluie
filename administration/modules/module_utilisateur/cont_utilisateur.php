@@ -1,10 +1,5 @@
 <?php
 
-    if(isset($_POST['input'])){
-        $input = $_POST['input'];
-        $query = "SELECT * FROM TABLE WHERE COLONNE LIKE '{$input}%'";
-    }
-
     class ContUtilisateur{
 
         private $vue;
