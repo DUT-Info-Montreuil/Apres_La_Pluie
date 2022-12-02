@@ -51,17 +51,17 @@
             $id = $val[2];
             echo '
             <div class="col-md-6 col-lg-4 mb-4">
-                    <div id="iconFAQid' . $id . '">
-                        <a href="" data-bs-toggle="modal" data-bs-target="#modal' . $id . '" ><img class ="iconFAQ" src="media/re-cross.png" alt="croix rouge"></a>
-                        <a class="boutonModifierFAQ" id="id' . $id . '"><img class ="iconFAQ" src="media/crayon.png" alt="crayon"></a>
+                    <div id="iconFAQid' . htmlspecialchars($id) . '">
+                        <a href="" data-bs-toggle="modal" data-bs-target="#modal' . htmlspecialchars($id) . '" ><img class ="iconFAQ" src="media/re-cross.png" alt="croix rouge"></a>
+                        <a class="boutonModifierFAQ" id="id' . htmlspecialchars($id) . '"><img class ="iconFAQ" src="media/crayon.png" alt="crayon"></a>
                     </div>
                         <div>
-                            <h6 class="mb-3 text-primary question_faq" id="questionid' . $id . '">' . $question . '</h6>
-                            <p id="reponseid' . $id . '">' . $reponse . '</p>
+                            <h6 class="mb-3 text-primary question_faq" id="questionid' . htmlspecialchars($id) . '">' . htmlspecialchars($question) . '</h6>
+                            <p id="reponseid' . htmlspecialchars($id) . '">' . htmlspecialchars($reponse) . '</p>
                         </div>
             </div>
 
-            <div class="modal fade" id="modal' . $id . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal' . htmlspecialchars($id) . '" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -70,12 +70,12 @@
                         </div>
                         <div class="modal-body">
                             <p>Êtes-vous sûr de vouloir supprimer la question : <br>
-                            <b>' . $question . '</b> 
+                            <b>' . htmlspecialchars($question) . '</b> 
                             </p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                            <button type="button" class="btn btn-primary boutonSupprimerFAQ" data-bs-dismiss="modal" id = "id' . $id . '">Oui, supprimer</button>
+                            <button type="button" class="btn btn-primary boutonSupprimerFAQ" data-bs-dismiss="modal" id = "id' . htmlspecialchars($id) . '">Oui, supprimer</button>
                         </div>
                     </div>
                 </div>
