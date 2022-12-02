@@ -121,6 +121,18 @@
         }
 
         public function supprimerSupp($id){
+            $req = self::$bdd->prepare('SELECT gif_avec FROM supplements WHERE id =' . $id);
+            $req->execute();
+            $tab = $req->fetch();
+            if(!empty($tab[0])){
+                unlink("./media/" . $tab[0]);
+            }
+            $req = self::$bdd->prepare('SELECT gif_sans FROM supplements WHERE id =' . $id);
+            $req->execute();
+            $tab = $req->fetch();
+            if(!empty($tab[0])){
+                unlink("./media/" . $tab[0]);
+            }
             $req = self::$bdd->prepare('DELETE FROM supplements WHERE id = ?');
             $req->execute(array($id));
         }
