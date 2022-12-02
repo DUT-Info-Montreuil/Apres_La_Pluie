@@ -9,12 +9,12 @@
             if (!empty($description)){
                 ?>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#<?php echo $targetNom . "$compt" ?>">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#<?php echo htmlspecialchars($targetNom) . "$compt" ?>">
                         Plus d'informations
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="<?php echo $targetNom . "$compt" ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="<?php echo htmlspecialchars($targetNom) . "$compt" ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="modal-body d-flex justify-content-center">
                                     <?php
-                                        echo '<img class="img-modal-reserv" src="./administration/media/' . $gifA . '" alt=""> <img class="img-modal-reserv" src="administration/media/' . $gifS . '" alt="">';
+                                        echo '<img class="img-modal-reserv" src="./administration/media/' . htmlspecialchars($gifA) . '" alt=""> <img class="img-modal-reserv" src="administration/media/' . htmlspecialchars($gifS) . '" alt="">';
                                     ?>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
             if($choix != 1){
                 ?>
                             <div class="form-check form-switch marg-btn">
-                                <?php echo '<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="ajoutSupp'. $compt .'" value="'.$tabOptions[$value][1].'">'; ?>
+                                <?php echo '<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="ajoutSupp'. htmlspecialchars($compt) .'" value="'. htmlspecialchars($tabOptions[$value][1]).'">'; ?>
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Ajouter à mon clip</label>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                                     <?php
                                         for($i = 0; $i < count($tabOptions); $i++){
                                             echo'
-                                            <option value="'. $tabOptions[$i][1] .'">'. $tabOptions[$i][0] .'</option>
+                                            <option value="'. htmlspecialchars($tabOptions[$i][1]) .'">'. htmlspecialchars($tabOptions[$i][0]) .'</option>
                                             ';
                                         }
                                     ?>    
@@ -70,8 +70,8 @@
             echo '
             <div class="align">
                 <div class="col-md-6 col-lg-4 mb-4 fullLarg">
-                    <h3>'. $nom .' </h3>
-                    <p> prix : '. $prix .'€ </p>';
+                    <h3>'. htmlspecialchars($nom) .' </h3>
+                    <p> prix : '. htmlspecialchars($prix) .'€ </p>';
         }
 
         public function afficheSupps($tab, $tab2){

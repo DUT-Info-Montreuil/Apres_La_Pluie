@@ -31,11 +31,11 @@ function barDeRecherche(){
     retourneUtilisateur(chercherUtilisateur());
 }
 function chercherUtilisateur(){
-
+    global $bd;
+    $tabResult = null;
+    
     if(isset($_POST['argumentDeRecherche'])){
-
-        global $bd;
-        $tabResult = null;
+        
         $input = $_POST['argumentDeRecherche'];
 
         $selecPrepare = $bd->prepare("SELECT id, login, nom, prenom, nom_artiste, mail, num_tel, preference_contact, admin FROM utilisateurs JOIN roles ON (utilisateurs.id = roles.id_utilisateur) 
@@ -46,18 +46,21 @@ function chercherUtilisateur(){
         OR mail LIKE '%$input%'
         OR num_tel LIKE '%$input%'
         ");
-        
-        $selecPrepare->execute();
-        $tabResult = $selecPrepare->fetchAll();
-        return $tabResult;      
+              
+    }else {
+        $selecPrepare = $bd->prepare("SELECT id, login, nom, prenom, nom_artiste, mail, num_tel, preference_contact, admin FROM utilisateurs JOIN roles ON (utilisateurs.id = roles.id_utilisateur)");
     }
+
+    $selecPrepare->execute();
+    $tabResult = $selecPrepare->fetchAll();
+    return $tabResult;
 }
 
 function retourneUtilisateur($tabResult){
 
     $modal = null;
-    if(is_null($tabResult)){
-        echo "<h5>Aucune donnée</h5>";
+    if(empty($tabResult)){
+        echo "<h5 style='text-align: center'>Aucune donnée</h5>";
     }else{
 
         $resultat = "

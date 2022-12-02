@@ -38,15 +38,15 @@
                         foreach($tab as $key){
                             echo'
                                 <tr>
-                                        <th scope="row">'. $key['id'] .'</th>
-                                        <td>'. $key['nom'] .'</td>
-                                        <td>'. $key['description'] .'</td>
-                                        <td>'. $key['prix'] .'</td>
+                                        <th scope="row">'. htmlspecialchars($key['id']) .'</th>
+                                        <td>'. htmlspecialchars($key['nom']) .'</td>
+                                        <td>'. htmlspecialchars($key['description']) .'</td>
+                                        <td>'. htmlspecialchars($key['prix']) .'</td>
                                     ';
                                     if($key['gif_avec'] != NULL && $key['gif_sans'] != NULL){
                                         echo '
-                                            <td><img class="img-tab" src="./media/'. $key['gif_avec'] .'" alt=""></td>
-                                            <td><img class="img-tab" src="./media/'. $key['gif_sans'] .'" alt=""></td>
+                                            <td><img class="img-tab" src="./media/'. htmlspecialchars($key['gif_avec']) .'" alt=""></td>
+                                            <td><img class="img-tab" src="./media/'. htmlspecialchars($key['gif_sans']) .'" alt=""></td>
                                         ';
                                     }else{
                                         echo '
@@ -57,14 +57,14 @@
                                     ?>
                                     <td>
                                         <!-- Button trigger modal -->
-                                        <a data-bs-toggle="modal" data-bs-target="#<?php echo $targetNom . $key['id']; ?>">
+                                        <a data-bs-toggle="modal" data-bs-target="#<?php echo $targetNom . htmlspecialchars($key['id']); ?>">
                                             <img class ="iconFAQ" src="media/re-cross.png" alt="croix rouge">
                                         </a>
-                                        <a href="index.php?module=reservation&action=modifierSupp&idSupp=<?php echo $key['id']; ?>">
+                                        <a href="index.php?module=reservation&action=modifierSupp&idSupp=<?php echo htmlspecialchars($key['id']); ?>">
                                             <img class ="iconFAQ" src="media/crayon.png" alt="crayon">
                                         </a>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="<?php echo $targetNom . $key['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="<?php echo $targetNom . htmlspecialchars($key['id']); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -72,11 +72,11 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>Êtes-vous sûr de vouloir supprimer le supplément : <b> <?php echo $key['nom']; ?><b> ?<br></p>
+                                                        <p>Êtes-vous sûr de vouloir supprimer le supplément : <b> <?php echo htmlspecialchars($key['nom']); ?><b> ?<br></p>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
-                                                        <a href="index.php?module=reservation&action=supprimer_supp&idSupp=<?php echo $key['id']; ?>&tokenGet=<?php echo $_SESSION['token']; ?>">
+                                                        <a href="index.php?module=reservation&action=supprimer_supp&idSupp=<?php echo htmlspecialchars($key['id']); ?>&tokenGet=<?php echo $_SESSION['token']; ?>">
                                                             <button type="button" class="btn btn-primary">Oui, supprimer</button>
                                                         </a>
                                                     </div>
@@ -147,13 +147,13 @@
 
         public function form_ajout_supp_hidden($val){
             echo '
-                <input type="hidden" id="exampleInput1" name="nomH" value="'.$_POST['nom'].'">
-                <input type="hidden" id="exampleInput1" name="descriptionH" value="'.$_POST['description'].'">
-                <input type="hidden" id="exampleInput1" name="prixH" value="'.$_POST['prix'].'">
-                <input type="hidden" id="exampleInput1" name="fileAvecH" value="'.$_FILES['fileSans']['name'].'">
-                <input type="hidden" id="exampleInput1" name="fileSansH" value="'.$_FILES['fileAvec']['name'].'">
-                <input type="hidden" id="exampleInput1" name="nbChoixH" value="'.$_POST['nbChoix'].'">
-                <input type="hidden" id="exampleInput1" name="plusieursChoixH" value="'.$val.'">
+                <input type="hidden" id="exampleInput1" name="nomH" value="'.htmlspecialchars($_POST['nom']).'">
+                <input type="hidden" id="exampleInput1" name="descriptionH" value="'.htmlspecialchars($_POST['description']).'">
+                <input type="hidden" id="exampleInput1" name="prixH" value="'.htmlspecialchars($_POST['prix']).'">
+                <input type="hidden" id="exampleInput1" name="fileAvecH" value="'.htmlspecialchars($_FILES['fileSans']['name']).'">
+                <input type="hidden" id="exampleInput1" name="fileSansH" value="'.htmlspecialchars($_FILES['fileAvec']['name']).'">
+                <input type="hidden" id="exampleInput1" name="nbChoixH" value="'.htmlspecialchars($_POST['nbChoix']).'">
+                <input type="hidden" id="exampleInput1" name="plusieursChoixH" value="'.htmlspecialchars($val).'">
                 <input type="hidden" id="exampleInput1" name="token" value="'. $_SESSION['token'] .'" required>
             ';
         }
@@ -200,7 +200,7 @@
                         <a href="index.php?module=reservation&action=afficher_base">Annuler</a>
                     </div>
                     <div class="card-body px-5 ">
-                        <form action='index.php?module=reservation&action=valid_modif_supp&idSupp=<?php echo $supp[0]['id']; ?>' method='post' enctype='multipart/form-data'>
+                        <form action='index.php?module=reservation&action=valid_modif_supp&idSupp=<?php echo htmlspecialchars($supp[0]['id']); ?>' method='post' enctype='multipart/form-data'>
                             <div class="row gx-xl-5">
                                 <div class="col-md-8">
                                     <?php
@@ -208,15 +208,15 @@
                                             ?>
                                             <div class="mb-3">
                                                 <label for="exampleInput1" class="form-label">nom</label>
-                                                <input value="<?php echo $key['nom']; ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom'required>
+                                                <input value="<?php echo htmlspecialchars($key['nom']); ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='nom'required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInput1" class="form-label">description</label>
-                                                <input value="<?php echo $key['description']; ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='description'required>
+                                                <input value="<?php echo htmlspecialchars($key['description']); ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='description'required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInput1" class="form-label">prix</label>
-                                                <input value="<?php echo $key['prix']; ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='prix'required>
+                                                <input value="<?php echo htmlspecialchars($key['prix']); ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name='prix'required>
                                             </div>
                                             <div class="custom-file">
                                                 <label class="custom-file-label" for="validatedCustomFile">changer le fichier d'exemple sans le supplément</label>
@@ -234,7 +234,7 @@
                                                 ?>
                                                     <div class="mb-3">
                                                         <label for="exampleInput1" class="form-label">Choix<?php echo $compt?></label>
-                                                        <input value="<?php echo $key['choix']; ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name="choix<?php echo $compt; ?>" required>
+                                                        <input value="<?php echo htmlspecialchars($key['choix']); ?>" type="text" class="form-control" id="exampleInput1" style="max-width: 500px;" name="choix<?php echo $compt; ?>" required>
                                                     </div>
                                                 <?php
                                                 $compt++;
