@@ -18,6 +18,7 @@
                 <div class="container py-5" >
                     <div class="card">
                         <form action='index.php?module=co&action=validerco' method='post'>
+                        <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                         <!-- header -->
                         <div class="card-header py-4 px-5 bg-light border-0">
                             <h4 class="mb-0 fw-bold">Connexion</h4>
@@ -65,6 +66,7 @@
                 <div class="container py-5">
                     <div class="card">
                         <form action='index.php?module=co&action=validerins' method='post'>
+                        <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
                         <!-- header -->
                         <div class="card-header py-4 px-5 bg-light border-0">
                             <h4 class="mb-0 fw-bold">Inscription</h4>

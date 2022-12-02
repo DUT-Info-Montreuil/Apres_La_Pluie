@@ -40,9 +40,34 @@
                     if(!empty($tab[0])){
                         unlink("./media/" . $tab[0]);
                     }
-                    move_uploaded_file($_FILES['fileSans']['tmp_name'], "./media/" . $_FILES['fileSans']['name']);
-                    $req = self::$bdd->prepare('UPDATE supplements SET gif_sans = ? WHERE id =' . $id);
-                    $req->execute(array($_FILES['fileSans']['name']));
+                    //FILE SANS
+                    $target_dir = "./media/";
+                    $target_file = $target_dir . basename($_FILES["fileSans"]["name"]);
+                    $uploadOk = 1;
+                    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                    // Check si l'image est une vraie image
+                    if(isset($_POST["submit"])) {
+                        $check = getimagesize($_FILES["fileSans"]["tmp_name"]);
+                        if($check !== false) {
+                            $uploadOk = 1;
+                        } else {
+                            $uploadOk = 0;
+                        }
+                    }
+                    // Check si le fichier existe deja
+                    if (file_exists($target_file)) {
+                        $uploadOk = 0;
+                    }
+                    // Accepte uniquement certains formats
+                    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+                        $uploadOk = 0;
+                    }
+                    // Check si $uploadOk est set a 0 par erreur. Si tout est OK, on televerse le fichier et on met a jour la BD
+                    if ($uploadOk != 0) {
+                        move_uploaded_file($_FILES['fileSans']['tmp_name'], "./media/" . $_FILES['fileSans']['name']);
+                        $req = self::$bdd->prepare('UPDATE supplements SET gif_sans = ? WHERE id =' . $id);
+                        $req->execute(array($_FILES['fileSans']['name']));
+                    }
                 }
                 if(!empty($_FILES['fileAvec']['name'])){
                     $req = self::$bdd->prepare('SELECT gif_avec FROM supplements WHERE id =' . $id);
@@ -51,9 +76,34 @@
                     if(!empty($tab[0])){
                         unlink("./media/" . $tab[0]);
                     }
-                    move_uploaded_file($_FILES['fileAvec']['tmp_name'], "./media/" . $_FILES['fileAvec']['name']);
-                    $req = self::$bdd->prepare('UPDATE supplements SET gif_avec = ? WHERE id =' . $id);
-                    $req->execute(array($_FILES['fileAvec']['name']));
+                    //FILE AVEC
+                    $target_dir2 = "./media/";
+                    $target_file2 = $target_dir . basename($_FILES["fileAvec"]["name"]);
+                    $uploadOk2 = 1;
+                    $imageFileType2 = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
+                    // Check si l'image est une vraie image
+                    if(isset($_POST["submit"])) {
+                        $check2 = getimagesize($_FILES["fileAvec"]["tmp_name"]);
+                        if($check2 !== false) {
+                            $uploadOk2 = 1;
+                        } else {
+                            $uploadOk2 = 0;
+                        }
+                    }
+                    // Check si le fichier existe deja
+                    if (file_exists($target_file2)) {
+                        $uploadOk2 = 0;
+                    }
+                    // Accepte uniquement certains formats
+                    if($imageFileType2 != "jpg" && $imageFileType2 != "png" && $imageFileType2 != "jpeg" && $imageFileType2 != "gif" ) {
+                        $uploadOk = 0;
+                    }
+                    // Check si $uploadOk2 est set a 0 par erreur. Si tout est OK, on televerse le fichier et on met a jour la BD
+                    if ($uploadOk2 != 0) {
+                        move_uploaded_file($_FILES['fileAvec']['tmp_name'], "./media/" . $_FILES['fileAvec']['name']);
+                        $req = self::$bdd->prepare('UPDATE supplements SET gif_avec = ? WHERE id =' . $id);
+                        $req->execute(array($_FILES['fileAvec']['name']));
+                    }
                 }
                 if($suppsChoix[0]['choix'] !== NULL){
                     foreach($suppsChoix as $key){
@@ -71,17 +121,77 @@
         }
 
         public function supprimerSupp($id){
+            $req = self::$bdd->prepare('SELECT gif_avec FROM supplements WHERE id =' . $id);
+            $req->execute();
+            $tab = $req->fetch();
+            if(!empty($tab[0])){
+                unlink("./media/" . $tab[0]);
+            }
+            $req = self::$bdd->prepare('SELECT gif_sans FROM supplements WHERE id =' . $id);
+            $req->execute();
+            $tab = $req->fetch();
+            if(!empty($tab[0])){
+                unlink("./media/" . $tab[0]);
+            }
             $req = self::$bdd->prepare('DELETE FROM supplements WHERE id = ?');
             $req->execute(array($id));
-            $req2 = self::$bdd->prepare('DELETE FROM suppsAvecChoix WHERE id_supplement = ?');
-            $req2->execute(array($id));
         }
 
         public function ajoutFichier(){
             mkdir('./temp' . $_SESSION['token']);
+            //FILE SANS
+            $target_dir = "./media/";
+            $target_file = $target_dir . basename($_FILES["fileSans"]["name"]);
+            $uploadOk = 1;
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            // Check si l'image est une vraie image
+            if(isset($_POST["submit"])) {
+                $check = getimagesize($_FILES["fileSans"]["tmp_name"]);
+                if($check !== false) {
+                    $uploadOk = 1;
+                } else {
+                    $uploadOk = 0;
+                }
+            }
+            // Check si le fichier existe deja
+            if (file_exists($target_file)) {
+                $uploadOk = 0;
+            }
+            // Accepte uniquement certains formats
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+                $uploadOk = 0;
+            }
+            // Check si $uploadOk est set a 0 par erreur. Si tout est OK, on televerse le fichier et on met a jour la BD
+            if ($uploadOk != 0) {
+                move_uploaded_file($_FILES['fileSans']['tmp_name'], "./temp". $_SESSION['token'].'/'.$_FILES['fileSans']['name']);
+            }
 
-            move_uploaded_file($_FILES['fileSans']['tmp_name'], "./temp". $_SESSION['token'].'/'.$_FILES['fileSans']['name']);
-            move_uploaded_file($_FILES['fileAvec']['tmp_name'], "./temp". $_SESSION['token'].'/'.$_FILES['fileAvec']['name']);
+            //FILE AVEC
+            $target_dir2 = "./media/";
+            $target_file2 = $target_dir . basename($_FILES["fileAvec"]["name"]);
+            $uploadOk2 = 1;
+            $imageFileType2 = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
+            // Check si l'image est une vraie image
+            if(isset($_POST["submit"])) {
+                $check2 = getimagesize($_FILES["fileAvec"]["tmp_name"]);
+                if($check2 !== false) {
+                    $uploadOk2 = 1;
+                } else {
+                    $uploadOk2 = 0;
+                }
+            }
+            // Check si le fichier existe deja
+            if (file_exists($target_file2)) {
+                $uploadOk2 = 0;
+            }
+            // Accepte uniquement certains formats
+            if($imageFileType2 != "jpg" && $imageFileType2 != "png" && $imageFileType2 != "jpeg" && $imageFileType2 != "gif" ) {
+                $uploadOk = 0;
+            }
+            // Check si $uploadOk2 est set a 0 par erreur. Si tout est OK, on televerse le fichier et on met a jour la BD
+            if ($uploadOk2 != 0) {
+                move_uploaded_file($_FILES['fileAvec']['tmp_name'], "./temp". $_SESSION['token'].'/'.$_FILES['fileAvec']['name']);
+            }
         }
 
         public function ajouterSupps(){

@@ -70,12 +70,15 @@ a:hover{
 
 #div-realisations{
     display: inline-flex;
-    justify-content: center;    
+    justify-content: center;
+    flex-direction: column;
 }
 
 .lien_rea:link{
     text-decoration: none;
 }
+
+
 
 .titre_rea{
     color: black;
@@ -84,6 +87,11 @@ a:hover{
 .iconFAQ{
     max-width: 1em;
     max-height: 1em;
+    transition: 0.2s;
+}
+
+.iconFAQ:hover{
+    transform : scale(1.2);
 }
 
 textarea {
@@ -93,18 +101,24 @@ textarea {
 
 .realisations{
     width : 16em;
+    border-radius: 5%;
+    transition: 0.2s;
 }
+
+.realisations:hover{
+    transform : scale(1.05);
+}
+/* Mise en forme des tableaux */
 table,th,td{
     border:1px solid #cccccc
 }
-
+/* Message d'avertissement */
 .warning{
     color: red;
 }
-
-table thead tbody tr{
-    max-width: 100%!important;
-    min-width: fit-content;
+/* Bar de recherche */
+#live-search{
+    margin-bottom: 2em;
 }
 
 

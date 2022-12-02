@@ -1,10 +1,12 @@
 <?php
+    include_once "csrfAdmin.php";
     class ContReserv{
 
         private $vue;
         private $modele;
         private $action;
         private $idSupp;
+        private $tokenGet;
 
         public function __construct(){
             include_once "vue_reserv.php";
@@ -13,6 +15,7 @@
             $this->modele = new ModeleReserv();
             $this->action = isset($_GET['action']) ? $_GET['action'] : "erreur";
             $this->idSupp = isset($_GET['idSupp']) ? $_GET['idSupp'] : "erreur";
+            $this->tokenGet = isset($_GET['tokenGet']) ? $_GET['tokenGet'] : "erreur";
         }
 
         public function getAction(){
@@ -62,9 +65,11 @@
         public function exec(){
             switch ($this->getAction()) {
                 case "afficher_base":
+                    genererToken();
                     $this->affichePrincipale();
                     break;
                 case "form_ajout_supp":
+                    genererToken();
                     $this->afficheFormSupp();
                     break;
                 case "ajout_supp":
@@ -73,19 +78,30 @@
                     $this->ajoutFileTemp();
                     break;
                 case "modifierSupp":
+                    genererToken();
                     $this->afficheModifierSupp();
                     break;
                 case "supprimer_supp":
-                    $this->supprimerSupp();
+                    if(verifTokenGet($this->tokenGet)){
+                        $this->supprimerSupp();
+                    }
+                    supprimerToken();
                     $this->affichePrincipale();
                     break;
                 case "valid_modif_supp":
-                    $this->updateSupp();
+                    if(verifToken()){
+                        $this->updateSupp();
+                    }
+                    supprimerToken();
                     $this->affichePrincipale();
                     break;
                 case "ajout":
-                    $this->insererSupps();
+                    if(verifToken()){
+                        $this->insererSupps();
+                    }
                     $this->affichePrincipale();
+                    supprimerToken();
+                    break;
             }
             global $affichage;
             $affichage = $this->vue->getAffichage();
