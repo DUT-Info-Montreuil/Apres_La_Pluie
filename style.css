@@ -1,50 +1,70 @@
 :root{
-    --nwar: rgba(5,28,36,255);
-    /* --bleuu: rgba(4,187,255,255); */
-    --bleuu: rgba(0,112,240,255);
-    --entreDeux: rgba(0, 103, 141, 255);
+    --bleuFonce: rgba(5,28,36);
+    --noir:rgb(0,0,0);
+    --bleuu: rgb(0, 144, 240);
+    --entreDeux: rgba(0, 103, 141);
 }
 
 html{
-    height: 100%;
+    min-height: 100%;
 }
 
 main{
-    background-color: var(--nwar);
+    background: rgb(0,0,0);
+    min-height: 100vh;
 }
 
 footer{
-    background-color : var(--bleuu);
+    border-top: solid var(--bleuu) 2px;
+    background-color : var(--gris);
 }
 
 body{
-    background-color: var(--nwar);
+    background-color: var(--bleuFonce);
     min-height: 100%; 
     margin:0; 
-    padding:0; 
+    padding:0;
+    color: var(--bleuu);
 }
 
 ul{
     list-style-type: none
 }
 
+.nav-brand{
+    text-decoration: none;
+}
+
+li{
+    margin: 0px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+a:hover{
+    transition: all 0.5s ease;
+    color: rgb(190, 190, 190);
+}
+
 #navPrincipale{
-    background-color : var(--bleuu);
+    color: var(--bleuu);
+    background-color : var(--gris);
+    border-bottom: solid var(--bleuu) 2px;
 }
 
-#navBar{
-    align-items: center;
+.nav-item{
+    vertical-align: baseline;
 }
-
 
 #logo{
-    width: 3.5em;
+    width: 4em;
+    margin-bottom: 6px;
 }
 
 #logo_perso{
     width: 1em;
 }
-
 
 .navbar{
     margin : 0px;
@@ -56,13 +76,8 @@ ul{
     right:0.5em;
 }
 
-
-.codeco{
-    float: right;
-}
-
 .question_faq{
-    color: var(--bleuu);
+    color: var(--gris);
 }
 
 #div-realisations{
@@ -101,12 +116,17 @@ ul{
 }
 
 .img-modal-reserv{
-    width: 10em;
-    height: 10em;
+    width: 20em;
+    height: 20em;
+    padding: auto;
+}
+
+.description-supp{
+    font-size: large;
 }
 
 .acrd-crp{
-    background-color: var(--nwar);
+    background-color: var(--noir);
 }
 
 .acrd-hd{
@@ -114,13 +134,19 @@ ul{
 }
 
 .accordion-item{
+    color: var(--noir);
     border: none;
     border-radius: 0%;
 }
 
+.card{
+    box-shadow: 0px 0px 30px var(--bleuu);
+    color: var(--noir);
+}
+
 .bords{
-    margin-top: 3rem !important;
-    margin-bottom: 3rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
     max-width: 1500px;
 }
 
@@ -130,7 +156,7 @@ ul{
 }
 
 .bg-clr{
-    background-color: var(--nwar) !important;
+    background-color: var(--noir);
 }
 
 .realisations{
@@ -151,7 +177,6 @@ ul{
 
 /* ACCUEIL */
 .acc{
-    margin-top: 5em;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0%;
@@ -165,6 +190,7 @@ ul{
     margin:auto;
     padding: 0.5em;
     border-radius: 2%;
+    /* filter: blur(1px); */
 }
 
 #imgA2{
@@ -174,7 +200,7 @@ ul{
 
 .text-acc{
     color : black;
-    border : 5px solid var(--bleuu);
+    border : 5px solid var(--gris);
     z-index: 1;
     position: relative;
     width: 500px;
@@ -182,14 +208,32 @@ ul{
     bottom:22em;
     opacity: 0.7;
     border-radius: 5%;
-    background-color: var(--bleuu);
+    background-color: var(--gris);
 }
 
 #titre_accueil{
+    padding-top: 100px;
     color: var(--bleuu);
     font-weight: bolder;
     text-align: center;
     font-family: fantasy;
+}
+
+.carousel-item{
+    height: 40em;
+}
+
+.carousel-inner{
+    padding-top: 3em;
+}
+
+.carousel-caption{
+    left: 55%;
+    bottom: 40%;
+}
+
+.button-acc{
+    box-shadow: 0px 0px 30px var(--bleuu);
 }
 
 /* INFO PERSO */

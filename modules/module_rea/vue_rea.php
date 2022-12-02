@@ -5,7 +5,7 @@
 
         public function afficher_rea($tab){
             ?>
-            <div class="container my-5" >
+            <div class="container py-5" >
             <div class="card">
                 <!-- header -->
                 <div class="card-header py-4 px-5 bg-light border-0">

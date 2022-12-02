@@ -15,7 +15,7 @@
 
                     <!-- Modal -->
                     <div class="modal fade" id="<?php echo htmlspecialchars($targetNom) . "$compt" ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
@@ -23,8 +23,13 @@
                                 </div>
                                 <div class="modal-body d-flex justify-content-center">
                                     <?php
-                                        echo '<img class="img-modal-reserv" src="./administration/media/' . htmlspecialchars($gifA) . '" alt=""> <img class="img-modal-reserv" src="administration/media/' . htmlspecialchars($gifS) . '" alt="">';
+                                        echo '<img class="img-modal-reserv" src="./administration/media/' 
+                                        . htmlspecialchars($gifA) . '" alt=""> <img class="img-modal-reserv" src="administration/media/' 
+                                        . htmlspecialchars($gifS) . '" alt="">';
                                     ?>
+                                </div>
+                                <div class="modal-footer d-flex justify-content-center">
+                                    <p class="description-supp"><?php echo $description ?></p>
                                 </div>
                             </div>
                         </div>
@@ -208,46 +213,9 @@
             <?php
         }
 
-        /*
-        public function afficheRecap(){
-            ?>
-                <table class="table bg-light rounded-3">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider Xborder">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            <?php
-        }
-        */
-
         public function affichePasCo(){
             ?>
-            <div class="container my-5" >
+            <div class="container py-5" >
                     <div class="card">
                         <!-- header -->
                         <div class="card-header py-4 px-3 bg-light border-0">
