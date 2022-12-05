@@ -29,7 +29,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Qu'est ce qu'on produit ?</h5>
                                 <p>On propose le tournage et le montage de ton clip, va voirs nos dernières réalisations !</p>
-                                <a href="index.php?module=co&action=inscription">
+                                <a href="index.php?module=rea&action=afficher_rea">
                                     <button class="btn btn-primary btn-rounded m-1 button-acc">Nos réalisations</button>
                                 </a>
                             </div>
