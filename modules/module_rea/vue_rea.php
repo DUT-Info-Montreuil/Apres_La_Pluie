@@ -11,11 +11,9 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
             ?>
             <div class="container py-5" >
             <div class="card">
-                <!-- header -->
                 <div class="card-header py-4 px-5 bg-light border-0">
                     <h4 class="mb-0 fw-bold">Mes dernières réalisations :</h4>
                 </div>
-                <!-- body -->
                 <div class="card-body px-5">
                         <?php
                             foreach($tab as $cle=>$val){

@@ -7,9 +7,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
     include_once('connexion.php');
 
     class ModeleCo extends Connexion{
-
         
-
         public function __construct(){
         }
 
@@ -19,10 +17,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                 $req = self::$bdd->prepare("INSERT INTO utilisateurs (login, password, nom, prenom, nom_artiste, mail, num_tel, preference_contact) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                 $req->execute($oui);
                 return ($_POST['login']);
-            }else{
-                die("probleme");
             }
-            
         }
 
         public function verifLogin($login){

@@ -31,8 +31,6 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                 $req = self::$bdd->prepare("UPDATE utilisateurs SET login = ?, nom = ?, prenom = ?, nom_artiste = ?, mail = ?, num_tel = ?, preference_contact = ? WHERE id = ?");
                 $req->execute($array);
                 return ($_POST['login']);
-            }else{
-                die("probleme");
             }
         }
 
@@ -46,8 +44,6 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                     $req = self::$bdd->prepare("UPDATE utilisateurs SET password = ? WHERE id = ?");
                     $req->execute($array);
                 }
-            }else{
-                die("probleme");
             }
         }
 

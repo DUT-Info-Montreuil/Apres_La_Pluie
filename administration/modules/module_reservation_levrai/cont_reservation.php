@@ -1,5 +1,4 @@
 <?php
-
     class ContReservation{
 
         private $vue;
@@ -22,11 +21,5 @@
         public function gestionReservation(){
             $this->vue->afficherGestionnaire();
         }
-
-        public function chercherReservation(){
-
-        }
-
-
     }
 ?>

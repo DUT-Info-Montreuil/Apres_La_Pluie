@@ -11,7 +11,6 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
             
             $controleur = new ContCo();
 
-            $controleur->menu();
             $controleur->exec();
         }
     }

@@ -62,7 +62,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                         </div>
                         <hr class="my-5" />
                     
-                    <!-- en bas -->
+                    <!-- footer -->
                     <div class="card-footer text-end py-4 px-5 bg-light border-0">
                         <button type="submit" class="btn btn-primary btn-rounded" name="submit"> Ajouter la réalisation </button>
                     </div>
@@ -107,7 +107,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                         </div>
                         <hr class="my-5" />
                     
-                    <!-- en bas -->
+                    <!-- footer -->
                     <div class="card-footer text-end py-4 px-5 bg-light border-0">
                         <button type="submit" class="btn btn-primary btn-rounded" name="submit"> Modifier la réalisation </button>
                     </div>

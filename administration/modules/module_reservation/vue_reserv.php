@@ -8,7 +8,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
         public function cardPricipale($tab){
             ?>
-            <div class="container my-5" >
+            <div class="container py-5" >
                 <div class="card">
                     <div class="card-header py-4 px-5 bg-light border-0">
                         <h4 class="mb-0 fw-bold">Modifier les suppléments</h4>
@@ -99,7 +99,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
         public function form_ajout_supp(){
             ?>
-            <div class="container my-5" >
+            <div class="container py-5" >
                 <div class="card">
                     <div class="card-header py-4 px-5 bg-light border-0">
                         <h4 class="mb-0 fw-bold">Modifier les suppléments</h4>
@@ -164,7 +164,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
         public function form_ajout_choix($nbChoix,$val){
             ?>
-            <div class="container my-5" >
+            <div class="container py-5" >
                 <div class="card">
                     <form action='index.php?module=reservation&action=ajout' method='post' enctype='multipart/form-data'>
                     <div class="card-header py-4 px-5 bg-light border-0">
@@ -197,7 +197,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
         public function form_modif_supp($supp, $suppChoix){
             ?>
-                <div class="container my-5" >
+                <div class="container py-5" >
                 <div class="card">
                     <div class="card-header py-4 px-5 bg-light border-0">
                         <h4 class="mb-0 fw-bold">Modifier les suppléments</h4>

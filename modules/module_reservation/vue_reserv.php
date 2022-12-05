@@ -12,12 +12,10 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
         public function description($targetNom, $compt, $gifA, $gifS, $description){
             if (!empty($description)){
                 ?>
-                    <!-- Button trigger modal -->
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#<?php echo htmlspecialchars($targetNom) . "$compt" ?>">
                         Plus d'informations
                     </button>
 
-                    <!-- Modal -->
                     <div class="modal fade" id="<?php echo htmlspecialchars($targetNom) . "$compt" ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
@@ -42,6 +40,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
             }
         }
 
+        //fonction qui affiche les supplements en fonction de si ils ont plusieurs choix possible
         public function choix($choix, $compt, $tabOptions){
             $value = 0;
             if($choix != 1){
@@ -179,14 +178,11 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
             ?>
                 <div class="container my-5">
                     <div class="card">
-                        <!-- header -->
                         <div class="card-header py-4 px-5 bg-light border-0">
                             <h4 class="mb-0 fw-bold">Lieu</h4>
                         </div>
 
-                        <!-- body -->
                         <div class="card-body px-5">
-                            <!-- Account section -->
                             <div class="row gx-xl-5">
                                 <div class="col-md-4">
                                     <p class="text-muted">Tout ce qu'on doit savoir sur le lieude tournage que t'as choisis !</p>
@@ -217,15 +213,14 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
             <?php
         }
 
+        // fonction qui s'affixhe que q'and l'utilisateur n'est pas connecté
         public function affichePasCo(){
             ?>
             <div class="container py-5" >
                     <div class="card">
-                        <!-- header -->
                         <div class="card-header py-4 px-3 bg-light border-0">
                             <h4 class="mb-0 fw-bold text-center">ATTENTION !</h4>
                         </div>
-                        <!-- en bas -->
                         <div class="card-footer text-end py-4 px-5 bg-light border-0">
                             <p class="text-muted text-center">Vous devez avoir un compte pour faire une réservation</p>
                             <div class="d-flex justify-content-center">

@@ -12,7 +12,6 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
         private $modele;
         private $action;
 
-
         public function __construct(){
             $this->vue = new VueFAQ();
             $this->modele = new ModeleFAQ();

@@ -7,18 +7,8 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
     class VueCo extends VueGenerique {
     public function __construct(){parent::__construct();}
 
-        public function menu(){
-            //echo "<a href=\"index.php?module=co&action=inscription\">inscription</a>"."<br>";
-            //echo "<a href=\"index.php?module=co&action=connexion\">connexion</a>"."<br>";
-        }
-        
         public function form_connexion(){
             ?>
-                <!-- <form action='index.php?module=co&action=validerco' method='post'>
-                        <input type='text' placeholder="login" name='login'><br>
-                        <input type='password' placeholder="password" name='password'><br>
-                        <input type="submit">
-                </form> -->
                 <div class="container py-5" >
                     <div class="card">
                         <form action='index.php?module=co&action=validerco' method='post'>
@@ -53,7 +43,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                                 </div>
                             <hr class="my-5" />
                         
-                        <!-- en bas -->
+                        <!-- footer -->
                         <div class="card-footer text-end py-4 px-5 bg-light border-0">
                             <button type="submit" class="btn btn-primary btn-rounded">
                             Se Connecter !
@@ -138,25 +128,16 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
                             <hr class="my-5" />
                         
-                        <!-- en bas -->
+                        <!-- footer -->
                         <div class="card-footer text-end py-4 px-5 bg-light border-0">
                             <button type="submit" class="btn btn-primary btn-rounded">
-                            Submit
+                            valider
                             </button>
                         </div>
                         </form>
                     </div>
                 </div>
             <?php
-        }
-
-        public function dejaco(){
-            echo "vous êtes deja connecté !";
-            echo "<a href=\"index.php?module=co&action=deconnexion\">déconnexion</a>"."<br>";
-        }
-
-        public function conected(){
-            echo "actuellement connecté";
         }
 
     }
