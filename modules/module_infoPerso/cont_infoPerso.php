@@ -3,6 +3,7 @@ GNU GPL Copyleft 🄯 2022-2032 -
 Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
 <?php
+    include_once "csrf.php";
     include_once('vue_infoPerso.php');
     include_once('modele_infoPerso.php');
     class ContInfoPerso{
@@ -49,16 +50,26 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
         public function exec(){
             switch ($this->getAction()) {
                 case "info":
+                    genererToken();
                     $this->info();
                     break;
                 case "modif_info":
-                    $this->changer_info();
+                    if(verifToken()){
+                        $this->changer_info();
+                    }
+                    supprimerToken();
+                    header("Location: index.php?module=accueil&action=accueil");
                     break;
                 case "form_modif_mdp":
+                    genererToken();
                     $this->form_modif_mdp();
                     break;
                 case "modif_mdp":
-                    $this->modif_mdp();
+                    if(verifToken()){
+                        $this->modif_mdp();
+                    }
+                    supprimerToken();
+                    header("Location: index.php?module=accueil&action=accueil");
                     break;
                 case "afficher_reservations":
                     $this->afficher_reservations();

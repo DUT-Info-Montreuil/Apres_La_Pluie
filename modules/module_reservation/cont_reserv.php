@@ -46,6 +46,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                         $this->inserer();
                     }
                     supprimerToken();
+                    header("Location: index.php?module=infoPerso&action=afficher_reservations");
                     break;
             }
             global $affichage;

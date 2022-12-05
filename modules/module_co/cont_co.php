@@ -73,6 +73,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                         $this->connexion();
                     }
                     supprimerToken();
+                    header("Location: index.php?module=accueil&action=accueil");
                     break;
 
                 case "validerins" : 
@@ -80,6 +81,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                         $this->inscription();
                     }
                     supprimerToken();
+                    header("Location: index.php?module=co&action=connexion");
                     break;
                 
                 case "deconnexion" : 

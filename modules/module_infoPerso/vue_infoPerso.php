@@ -12,7 +12,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
     public function affichePasCo(){
         ?>
-        <div class="container my-5" >
+        <div class="container py-5" >
                 <div class="card">
                     <!-- header -->
                     <div class="card-header py-4 px-3 bg-light border-0">
@@ -136,7 +136,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
         
     public function form_modif_mdp(){
         ?>
-                <div class="container my-5">
+                <div class="container py-5">
                     <div class="card">
                         <form action='index.php?module=infoPerso&action=modif_mdp' method='post'>
                         <input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>
@@ -177,7 +177,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
     public function afficher_reservations($resa){
         ?>
-        <div class="container my-5" >
+        <div class="container py-5" >
                 <div class="card">
                     <div class="card-header py-4 px-5 bg-light border-0">
                         <h4 class="mb-0 fw-bold">Mes réservations</h4>
