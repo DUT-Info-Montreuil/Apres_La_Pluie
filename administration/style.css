@@ -1,152 +1,153 @@
+/* Version 1.0 - 2022/12/05 -
+GNU GPL Copyleft 🄯 2022-2032 -
+Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA */
+
 :root{
     --bleuFonce: rgba(5,28,36);
     --noir:rgb(0,0,0);
     --bleuu: rgb(0, 144, 240);
     --entreDeux: rgba(0, 103, 141);
-}
-
-html{
+    }
+     
+    html{
     height: 100%;
-}
-
-body{
+    }
+     
+    body{
     background-color: var(--noir); 
     margin:0; 
     padding:0; 
-}
-
-main{
+    }
+     
+    main{
     min-height: 80vh;
-}
-
-nav{
+    }
+     
+    nav{
     background-color : var(--bleuFonce);
-}
-
-.nav-brand{
+    }
+     
+    .nav-brand{
     text-decoration: none;
-}
-
-li{
+    }
+     
+    li{
     margin: 0px;
     padding-right: 10px;
     padding-top: 15px;
     padding-bottom: 5px;
-}
-
-a:hover{
+    }
+     
+    a:hover{
     transition: all 0.5s ease;
     color: rgb(190, 190, 190);
-}
-
-.navbar{
+    }
+     
+    .navbar{
     margin : 0px;
     padding: 0px;
     justify-items: center;
     align-items: center;
-}
-
-#nav-droite{
+    }
+     
+    #nav-droite{
     position: absolute;
     right:0;
-}
-
-#logo{
+    }
+     
+    #logo{
     width: 4em;
-}
-
-.img-tab{
+    }
+     
+    .img-tab{
     width: 5em;
     height: 5em;
-}
-
-.codeco{
+    }
+     
+    .codeco{
     float: right;
-}
-
-.question_faq{
+    }
+     
+    .question_faq{
     color: var(--bleuu);
-}
-
-#div-realisations{
+    }
+     
+    #div-realisations{
     display: inline-flex;
     justify-content: center;
     flex-direction: column;
-}
-
-.lien_rea:link{
+    }
+     
+    .lien_rea:link{
     text-decoration: none;
-}
-
-
-
-.titre_rea{
+    }
+    
+    
+     
+    .titre_rea{
     color: black;
-}
-
-.iconFAQ{
+    }
+     
+    .iconFAQ{
     max-width: 1em;
     max-height: 1em;
     transition: 0.2s;
-}
-
-.iconFAQ:hover{
+    }
+     
+    .iconFAQ:hover{
     transform : scale(1.2);
-}
-
-textarea {
+    }
+     
+    textarea {
     resize: none;
     width: 100%;
-  }
-
-.realisations{
+    }
+     
+    .realisations{
     width : 16em;
     border-radius: 5%;
     transition: 0.2s;
-}
-
-.realisations:hover{
+    }
+     
+    .realisations:hover{
     transform : scale(1.05);
-}
-/* Mise en forme des tableaux */
-table,th,td{
+    }
+    /* Mise en forme des tableaux */
+    table,th,td{
     border:1px solid #cccccc
-}
-/* Message d'avertissement */
-.warning{
+    }
+    /* Message d'avertissement */
+    .warning{
     color: red;
-}
-/* Bar de recherche  */
-#live-search-User{
+    }
+    /* Bar de recherche */
+    #live-search{
     margin-bottom: 2em;
-}
-
-#live-search-Reservation{
-    margin-bottom: 2em;
-}
-/* ACCUEIL */
-.acc{
+    }
+     
+    /* ACCUEIL */
+    .acc{
     margin-top: 5em;
     margin-left: auto;
     margin-right: auto;
     width: 50em;
     max-height: 45em;
-}
-
-.imgAccueil{
+    }
+     
+    .imgAccueil{
     display: absolute;
     width: 16em;
     margin:auto;
     padding: 0.5em;
     border-radius: 2%;
-}
-
-#imgA2{
+    }
+     
+    #imgA2{
     position: relative;
     margin-top: 5em;
-}
-
-.text-acc{
+    }
+     
+    .text-acc{
     color : black;
     border : 5px solid var(--bleuFonce);
     z-index: 1;
@@ -157,24 +158,25 @@ table,th,td{
     opacity: 0.8;
     border-radius: 5%;
     background-color: var(--bleuFonce);
-}
-
-#titre_accueil{
+    }
+     
+    #titre_accueil{
     color: var(--bleuu);
     font-weight: bolder;
     text-align: center;
     font-family: fantasy;
-}
-
-footer{
+    }
+     
+    footer{
     color: var(--bleuu);
     position: sticky;
     top:100%;
     margin-top: auto;
     background-color: var(--bleuFonce);
-}
-
-.card{
+    }
+     
+    .card{
     box-shadow: 0px 0px 30px var(--bleuu);
     color: var(--noir);
-}
+    }
+    
