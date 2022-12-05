@@ -6,6 +6,8 @@
     include_once('composants/CompMenu/mod_menu.php');
     include_once('modules/module_reservation/mod_reserv.php');
     include_once('modules/module_utilisateur/mod_utilisateur.php');
+    include_once('modules/module_reservation_levrai/mod_reservation.php');
+
     
 
     class Controleur {
@@ -37,6 +39,9 @@
                     break;
                 case 'GestionUtilisateur':
                     new ModUtilisateur();
+                    break;
+                case 'GestionReservation':
+                    new ModReservation();
                     break;
             }
         }

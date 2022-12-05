@@ -3,14 +3,14 @@
 // Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA
 
 $(document).ready(function(){
-    $("#live-search").keyup(function(){
+    $("#live-search-User").keyup(function(){
         var input = $(this).val();
         if(input != ""){
             $.ajax({
                 method: "POST",
                 url:"./js/fonction-ajax.php",
                 data:{
-                    nomFonction: 'barDeRecherche',
+                    nomFonction: 'barDeRechercheUtilisateur',
                     argumentDeRecherche: input
                 },
                 dataType : 'html'
@@ -18,7 +18,7 @@ $(document).ready(function(){
             })
             .done(function( resultat ){
 
-                $("#searchresult").html(resultat);
+                $("#searchresult-User").html(resultat);
 
                 $(".boutonModifier").on('click', function(){
                     modifierRole($(this));        
@@ -29,56 +29,11 @@ $(document).ready(function(){
                 });
             });
         }else{
-            $.ajax({
-            method: "POST",
-            url:"./js/fonction-ajax.php",
-            data:{
-                nomFonction: 'barDeRecherche'
-            },
-            dataType : 'html'
-
-            })
-            .done(function( resultat ){
-
-                $("#searchresult").html(resultat);
-
-                $(".boutonModifier").on('click', function(){
-                    modifierRole($(this));        
-                });
-
-                $(".boutonSupprimer").on('click', function(){
-                    supprimerUtilisateur($(this));        
-                });
-            });
+            retournerTousLesUtilisateurs();
         }
     });
-    $.ajax({
-        method: "POST",
-        url:"./js/fonction-ajax.php",
-        data:{
-            nomFonction: 'barDeRecherche'
-        },
-        dataType : 'html'
-
-        })
-        .done(function( resultat ){
-
-            $("#searchresult").html(resultat);
-
-            $(".boutonModifier").on('click', function(){
-                modifierRole($(this));        
-            });
-
-            $(".boutonSupprimer").on('click', function(){
-                supprimerUtilisateur($(this));        
-            });
-        });
-
-    
-
-    
-
-
+    retournerTousLesUtilisateurs();
+    retournerToutesLesReservations();
 
     $(".boutonSupprimerFAQ").click(function(){
         var idFAQ = this.id.replace ( /[^\d.]/g, '' );
@@ -229,4 +184,45 @@ function remettreAZeroFAQ(e){
 
     $("#reponseid" + idFAQ).replaceWith("<p id='reponseid" + idFAQ +"'>" + reponseModifie + "</p>");
 
+}
+
+function retournerTousLesUtilisateurs(){
+    $.ajax({
+        method: "POST",
+        url:"./js/fonction-ajax.php",
+        data:{
+            nomFonction: 'barDeRechercheUtilisateur'
+        },
+        dataType : 'html'
+
+        })
+        .done(function( resultat ){
+
+            $("#searchresult-User").html(resultat);
+
+            $(".boutonModifier").on('click', function(){
+                modifierRole($(this));        
+            });
+
+            $(".boutonSupprimer").on('click', function(){
+                supprimerUtilisateur($(this));        
+            });
+    });
+}
+
+function retournerToutesLesReservations(){
+    $.ajax({
+        method: "POST",
+        url:"./js/fonction-ajax.php",
+        data:{
+            nomFonction: 'barDeRechercheReservation'
+        },
+        dataType : 'html'
+
+        })
+        .done(function( resultat ){
+
+            $("#searchresult-Reservation").html(resultat);
+
+        });
 }

@@ -11,8 +11,8 @@ $bd = Connexion::getbdd();
 
 if(isset($_POST['nomFonction'])){
     switch ($_POST['nomFonction']){
-        case 'barDeRecherche' :
-            barDeRecherche();
+        case 'barDeRechercheUtilisateur' :
+            barDeRechercheUtilisateur();
             break;
         case 'modifierRole':
             modifierRole($_POST['argumentDeRecherche']);
@@ -26,13 +26,21 @@ if(isset($_POST['nomFonction'])){
         case 'modifierFAQSelonID':
             modifierFAQSelonID($_POST['argumentDeRecherche']);
             break;
+        case 'barDeRechercheReservation':
+            barDeRechercheReservation();
+            break;
+
 
     }
 }
 
 
-function barDeRecherche(){
+function barDeRechercheUtilisateur(){
     retourneUtilisateur(chercherUtilisateur());
+}
+
+function barDeRechercheReservation(){
+    retourneReservation(chercherReservation());
 }
 function chercherUtilisateur(){
     global $bd;
@@ -214,5 +222,61 @@ function modifierFAQSelonID($idFAQ){
         $selecPrepare = $bd->prepare("UPDATE faq SET reponse = ? WHERE id = ?");
         $selecPrepare->execute(array($_POST['argumentReponse'],$idFAQ));
     }
+}
+
+function retourneReservation($tabResult){
+    if(empty($tabResult)){
+        echo "<h5 style='text-align: center'>Aucune donnée</h5>";
+    }else{
+
+        $resultat = "
+        <table class='table table-striped table-hover'>
+        <thead>
+        <tr>
+            <th scope='col'>Nom d'artiste</th>
+            <th scope='col'>Idée générale</th>
+            <th scope='col'>Date</th>
+            <th scope='col'>Horaire</th>
+            <th scope='col'>Lieu</th>
+
+        </tr>
+        </thead>
+        <tbody>";
+        $adresse = null;
+        $lieu = null;
+        foreach($tabResult as $col){
+            $resultat .= '
+            <tr>
+            <td>' . $col[0] . '</td>
+            <td>' . $col[1] . '</td>
+            <td>' . $col[2] . '</td>
+            <td>' . $col[3] . '</td>
+            <td> <span class="simptip-position-bottom simptip-smooth" data-tooltip="' . $col[6] . '<br>' . $col[5] . '">'. $col[4] .'</span> </td>
+            </tr>
+            ';
+
+        }
+
+        $resultat .=
+        "</tbody>
+        </table>
+        ";
+        echo $resultat;
+
+    }
+}
+
+function chercherReservation(){
+    global $bd;
+    $tabResult = null;
+    
+    $selecPrepare = $bd->prepare("SELECT nom_artiste, idee_generale, date, heure, lieu.nom, nb_places, adresse FROM utilisateurs 
+    JOIN reservations ON(utilisateurs.id = reservations.id_utilisateur) 
+    JOIN lieu ON(reservations.id_lieu = lieu.id) 
+    ORDER BY date, heure;");
+    
+    $selecPrepare->execute();
+    $tabResult = $selecPrepare->fetchAll();
+    return $tabResult;
 }
 ?>

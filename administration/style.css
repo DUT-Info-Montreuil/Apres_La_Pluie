@@ -116,12 +116,14 @@ table,th,td{
 .warning{
     color: red;
 }
-/* Bar de recherche */
-#live-search{
+/* Bar de recherche  */
+#live-search-User{
     margin-bottom: 2em;
 }
 
-
+#live-search-Reservation{
+    margin-bottom: 2em;
+}
 /* ACCUEIL */
 .acc{
     margin-top: 5em;
