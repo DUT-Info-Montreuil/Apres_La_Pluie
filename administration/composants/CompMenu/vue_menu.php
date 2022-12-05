@@ -24,8 +24,9 @@ class VueMenu {
         '<li class="active"><a class="nav-brand" href="index.php"><img id="logo" class"d-inline-block align-top" src="media/logo.png"></a></li>' .
         '<li class="active"><a class="nav-brand" href="index.php?module=rea&action=afficher_rea"> <h3>Realisations</h3></a></li>' . 
         '<li class="active"><a class="nav-brand" href="index.php?module=GestionUtilisateur"> <h3>GestionUtilisateur</h3></a></li>'.
-        '<li class="active"><a class="nav-brand" href="index.php?module=FAQ"> <h3>faq</h3></a></li>'.
-        '<li class="active"><a class="nav-brand" href="index.php?module=reservation&action=afficher_base"><h3>reservation</h3></a></li></ul></div>'.
+        '<li class="active"><a class="nav-brand" href="index.php?module=FAQ"> <h3>FAQ</h3></a></li>'.
+        '<li class="active"><a class="nav-brand" href="index.php?module=reservation&action=afficher_base"><h3>Suppléments</h3></a></li>'.
+        '<li class="active"><a class="nav-brand" href="index.php?module=GestionReservation"><h3>GestionReservations</h3></a></li></ul></div>'.
 
         '<div class="collapse navbar-collapse" id="nav-droite"><ul class="navbar-nav navbar">' .
         '<li class="active"><a class="nav-brand" href="../index.php"><h3>COTE UTILISATEUR</h3></a></li>
