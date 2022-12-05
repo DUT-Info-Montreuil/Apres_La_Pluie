@@ -19,14 +19,6 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
             $this->action = isset($_GET['action']) ? $_GET['action'] : "erreur";
         }
 
-        public function bienvenue(){
-            echo "il y a une erreur";
-        }
-
-        public function menu(){
-            $this->vue->menu();
-        }
-
         public function getAction(){
             return $this->action;
         }
@@ -40,12 +32,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
         }
         
         public function connexion(){
-            $ret = $this->modele->connexion();
-            if ($ret == -1){
-                $this->vue->dejaco();
-            } else {
-                $this->vue->conected();
-            }
+            $this->modele->connexion();
         }
 
         public function deconnexion(){

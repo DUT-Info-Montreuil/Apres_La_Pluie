@@ -14,9 +14,6 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
             ?>
                 <div class="acc">
                     <h1 id="titre_accueil"> APRES LA PLUIE </h1>
-                    <!-- <img class="imgAccueil" src="administration/media/imageA1">
-                    <img class="imgAccueil" id="imgA2" src="administration/media/imageA2">
-                    <img class="imgAccueil" src="administration/media/imageA3"> -->
                     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -65,9 +62,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                     </button>
                     </div>
                 </div>
-            
             <?php
         }
-        
     }
 ?>

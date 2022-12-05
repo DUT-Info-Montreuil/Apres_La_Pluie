@@ -11,7 +11,6 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
         private $action;
         private $video;
 
-
         public function __construct(){
             include_once('vue_rea.php');
             $this->vue = new VueRea();
@@ -89,7 +88,5 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
             global $affichage;
             $affichage = $this->vue->getAffichage();
         }
-
-
     }
 ?>

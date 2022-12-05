@@ -22,4 +22,3 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
     }
     
 ?>
-<input type="hidden" id="exampleInput1" name="token" value="<?php echo $_SESSION['token'] ?>" required>

@@ -24,20 +24,17 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                              <p class="text-center mb-5">
                                 Retrouvez ci-dessous les questions les plus fréquemment posées !
                              </p>
-
-                    <div class="row ">
-                        
-                        <?php
-                            foreach($tab as $val){
-                                $question = $val[0];
-                                $reponse = $val[1];
-                                
-                                echo '<div class="col-md-6 col-lg-4 mb-4">
-                                <h6 class="mb-3 text-primary question_faq">' . htmlspecialchars($question) . '</h6>' . '<p>' . htmlspecialchars($reponse) . '</p></div>';
-                            }
-
-                        ?>
-                    </div>
+                        <div class="row ">
+                            <?php
+                                foreach($tab as $val){
+                                    $question = $val[0];
+                                    $reponse = $val[1];
+                                    
+                                    echo '<div class="col-md-6 col-lg-4 mb-4">
+                                    <h6 class="mb-3 text-primary question_faq">' . htmlspecialchars($question) . '</h6>' . '<p>' . htmlspecialchars($reponse) . '</p></div>';
+                                }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

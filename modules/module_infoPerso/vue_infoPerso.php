@@ -14,11 +14,9 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
         ?>
         <div class="container py-5" >
                 <div class="card">
-                    <!-- header -->
                     <div class="card-header py-4 px-3 bg-light border-0">
                         <h4 class="mb-0 fw-bold text-center">ATTENTION !</h4>
                     </div>
-                    <!-- en bas -->
                     <div class="card-footer text-end py-4 px-5 bg-light border-0">
                         <p class="text-muted text-center">Vous devez avoir un compte pour accéder à vos informations personnelles</p>
                         <div class="d-flex justify-content-center">
@@ -104,7 +102,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
                             <hr class="my-5" />
                         
-                        <!-- en bas -->
+                        <!-- footer -->
                         <div class="card-footer text-end py-4 px-5 bg-light border-0">
                             <button type="submit" class="btn btn-primary btn-rounded">
                             Modifier info perso</button>
@@ -163,7 +161,7 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
                             <hr class="my-5" />
                         
-                        <!-- en bas -->
+                        <!-- footer -->
                         <div class="card-footer text-end py-4 px-5 bg-light border-0">
                             <button type="submit" class="btn btn-primary btn-rounded">
                             Modifier

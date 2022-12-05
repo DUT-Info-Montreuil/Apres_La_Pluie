@@ -3,10 +3,7 @@ GNU GPL Copyleft 🄯 2022-2032 -
 Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
 
 <?php
-
-class ModeleMenu {
-
-    public function __construct () {}
-}
-
+    class ModeleMenu {
+        public function __construct () {}
+    }
 ?>
