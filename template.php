@@ -1,3 +1,7 @@
+<!-- Version 1.0 - 2022/12/05 -
+GNU GPL Copyleft 🄯 2022-2032 -
+Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +75,9 @@
             </div>
             <!-- Copyright -->
             <div class="text-center p-3">
-                © 2022 Copyright: Après La Pluie
+            Version 1.0 - 2022/12/01 -
+            GNU GPL Copyleft 🄯 2022-2032 -
+            Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA
             </div>
         </footer>
     </div>
