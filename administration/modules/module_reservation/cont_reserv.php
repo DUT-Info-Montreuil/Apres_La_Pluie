@@ -88,23 +88,23 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                 case "supprimer_supp":
                     if(verifTokenGet($this->tokenGet)){
                         $this->supprimerSupp();
+                        supprimerToken();
                     }
-                    supprimerToken();
-                    $this->affichePrincipale();
+                    header("Location: index.php?module=reservation&action=afficher_base");
                     break;
                 case "valid_modif_supp":
                     if(verifToken()){
                         $this->updateSupp();
+                        supprimerToken();
                     }
-                    supprimerToken();
-                    $this->affichePrincipale();
+                    header("Location: index.php?module=reservation&action=afficher_base");
                     break;
                 case "ajout":
                     if(verifToken()){
                         $this->insererSupps();
+                        supprimerToken();
                     }
-                    $this->affichePrincipale();
-                    supprimerToken();
+                    header("Location: index.php?module=reservation&action=afficher_base");
                     break;
             }
             global $affichage;

@@ -59,9 +59,9 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                 case "supprimer_video":
                     if(verifTokenGet($this->tokenGet)){
                         $this->supprimer_rea();
+                        supprimerToken();
                     }
-                    supprimerToken();
-                    $this->afficher_rea();
+                    header("Location: index.php?module=rea&action=afficher_rea");
                     break;
                 case "form_ajout_rea":
                     genererToken();
@@ -69,10 +69,10 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                     break;
                 case "ajout_rea":
                     if(verifToken()){
-                    $this->ajout_rea();
+                        $this->ajout_rea();
+                        supprimerToken();
                     }
-                    supprimerToken();
-                    $this->afficher_rea();
+                    header("Location: index.php?module=rea&action=afficher_rea");
                     break;
                 case "form_modif_rea":
                     genererToken();
@@ -81,9 +81,9 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                 case "modif_rea":
                     if(verifToken()){
                         $this->modif_rea();
+                        supprimerToken();
                     }
-                    supprimerToken();
-                    $this->afficher_rea();
+                    header("Location: index.php?module=rea&action=afficher_rea");
                     break;
             }
             global $affichage;
