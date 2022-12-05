@@ -86,6 +86,8 @@ Initiated by Ismael ARGENCE & Mathéo NGUYEN & Nathan FENOLLOSA -->
                 
                 case "deconnexion" : 
                     $this->deconnexion();
+                    header("Location: index.php?module=accueil&action=accueil");
+                    break;
             }
             global $affichage;
             $affichage = $this->vue->getAffichage();
